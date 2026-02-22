@@ -155,6 +155,29 @@ watch(rawText, (text) => {
 })
 
 const scanCopied = ref(false)
+const fileInput = ref<HTMLInputElement | null>(null)
+const ocrLoading = ref(false)
+const ocrError = ref(false)
+
+async function onImageCapture(e: Event) {
+  const file = (e.target as HTMLInputElement).files?.[0]
+  if (fileInput.value) fileInput.value.value = ''
+  if (!file) return
+  ocrLoading.value = true
+  ocrError.value = false
+  try {
+    const { createWorker } = await import('tesseract.js')
+    const worker = await createWorker('eng+deu')
+    const { data: { text } } = await worker.recognize(file)
+    await worker.terminate()
+    rawText.value = text
+  } catch {
+    ocrError.value = true
+    setTimeout(() => { ocrError.value = false }, 2500)
+  } finally {
+    ocrLoading.value = false
+  }
+}
 
 async function shareScan() {
   const hash = '#scan=' + encodeURIComponent(rawText.value)
@@ -210,7 +233,15 @@ function matchToken(token: string): AnyItem | null {
 function scan() {
   // Handle hyphenated line breaks before splitting
   const text = rawText.value.replace(/-[ \t]*\n[ \t]*/g, '')
-  const tokens = text.split(/[,\n]+/).map(cleanToken).filter(tok => tok.length >= 2)
+
+  // Extract parenthetical contents as extra candidate tokens (e.g. "Acid (Citric Acid)" → also try "Citric Acid")
+  const parentheticals: string[] = []
+  for (const m of text.matchAll(/\(([^)]+)\)/g)) {
+    parentheticals.push(m[1]!)
+  }
+
+  const rawTokens = text.split(/[,\n.;]+/)
+  const tokens = [...rawTokens, ...parentheticals].map(cleanToken).filter(tok => tok.length >= 2)
 
   const seen = new Set<string>()
   const matched: AnyItem[] = []
@@ -308,11 +339,32 @@ function handleBackdropClick(e: MouseEvent) {
               :placeholder="t('scan.placeholder')"
               class="w-full h-40 bg-transparent border border-white/10 rounded px-3 py-2 text-white/70 text-xs focus:outline-none focus:border-white/30 placeholder-white/20 resize-none font-mono"
             />
+            <input
+              ref="fileInput"
+              type="file"
+              accept="image/*"
+              capture="environment"
+              class="hidden"
+              @change="onImageCapture"
+            />
             <div class="flex items-center gap-2">
               <button
                 @click="scan"
                 class="text-xs border border-white/20 px-4 py-1.5 rounded text-white/60 hover:text-white hover:border-white/40 transition-colors cursor-pointer"
               >{{ t('scan.scanBtn') }}</button>
+              <button
+                @click="fileInput?.click()"
+                :disabled="ocrLoading"
+                class="text-xs text-white/30 hover:text-white/60 transition-colors border border-white/10 px-3 py-1.5 rounded cursor-pointer disabled:opacity-40 disabled:cursor-wait"
+                :title="t('scan.photo')"
+              >
+                <span v-if="ocrLoading">{{ t('scan.ocrLoading') }}</span>
+                <span v-else-if="ocrError" class="text-red-400/70">{{ t('scan.ocrError') }}</span>
+                <svg v-else xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                  <circle cx="12" cy="13" r="4"/>
+                </svg>
+              </button>
               <button
                 v-if="rawText.trim()"
                 @click="shareScan"
