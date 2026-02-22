@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { useLocale } from '../composables/useLocale'
@@ -20,7 +20,19 @@ const copied = ref(false)
 const searchQuery = ref('')
 const showDropdown = ref(false)
 const showScan = ref(false)
+const scanInitialText = ref('')
 const searchResults = computed(() => search(searchQuery.value))
+
+onMounted(() => {
+  const hash = window.location.hash
+  const match = hash.match(/^#scan=(.+)$/)
+  if (match) {
+    scanInitialText.value = decodeURIComponent(match[1]!)
+    showScan.value = true
+    // Clean the hash from the URL without adding a history entry
+    history.replaceState(null, '', window.location.pathname + window.location.search)
+  }
+})
 
 async function share() {
   const url = window.location.href
@@ -154,7 +166,8 @@ function onScanSelect(name: string, route: string) {
 
     <ScanModal
       :open="showScan"
-      @close="showScan = false"
+      :initial-text="scanInitialText"
+      @close="showScan = false; scanInitialText = ''"
       @select-item="onScanSelect"
     />
 

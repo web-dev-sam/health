@@ -1,12 +1,15 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import type { Item } from '../types'
 import { messages } from '../i18n/index'
 import { aliases } from '../composables/useSearch'
 import ItemTable from './ItemTable.vue'
 
-defineProps<{ open: boolean }>()
+const props = defineProps<{
+  open: boolean
+  initialText?: string
+}>()
 
 const emit = defineEmits<{
   close: []
@@ -126,6 +129,45 @@ const scoreColor = (score: number): string => {
   return 'text-red-400/80'
 }
 
+// Pre-fill textarea when opened with initialText
+watch(() => props.open, (isOpen) => {
+  if (isOpen && props.initialText) {
+    rawText.value = props.initialText
+  }
+  if (!isOpen) {
+    // Clear hash when modal closes
+    if (window.location.hash.startsWith('#scan=')) {
+      history.replaceState(null, '', window.location.pathname + window.location.search)
+    }
+  }
+})
+
+// Keep hash in sync as the user types
+watch(rawText, (text) => {
+  if (!props.open) return
+  if (text.trim()) {
+    history.replaceState(null, '', window.location.pathname + window.location.search + '#scan=' + encodeURIComponent(text))
+  } else {
+    if (window.location.hash.startsWith('#scan=')) {
+      history.replaceState(null, '', window.location.pathname + window.location.search)
+    }
+  }
+})
+
+const scanCopied = ref(false)
+
+async function shareScan() {
+  const hash = '#scan=' + encodeURIComponent(rawText.value)
+  const url = window.location.origin + window.location.pathname + hash
+  if (navigator.share) {
+    await navigator.share({ url })
+  } else {
+    await navigator.clipboard.writeText(url)
+    scanCopied.value = true
+    setTimeout(() => { scanCopied.value = false }, 1500)
+  }
+}
+
 // ─── Matching logic ─────────────────────────────────────────────────────────
 
 function cleanToken(raw: string): string {
@@ -198,6 +240,9 @@ function reset() {
 }
 
 function handleClose() {
+  if (window.location.hash.startsWith('#scan=')) {
+    history.replaceState(null, '', window.location.pathname + window.location.search)
+  }
   emit('close')
   scanned.value = false
   selectedItem.value = null
@@ -263,10 +308,17 @@ function handleBackdropClick(e: MouseEvent) {
               :placeholder="t('scan.placeholder')"
               class="w-full h-40 bg-transparent border border-white/10 rounded px-3 py-2 text-white/70 text-xs focus:outline-none focus:border-white/30 placeholder-white/20 resize-none font-mono"
             />
-            <button
-              @click="scan"
-              class="text-xs border border-white/20 px-4 py-1.5 rounded text-white/60 hover:text-white hover:border-white/40 transition-colors cursor-pointer"
-            >{{ t('scan.scanBtn') }}</button>
+            <div class="flex items-center gap-2">
+              <button
+                @click="scan"
+                class="text-xs border border-white/20 px-4 py-1.5 rounded text-white/60 hover:text-white hover:border-white/40 transition-colors cursor-pointer"
+              >{{ t('scan.scanBtn') }}</button>
+              <button
+                v-if="rawText.trim()"
+                @click="shareScan"
+                class="text-xs text-white/30 hover:text-white/60 transition-colors border border-white/10 px-3 py-1.5 rounded cursor-pointer"
+              >{{ scanCopied ? t('nav.copied') : t('nav.share') }}</button>
+            </div>
           </div>
 
           <!-- Detail view -->
