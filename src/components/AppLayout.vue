@@ -63,8 +63,9 @@ async function share() {
       <slot />
     </main>
 
-    <footer class="border-t border-white/10 px-6 py-4 text-center text-white/20 text-xs">
-      {{ footerText ?? title }}
+    <footer class="border-t border-white/10 px-6 py-6 text-center space-y-1">
+      <p class="text-white/20 text-xs">{{ footerText ?? title }}</p>
+      <p class="text-white/30 text-xs">{{ t('footer.disclaimer') }}</p>
     </footer>
 
   </div>

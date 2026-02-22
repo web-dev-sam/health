@@ -16,6 +16,9 @@ export const messages = {
       copied: 'Copied!',
       github: 'GitHub',
     },
+    footer: {
+      disclaimer: 'Not medical advice. This wiki is for educational purposes only. Always consult a qualified healthcare professional before making dietary changes.',
+    },
     ui: {
       principles: 'Principles',
       name: 'Name',
@@ -262,6 +265,9 @@ export const messages = {
       share: 'Teilen',
       copied: 'Kopiert!',
       github: 'GitHub',
+    },
+    footer: {
+      disclaimer: 'Kein medizinischer Rat. Dieses Wiki dient ausschließlich zu Bildungszwecken. Konsultiere stets einen qualifizierten Arzt, bevor du deine Ernährung änderst.',
     },
     ui: {
       principles: 'Grundsätze',
