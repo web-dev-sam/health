@@ -50,7 +50,7 @@ const scoreColor = (score: number): string => {
               {{ item.description }}
             </td>
             <td class="py-3 text-right font-semibold" :class="scoreColor(item.score)">
-              {{ item.score }}/10
+              {{ item.score ?? 0 }}/10
             </td>
           </tr>
         </tbody>

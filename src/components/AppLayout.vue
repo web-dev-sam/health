@@ -125,7 +125,7 @@ function onScanSelect(name: string, route: string) {
                 <span
                   class="text-xs font-semibold shrink-0"
                   :class="result.itemScore >= 8 ? 'text-emerald-400' : result.itemScore >= 6 ? 'text-yellow-400/80' : result.itemScore >= 4 ? 'text-orange-400/80' : 'text-red-400/80'"
-                >{{ result.itemScore }}/10</span>
+                >{{ result.itemScore ?? 0 }}/10</span>
               </button>
             </div>
           </div>
@@ -220,7 +220,7 @@ function onScanSelect(name: string, route: string) {
               <span
                 class="text-xs font-semibold shrink-0"
                 :class="result.itemScore >= 8 ? 'text-emerald-400' : result.itemScore >= 6 ? 'text-yellow-400/80' : result.itemScore >= 4 ? 'text-orange-400/80' : 'text-red-400/80'"
-              >{{ result.itemScore }}/10</span>
+              >{{ result.itemScore ?? 0 }}/10</span>
             </button>
           </div>
         </div>

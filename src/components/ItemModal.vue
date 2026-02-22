@@ -51,7 +51,7 @@ const scoreColor = (score: number): string => {
             </div>
             <div class="flex items-center gap-4 shrink-0 ml-4">
               <span class="text-xl font-semibold" :class="scoreColor(item.score)">
-                {{ item.score }}/10
+                {{ item.score ?? 0 }}/10
               </span>
               <button
                 @click="emit('close')"

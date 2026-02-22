@@ -231,6 +231,8 @@ function matchToken(token: string): AnyItem | null {
 }
 
 function scan() {
+  if (!rawText.value) return
+
   // Handle hyphenated line breaks before splitting
   const text = rawText.value.replace(/-[ \t]*\n[ \t]*/g, '')
 
@@ -317,7 +319,7 @@ function handleBackdropClick(e: MouseEvent) {
             </div>
             <div class="flex items-center gap-3 shrink-0 ml-4">
               <span v-if="selectedItem" class="text-xl font-semibold" :class="scoreColor(selectedItem.score)">
-                {{ selectedItem.score }}/10
+                {{ selectedItem.score ?? 0 }}/10
               </span>
               <button
                 v-if="scanned"
