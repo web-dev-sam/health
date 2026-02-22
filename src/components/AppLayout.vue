@@ -6,7 +6,6 @@ import { useLocale } from '../composables/useLocale'
 const props = defineProps<{
   title: string
   footerText?: string
-  githubUrl?: string
 }>()
 
 const { t } = useI18n()
@@ -32,10 +31,10 @@ async function share() {
     <nav class="border-b border-white/10 px-6 py-4">
       <div class="max-w-4xl mx-auto px-6 flex items-center justify-between">
         <div class="flex items-center gap-6">
-          <a href="/" aria-label="Home">
+          <RouterLink to="/" aria-label="Home">
             <img src="/logo.svg" width="20" height="20" alt="Logo" />
-          </a>
-          <a href="/" class="text-white/40 hover:text-white/80 transition-colors text-xs">{{ t('nav.sweeteners') }}</a>
+          </RouterLink>
+          <RouterLink to="/sweeteners" class="text-white/40 hover:text-white/80 transition-colors text-xs" active-class="text-white">{{ t('nav.sweeteners') }}</RouterLink>
         </div>
         <div class="flex items-center gap-2">
           <button
@@ -46,8 +45,7 @@ async function share() {
             {{ copied ? t('nav.copied') : t('nav.share') }}
           </button>
           <a
-            v-if="githubUrl"
-            :href="githubUrl"
+            href="https://github.com/web-dev-sam/health"
             target="_blank"
             rel="noopener noreferrer"
             class="text-white/40 hover:text-white/70 transition-colors p-1"

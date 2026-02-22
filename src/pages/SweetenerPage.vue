@@ -64,7 +64,7 @@ const selected = ref<Sweetener | null>(null)
 </script>
 
 <template>
-  <AppLayout :title="t('sweeteners.title')" github-url="https://github.com/wds/wiki">
+  <AppLayout :title="t('sweeteners.title')">
 
     <section>
       <p class="text-white/30 text-xs">{{ t('ui.clickHint') }}</p>

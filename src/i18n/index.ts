@@ -4,6 +4,12 @@ import { createI18n } from 'vue-i18n'
 
 export const messages = {
   en: {
+    home: {
+      title: 'Nutrition Wiki',
+      description: 'The food industry operates at a scale most people never see. Additives, sweeteners, preservatives, emulsifiers — engineered for shelf life and palatability, not health. This wiki is an overview of what is actually in the things you consume.',
+      guides: 'Guides',
+      sweetenersBlurb: 'Ranked overview of natural & artificial sweeteners',
+    },
     nav: {
       sweeteners: 'Sweeteners',
       share: 'Share',
@@ -245,6 +251,12 @@ export const messages = {
   },
 
   de: {
+    home: {
+      title: 'Ernährungs-Wiki',
+      description: 'Die Lebensmittelindustrie arbeitet in einem Ausmaß, das die meisten Menschen nie sehen. Zusatzstoffe, Süßungsmittel, Konservierungsmittel, Emulgatoren – entwickelt für Haltbarkeit und Geschmack, nicht für Gesundheit. Dieses Wiki ist eine Übersicht darüber, was wirklich in dem steckt, was du konsumierst.',
+      guides: 'Übersichten',
+      sweetenersBlurb: 'Bewertete Übersicht natürlicher & künstlicher Süßungsmittel',
+    },
     nav: {
       sweeteners: 'Süßungsmittel',
       share: 'Teilen',

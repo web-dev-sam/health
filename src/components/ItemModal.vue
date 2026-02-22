@@ -93,7 +93,7 @@ const scoreColor = (score: number): string => {
             </div>
 
             <!-- Consumption -->
-            <div class="border border-blue-500/20 rounded p-4 bg-blue-500/[0.06]">
+            <div class="border border-blue-500/20 rounded p-4 bg-blue-500/6">
               <div class="text-blue-400/60 uppercase tracking-widest text-[10px] mb-2">{{ t('ui.consumption') }}</div>
               <p class="text-blue-100/70 leading-relaxed">{{ item.consumption }}</p>
             </div>
