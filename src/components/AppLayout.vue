@@ -4,6 +4,7 @@ import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { useLocale } from '../composables/useLocale'
 import { useSearch, type SearchResult } from '../composables/useSearch'
+import ScanModal from './ScanModal.vue'
 
 const props = defineProps<{
   title: string
@@ -18,6 +19,7 @@ const { search } = useSearch()
 const copied = ref(false)
 const searchQuery = ref('')
 const showDropdown = ref(false)
+const showScan = ref(false)
 const searchResults = computed(() => search(searchQuery.value))
 
 async function share() {
@@ -52,6 +54,10 @@ function clearSearch() {
 
 function selectFirst() {
   if (searchResults.value.length > 0) selectResult(searchResults.value[0]!)
+}
+
+function onScanSelect(name: string, route: string) {
+  router.push({ path: route, query: { item: name } })
 }
 </script>
 
@@ -88,16 +94,33 @@ function selectFirst() {
             <button
               v-for="result in searchResults"
               :key="result.route + result.name"
-              class="w-full text-left px-4 py-2.5 hover:bg-white/5 transition-colors border-b border-white/5 last:border-0"
+              class="w-full text-left px-4 py-2.5 hover:bg-white/5 transition-colors border-b border-white/5 last:border-0 flex items-center justify-between gap-3"
               @mousedown.prevent="selectResult(result)"
             >
-              <div class="text-white/80 text-xs">{{ result.displayName }}</div>
-              <div class="text-white/30 text-[10px] mt-0.5">{{ result.category }}</div>
+              <div class="min-w-0">
+                <div class="text-white/80 text-xs truncate">{{ result.displayName }}</div>
+                <div class="text-white/30 text-[10px] mt-0.5">{{ result.category }}</div>
+              </div>
+              <span
+                class="text-xs font-semibold shrink-0"
+                :class="result.itemScore >= 8 ? 'text-emerald-400' : result.itemScore >= 6 ? 'text-yellow-400/80' : result.itemScore >= 4 ? 'text-orange-400/80' : 'text-red-400/80'"
+              >{{ result.itemScore }}/10</span>
             </button>
           </div>
         </div>
 
         <div class="flex items-center gap-2">
+          <button
+            @click="showScan = true"
+            class="text-white/40 hover:text-white/70 transition-colors border border-white/10 px-3 p-1 cursor-pointer"
+            :aria-label="t('nav.scan')"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 6h18M3 12h12M3 18h8"/>
+              <circle cx="19" cy="17" r="3"/>
+              <path d="m21.5 19.5 1.5 1.5"/>
+            </svg>
+          </button>
           <button
             @click="toggle"
             class="text-xs text-white/40 hover:text-white/70 transition-colors border border-white/10 px-3 py-1 rounded cursor-pointer"
@@ -128,6 +151,12 @@ function selectFirst() {
       <p class="text-white/20 text-xs">{{ footerText ?? title }}</p>
       <p class="text-white/30 text-xs">{{ t('footer.disclaimer') }}</p>
     </footer>
+
+    <ScanModal
+      :open="showScan"
+      @close="showScan = false"
+      @select-item="onScanSelect"
+    />
 
   </div>
 </template>

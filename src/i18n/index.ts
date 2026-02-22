@@ -20,6 +20,16 @@ export const messages = {
       copied: 'Copied!',
       github: 'GitHub',
       searchPlaceholder: 'Search ingredients...',
+      scan: 'Scan',
+    },
+    scan: {
+      title: 'Scan Ingredient List',
+      subtitle: 'Paste an ingredient list to identify known additives',
+      placeholder: 'Water, Citric Acid, Sucralose, Acesulfame K, Sodium Benzoate...',
+      scanBtn: 'Scan',
+      found: 'ingredients identified',
+      back: 'Back',
+      noResults: 'No known additives found.',
     },
     footer: {
       disclaimer: 'Not medical advice. This wiki is for educational purposes only. Always consult a qualified healthcare professional before making dietary changes.',
@@ -578,6 +588,16 @@ export const messages = {
       copied: 'Kopiert!',
       github: 'GitHub',
       searchPlaceholder: 'Zutaten suchen...',
+      scan: 'Scannen',
+    },
+    scan: {
+      title: 'Zutatenliste scannen',
+      subtitle: 'Zutatenliste einfügen, um bekannte Zusatzstoffe zu identifizieren',
+      placeholder: 'Wasser, Zitronensäure, Sucralose, Acesulfam K, Natriumbenzoat...',
+      scanBtn: 'Scannen',
+      found: 'Zutaten erkannt',
+      back: 'Zurück',
+      noResults: 'Keine bekannten Zusatzstoffe gefunden.',
     },
     footer: {
       disclaimer: 'Kein medizinischer Rat. Dieses Wiki dient ausschließlich zu Bildungszwecken. Konsultiere stets einen qualifizierten Arzt, bevor du deine Ernährung änderst.',
