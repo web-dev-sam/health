@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
 import { useLocale } from '../composables/useLocale'
+import { useSearch, type SearchResult } from '../composables/useSearch'
 
 const props = defineProps<{
   title: string
@@ -10,8 +12,13 @@ const props = defineProps<{
 
 const { t } = useI18n()
 const { current, toggle } = useLocale()
+const router = useRouter()
+const { search } = useSearch()
 
 const copied = ref(false)
+const searchQuery = ref('')
+const showDropdown = ref(false)
+const searchResults = computed(() => search(searchQuery.value))
 
 async function share() {
   const url = window.location.href
@@ -23,19 +30,73 @@ async function share() {
     setTimeout(() => { copied.value = false }, 1500)
   }
 }
+
+function onInput() {
+  showDropdown.value = searchQuery.value.trim().length > 0
+}
+
+function selectResult(result: SearchResult) {
+  router.push({ path: result.route, query: { item: result.name } })
+  searchQuery.value = ''
+  showDropdown.value = false
+}
+
+function hideDropdown() {
+  setTimeout(() => { showDropdown.value = false }, 100)
+}
+
+function clearSearch() {
+  searchQuery.value = ''
+  showDropdown.value = false
+}
+
+function selectFirst() {
+  if (searchResults.value.length > 0) selectResult(searchResults.value[0]!)
+}
 </script>
 
 <template>
   <div class="min-h-screen bg-[#0d0d0d] text-[#e8e8e8] font-mono text-sm">
 
     <nav class="border-b border-white/10 px-6 py-4">
-      <div class="max-w-4xl mx-auto px-6 flex items-center justify-between">
-        <div class="flex items-center gap-6">
+      <div class="max-w-4xl mx-auto px-6 flex items-center gap-4">
+        <div class="flex items-center gap-6 flex-1">
           <RouterLink to="/" aria-label="Home">
             <img src="/logo.svg" width="20" height="20" alt="Logo" />
           </RouterLink>
           <RouterLink to="/sweeteners" class="text-white/40 hover:text-white/80 transition-colors text-xs" active-class="text-white">{{ t('nav.sweeteners') }}</RouterLink>
+          <RouterLink to="/preservatives" class="text-white/40 hover:text-white/80 transition-colors text-xs" active-class="text-white">{{ t('nav.preservatives') }}</RouterLink>
+          <RouterLink to="/emulsifiers" class="text-white/40 hover:text-white/80 transition-colors text-xs" active-class="text-white">{{ t('nav.emulsifiers') }}</RouterLink>
         </div>
+
+        <div class="relative">
+          <input
+            v-model="searchQuery"
+            type="text"
+            :placeholder="t('nav.searchPlaceholder')"
+            class="bg-transparent border border-white/10 text-white/70 text-xs px-3 py-1 rounded focus:outline-none focus:border-white/30 w-36 focus:w-52 transition-[width] placeholder-white/20"
+            @input="onInput"
+            @focus="showDropdown = searchQuery.trim().length > 0"
+            @blur="hideDropdown"
+            @keydown.escape="clearSearch"
+            @keydown.enter="selectFirst"
+          />
+          <div
+            v-if="showDropdown && searchResults.length > 0"
+            class="absolute right-0 top-full mt-1 bg-[#1a1a1a] border border-white/10 rounded shadow-lg w-64 z-50 overflow-hidden"
+          >
+            <button
+              v-for="result in searchResults"
+              :key="result.route + result.name"
+              class="w-full text-left px-4 py-2.5 hover:bg-white/5 transition-colors border-b border-white/5 last:border-0"
+              @mousedown.prevent="selectResult(result)"
+            >
+              <div class="text-white/80 text-xs">{{ result.displayName }}</div>
+              <div class="text-white/30 text-[10px] mt-0.5">{{ result.category }}</div>
+            </button>
+          </div>
+        </div>
+
         <div class="flex items-center gap-2">
           <button
             @click="toggle"

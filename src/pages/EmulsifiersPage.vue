@@ -11,10 +11,10 @@ import { messages } from '../i18n/index'
 
 // ─── Types ─────────────────────────────────────────────────────────────────
 
-type SweetenerType = 'natural' | 'artificial' | 'amino' | 'alcohol' | 'protein' | 'flavonoid'
+type EmulsifierType = 'synthetic' | 'natural' | 'fermented' | 'seaweed' | 'seed' | 'modified'
 
-interface Sweetener extends Item {
-  type: SweetenerType
+interface Emulsifier extends Item {
+  type: EmulsifierType
 }
 
 // ─── i18n ──────────────────────────────────────────────────────────────────
@@ -23,46 +23,37 @@ const { t, tm } = useI18n()
 
 // ─── Static (non-translated) per-item metadata ─────────────────────────────
 
-const meta: { type: SweetenerType; score: number }[] = [
-  { type: 'artificial', score: 1 },
-  { type: 'natural',    score: 9 },
-  { type: 'natural',    score: 7 },
-  { type: 'amino',      score: 7 },
-  { type: 'natural',    score: 6 },
-  { type: 'natural',    score: 6 },
-  { type: 'natural',    score: 5 },
-  { type: 'alcohol',    score: 4 },
-  { type: 'artificial', score: 3 },
-  { type: 'artificial', score: 2 },
-  // new entries
-  { type: 'artificial', score: 3 },
-  { type: 'artificial', score: 3 },
-  { type: 'artificial', score: 3 },
-  { type: 'artificial', score: 4 },
-  { type: 'artificial', score: 2 },
-  { type: 'artificial', score: 2 },
-  { type: 'protein',    score: 6 },
-  { type: 'flavonoid',  score: 5 },
-  { type: 'alcohol',    score: 4 },
-  { type: 'alcohol',    score: 4 },
-  { type: 'alcohol',    score: 3 },
-  { type: 'alcohol',    score: 4 },
+const meta: { type: EmulsifierType; score: number }[] = [
+  { type: 'natural',   score: 4 }, // Lecithins E322
+  { type: 'natural',   score: 2 }, // Mono- & Diglycerides E471
+  { type: 'synthetic', score: 1 }, // Polysorbate 80 E433
+  { type: 'synthetic', score: 1 }, // Carboxymethylcellulose E466
+  { type: 'seaweed',   score: 1 }, // Carrageenan E407
+  { type: 'seed',      score: 3 }, // Locust Bean Gum E410
+  { type: 'seed',      score: 3 }, // Guar Gum E412
+  { type: 'fermented', score: 2 }, // Xanthan Gum E415
+  { type: 'fermented', score: 2 }, // Gellan Gum E418
+  { type: 'seaweed',   score: 4 }, // Agar E406
+  { type: 'natural',   score: 4 }, // Pectin E440
+  { type: 'modified',  score: 2 }, // Modified Starches E1404-E1451
+  { type: 'seaweed',   score: 3 }, // Sodium Alginate E401
+  { type: 'seaweed',   score: 2 }, // Propylene Glycol Alginate E405
 ]
 
 // ─── Reactive data from translations ───────────────────────────────────────
 
-const principles = computed<string[]>(() => tm('sweeteners.principles') as string[])
+const principles = computed<string[]>(() => tm('emulsifiers.principles') as string[])
 
-const typeLabels = computed<Record<string, string>>(() => tm('sweeteners.typeLabels') as Record<string, string>)
+const typeLabels = computed<Record<string, string>>(() => tm('emulsifiers.typeLabels') as Record<string, string>)
 
-const sweeteners = computed<Sweetener[]>(() => {
-  const raw = tm('sweeteners.items') as Array<Omit<Sweetener, 'type' | 'score'>>
-  return raw.map((item, i) => ({ ...item, ...meta[i]! }) as Sweetener).sort((a, b) => b.score - a.score)
+const emulsifiers = computed<Emulsifier[]>(() => {
+  const raw = tm('emulsifiers.items') as Array<Omit<Emulsifier, 'type' | 'score'>>
+  return raw.map((item, i) => ({ ...item, ...meta[i]! }) as Emulsifier).sort((a, b) => b.score - a.score)
 })
 
 // ─── State ─────────────────────────────────────────────────────────────────
 
-const selected = ref<Sweetener | null>(null)
+const selected = ref<Emulsifier | null>(null)
 
 // ─── Open modal from search ─────────────────────────────────────────────────
 
@@ -72,13 +63,13 @@ const router = useRouter()
 function openItemFromQuery() {
   const itemName = route.query.item as string | undefined
   if (!itemName) return
-  const enItems = (messages.en as any).sweeteners.items as Array<{ name: string }>
+  const enItems = (messages.en as any).emulsifiers.items as Array<{ name: string }>
   const rawIdx = enItems.findIndex((e: { name: string }) => e.name === itemName)
   if (rawIdx === -1) return
-  const localItems = tm('sweeteners.items') as Array<{ name: string }>
+  const localItems = tm('emulsifiers.items') as Array<{ name: string }>
   const localName = localItems[rawIdx]?.name
   if (!localName) return
-  const found = sweeteners.value.find(s => s.name === localName)
+  const found = emulsifiers.value.find(em => em.name === localName)
   if (found) {
     selected.value = found
     router.replace({ path: route.path, query: {} })
@@ -90,10 +81,10 @@ watch(() => route.query.item, openItemFromQuery)
 </script>
 
 <template>
-  <AppLayout :title="t('sweeteners.title')">
+  <AppLayout :title="t('emulsifiers.title')">
 
     <section>
-      <p class="text-white/30 text-xs">{{ t('ui.clickHint') }}</p>
+      <p class="text-white/30 text-xs">{{ t('emulsifiers.intro') }}</p>
     </section>
 
     <PrinciplesList
@@ -102,7 +93,7 @@ watch(() => route.query.item, openItemFromQuery)
     />
 
     <ItemTable
-      :items="sweeteners"
+      :items="emulsifiers"
       :type-labels="typeLabels"
       @select="selected = $event"
     />

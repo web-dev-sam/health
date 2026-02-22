@@ -27,6 +27,26 @@ const { t } = useI18n()
           </div>
           <span class="text-white/20 group-hover:text-white/50 transition-colors">→</span>
         </RouterLink>
+        <RouterLink
+          to="/preservatives"
+          class="flex items-center justify-between border border-white/10 px-5 py-3 rounded hover:border-white/30 hover:bg-white/5 transition-all group"
+        >
+          <div class="text-left">
+            <div class="text-white/80 group-hover:text-white transition-colors">{{ t('nav.preservatives') }}</div>
+            <div class="text-white/30 text-xs mt-0.5">{{ t('home.preservativesBlurb') }}</div>
+          </div>
+          <span class="text-white/20 group-hover:text-white/50 transition-colors">→</span>
+        </RouterLink>
+        <RouterLink
+          to="/emulsifiers"
+          class="flex items-center justify-between border border-white/10 px-5 py-3 rounded hover:border-white/30 hover:bg-white/5 transition-all group"
+        >
+          <div class="text-left">
+            <div class="text-white/80 group-hover:text-white transition-colors">{{ t('nav.emulsifiers') }}</div>
+            <div class="text-white/30 text-xs mt-0.5">{{ t('home.emulsifiersBlurb') }}</div>
+          </div>
+          <span class="text-white/20 group-hover:text-white/50 transition-colors">→</span>
+        </RouterLink>
       </div>
     </div>
   </AppLayout>
