@@ -21,26 +21,6 @@ interface Preservative extends Item {
 
 const { t, tm } = useI18n()
 
-// ─── Static (non-translated) per-item metadata ─────────────────────────────
-
-const meta: { type: PreservativeType; score: number }[] = [
-  { type: 'synthetic', score: 2 }, // Sodium Benzoate E211
-  { type: 'synthetic', score: 3 }, // Potassium Sorbate E202
-  { type: 'synthetic', score: 2 }, // Calcium Propionate E282
-  { type: 'sulfite',   score: 1 }, // Sulfur Dioxide E220
-  { type: 'sulfite',   score: 1 }, // Sodium Metabisulfite E223
-  { type: 'nitrite',   score: 1 }, // Sodium Nitrite E250
-  { type: 'nitrite',   score: 1 }, // Sodium Nitrate E251
-  { type: 'synthetic', score: 1 }, // BHA E320
-  { type: 'synthetic', score: 1 }, // BHT E321
-  { type: 'synthetic', score: 0 }, // Ethoxyquin E324
-  { type: 'acid',      score: 4 }, // Acetic Acid E260
-  { type: 'acid',      score: 4 }, // Lactic Acid E270
-  { type: 'acid',      score: 3 }, // Citric Acid E330
-  { type: 'vitamin',   score: 4 }, // Ascorbic Acid E300
-  { type: 'plant',     score: 4 }, // Rosemary Extract E392
-]
-
 // ─── Reactive data from translations ───────────────────────────────────────
 
 const principles = computed<string[]>(() => tm('preservatives.principles') as string[])
@@ -48,8 +28,9 @@ const principles = computed<string[]>(() => tm('preservatives.principles') as st
 const typeLabels = computed<Record<string, string>>(() => tm('preservatives.typeLabels') as Record<string, string>)
 
 const preservatives = computed<Preservative[]>(() => {
-  const raw = tm('preservatives.items') as Array<Omit<Preservative, 'type' | 'score'>>
-  return raw.map((item, i) => ({ ...item, ...meta[i]! }) as Preservative).sort((a, b) => b.score - a.score)
+  const enItems = (messages.en as any).preservatives.items as Preservative[]
+  const localItems = tm('preservatives.items') as Array<Omit<Preservative, 'type' | 'score'>>
+  return localItems.map((item, i) => ({ ...item, type: enItems[i]!.type, score: enItems[i]!.score })).sort((a, b) => b.score - a.score)
 })
 
 // ─── State ─────────────────────────────────────────────────────────────────

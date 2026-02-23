@@ -72,6 +72,8 @@ export const messages = {
         {
           name: 'Refined Sugar',
           description: 'Industrial sugar used widely in processed foods',
+          type: 'artificial',
+          score: 1,
           positives: ['Cheap', 'Familiar taste', 'Quick energy'],
           negatives: ['Pro-inflammatory', 'Promotes cravings', 'Hidden in many processed foods', 'Linked to metabolic issues'],
           warning: 'Avoid hidden sugar in processed foods',
@@ -81,6 +83,8 @@ export const messages = {
         {
           name: 'Dates (whole)',
           description: 'Natural dried fruit used as sweetener',
+          type: 'natural',
+          score: 9,
           positives: ['High in minerals and antioxidants', 'Contains aspirin-like compounds', 'Hard to overeat — satiating', 'Whole-food matrix slows sugar absorption'],
           negatives: ['Still contains fructose', 'Excess can contribute to weight gain'],
           warning: 'Moderation needed; not a free pass',
@@ -90,6 +94,8 @@ export const messages = {
         {
           name: 'Raw Honey',
           description: 'Natural sweetener produced by bees',
+          type: 'natural',
+          score: 7,
           positives: ['Contains antioxidants and anti-inflammatory compounds', 'Harder to overconsume than refined sugar', 'Long history of traditional medicinal use'],
           negatives: ['High sugar content', 'Calorie dense'],
           warning: 'Not ideal if managing obesity or blood sugar issues',
@@ -99,6 +105,8 @@ export const messages = {
         {
           name: 'Glycine',
           description: 'Sweet-tasting amino acid used as a sugar substitute',
+          type: 'amino',
+          score: 7,
           positives: ['No sugar metabolism — does not spike blood glucose', 'Calming and sleep-supportive', 'Can replace sugar 1:1 in recipes'],
           negatives: ['Clumps easily in humid conditions', 'Rare reports of anxiety or vivid dreams with long-term isolated use'],
           warning: 'Avoid excessive or long-term use in isolation',
@@ -108,6 +116,8 @@ export const messages = {
         {
           name: 'Processed Date Sugar',
           description: 'Industrially processed sweetener derived from dates',
+          type: 'natural',
+          score: 6,
           positives: ['Better than refined sugar', 'Retains some date-derived nutrients'],
           negatives: ['Loses nutritional value vs whole dates', 'Still a processed product'],
           warning: 'Less beneficial than eating whole dates',
@@ -117,6 +127,8 @@ export const messages = {
         {
           name: 'Monk Fruit',
           description: 'Sweet extract from monk fruit (luo han guo)',
+          type: 'natural',
+          score: 6,
           positives: ['No known metabolic issues', 'No blood sugar impact', 'No known cancer associations'],
           negatives: ['Still activates sweet taste receptors — may sustain cravings', 'Limited EU availability'],
           warning: 'Not approved in the EU yet — check local regulations',
@@ -126,6 +138,8 @@ export const messages = {
         {
           name: 'Stevia',
           description: 'Plant-based high-intensity sweetener from Stevia rebaudiana',
+          type: 'natural',
+          score: 5,
           positives: ['Better study profile than most artificial sweeteners', 'Natural botanical origin', 'Zero glycemic impact'],
           negatives: ['Bitter or metallic aftertaste for many people', 'May cause GI issues or blood sugar variability in some individuals'],
           warning: 'Individual tolerance varies — test carefully',
@@ -135,6 +149,8 @@ export const messages = {
         {
           name: 'Sugar Alcohols',
           description: 'Carbohydrate alcohols: xylitol, erythritol, maltitol, sorbitol, etc.',
+          type: 'alcohol',
+          score: 4,
           positives: ['Lower glycemic impact than sugar', 'Usable in baking', 'Erythritol best tolerated of the group'],
           negatives: ['GI distress at moderate doses (diarrhea, cramps, bloating)', 'Possible cardiovascular risk correlation in some research'],
           warning: 'Not suitable for sensitive digestion; CV risk data still emerging',
@@ -144,6 +160,8 @@ export const messages = {
         {
           name: 'Sucralose',
           description: 'Chlorinated sugar molecule (Splenda)',
+          type: 'artificial',
+          score: 3,
           positives: ['Very sweet — tiny amounts needed', 'Zero calories'],
           negatives: ['Disrupts gut microbiome (animal + anecdotal human data)', 'Associated with bloating and inflammation', 'Chlorine-modified compound with unclear long-term effects'],
           warning: 'Avoid daily or high-intake use',
@@ -153,6 +171,8 @@ export const messages = {
         {
           name: 'Aspartame',
           description: 'Artificial sweetener: phenylalanine + aspartic acid + methanol breakdown products',
+          type: 'artificial',
+          score: 2,
           positives: ['Very sweet; low calories'],
           negatives: ['Animal studies suggest brain inflammation and neurological effects', 'Associated with migraines', 'Unnatural taste perception for many', 'Conflicting but concerning science body'],
           warning: 'Avoid long-term use entirely',
@@ -162,6 +182,8 @@ export const messages = {
         {
           name: 'Acesulfame K (E950)',
           description: 'Artificial high-intensity sweetener (~200× sweeter than sugar)',
+          type: 'artificial',
+          score: 3,
           positives: ['Zero calories', 'Heat-stable; suitable for baking', 'Widely approved globally'],
           negatives: ['Bitter aftertaste', 'Often combined with other sweeteners to mask taste', 'Possible gut microbiome concerns'],
           warning: 'Not suitable as a daily staple',
@@ -171,6 +193,8 @@ export const messages = {
         {
           name: 'Aspartame–Acesulfame Salt (E962)',
           description: 'Combination sweetener of aspartame and acesulfame K',
+          type: 'artificial',
+          score: 3,
           positives: ['Masks individual aftertastes', 'Very high sweetness intensity'],
           negatives: ['Contains phenylalanine — unsafe for PKU', 'Inherits concerns from both component sweeteners'],
           warning: 'Avoid if PKU; same concerns as aspartame and acesulfame K',
@@ -180,6 +204,8 @@ export const messages = {
         {
           name: 'Saccharin (E954)',
           description: 'One of the oldest artificial sweeteners (300–500× sweeter than sugar)',
+          type: 'artificial',
+          score: 3,
           positives: ['Zero calories', 'Long shelf life', 'Inexpensive'],
           negatives: ['Metallic or bitter aftertaste', 'Historical cancer controversy (later largely dismissed in humans)', 'May alter gut microbiome'],
           warning: 'Avoid high or daily intake',
@@ -189,6 +215,8 @@ export const messages = {
         {
           name: 'Cyclamate (E952)',
           description: 'Synthetic sweetener (30–50× sweeter than sugar)',
+          type: 'artificial',
+          score: 4,
           positives: ['Heat-stable', 'Cheaper than most alternatives', 'Often blended with saccharin to improve taste'],
           negatives: ['Banned in the US and some other countries', 'Weaker sweetness than other high-intensity options'],
           warning: 'ADI limits important; check local legal status',
@@ -198,6 +226,8 @@ export const messages = {
         {
           name: 'Neotame (E961)',
           description: 'Ultra-potent artificial sweetener (7,000–13,000× sweeter than sugar)',
+          type: 'artificial',
+          score: 2,
           positives: ['Tiny doses required', 'Heat-stable', 'Does not require PKU labelling unlike aspartame'],
           negatives: ['Very synthetic', 'Lingering sweetness', 'Limited long-term human data'],
           warning: 'Long-term effects unclear',
@@ -207,6 +237,8 @@ export const messages = {
         {
           name: 'Advantame (E969)',
           description: 'Extremely potent sweetener (up to 37,000× sweeter than sugar)',
+          type: 'artificial',
+          score: 2,
           positives: ['Minimal quantity required', 'Thermally stable'],
           negatives: ['Highly artificial', 'Very limited real-world human data'],
           warning: 'Not well studied long-term',
@@ -216,6 +248,8 @@ export const messages = {
         {
           name: 'Thaumatin (E957)',
           description: 'Sweet protein extracted from the katemfe fruit (West Africa)',
+          type: 'protein',
+          score: 6,
           positives: ['Natural origin', 'No blood sugar impact', 'Also functions as a flavour enhancer'],
           negatives: ['Expensive', 'Unusual lingering flavour profile', 'Rare allergic reactions possible'],
           warning: 'Rare allergies possible',
@@ -225,6 +259,8 @@ export const messages = {
         {
           name: 'Neohesperidin DC (E959)',
           description: 'Flavonoid-derived sweetener from citrus (50–1,800× sweeter than sugar)',
+          type: 'flavonoid',
+          score: 5,
           positives: ['Non-cariogenic', 'Plant-derived', 'Useful for masking bitterness'],
           negatives: ['Alters flavour perception at higher doses', 'Niche — limited standalone use'],
           warning: 'Not suitable as a standalone sweetener at typical doses',
@@ -234,6 +270,8 @@ export const messages = {
         {
           name: 'Mannitol (E421)',
           description: 'Sugar alcohol (polyol) found naturally in some fruits and vegetables',
+          type: 'alcohol',
+          score: 4,
           positives: ['Tooth-friendly', 'Low glycemic impact', 'Slow absorption'],
           negatives: ['Laxative effect at moderate doses', 'Bloating and gas common'],
           warning: 'GI intolerance common; do not exceed ~20g/day',
@@ -243,6 +281,8 @@ export const messages = {
         {
           name: 'Isomalt (E953)',
           description: 'Sugar alcohol derived from beet sugar; widely used in confectionery',
+          type: 'alcohol',
+          score: 4,
           positives: ['Heat-stable — popular in sugar work and hard candy', 'Tooth-friendly', 'Low glycemic impact'],
           negatives: ['Gas and diarrhea at higher intakes', 'Lower sweetness than sugar (needs more to match)'],
           warning: 'Not suitable for sensitive digestion',
@@ -252,6 +292,8 @@ export const messages = {
         {
           name: 'Lactitol (E966)',
           description: 'Sugar alcohol derived from lactose',
+          type: 'alcohol',
+          score: 3,
           positives: ['Lower calories than sugar', 'Mild, clean sweetness'],
           negatives: ['Strong laxative effect even at moderate doses', 'Not suitable for lactose-intolerant individuals'],
           warning: 'Avoid in IBS or sensitive digestion',
@@ -261,6 +303,8 @@ export const messages = {
         {
           name: 'Polyglycitol Syrup (E964)',
           description: 'Mixed polyol syrup used as a bulk sweetener and texturiser',
+          type: 'alcohol',
+          score: 4,
           positives: ['Provides bulk and texture', 'Lower glycemic impact than sugar'],
           negatives: ['Digestive distress possible', 'Blended nature makes dosing harder to gauge'],
           warning: 'Portion control critical',
@@ -291,6 +335,8 @@ export const messages = {
         {
           name: 'Sodium Benzoate (E211)',
           description: 'Synthetic preservative against yeast & bacteria',
+          type: 'synthetic',
+          score: 2,
           positives: ['Effective at low doses', 'Cheap'],
           negatives: ['Can form benzene with vitamin C', 'Linked to hyperactivity in children'],
           warning: 'Avoid with acidic drinks',
@@ -300,6 +346,8 @@ export const messages = {
         {
           name: 'Potassium Sorbate (E202)',
           description: 'Mold & yeast inhibitor',
+          type: 'synthetic',
+          score: 3,
           positives: ['Relatively low toxicity', 'One of the milder synthetics'],
           negatives: ['May irritate gut & skin', 'Affects microbiome with regular use'],
           warning: 'Avoid daily intake',
@@ -309,6 +357,8 @@ export const messages = {
         {
           name: 'Calcium Propionate (E282)',
           description: 'Anti-mold agent common in baked goods',
+          type: 'synthetic',
+          score: 2,
           positives: ['Prevents spoilage in bread'],
           negatives: ['Linked to headaches', 'Irritability in children', 'Neurobehavioral concerns'],
           warning: 'Neurobehavioral concerns — especially for children',
@@ -318,6 +368,8 @@ export const messages = {
         {
           name: 'Sulfur Dioxide (E220)',
           description: 'Antimicrobial & antioxidant sulfite preservative',
+          type: 'sulfite',
+          score: 1,
           positives: ['Very effective preservation'],
           negatives: ['Triggers asthma', 'Headaches', 'Gut irritation'],
           warning: 'Dangerous for asthmatics — avoid entirely',
@@ -327,6 +379,8 @@ export const messages = {
         {
           name: 'Sodium Metabisulfite (E223)',
           description: 'Strong sulfite preservative',
+          type: 'sulfite',
+          score: 1,
           positives: ['Strong antimicrobial action'],
           negatives: ['Destroys vitamin B1', 'Allergic reactions common', 'Hidden in many processed foods'],
           warning: 'High allergy risk',
@@ -336,6 +390,8 @@ export const messages = {
         {
           name: 'Sodium Nitrite (E250)',
           description: 'Meat preservative that prevents botulism and fixes meat colour',
+          type: 'nitrite',
+          score: 1,
           positives: ['Prevents botulism in cured meats'],
           negatives: ['Forms nitrosamines (carcinogenic)', 'Strong cancer association'],
           warning: 'Strong cancer association — limit cured meat intake',
@@ -345,6 +401,8 @@ export const messages = {
         {
           name: 'Sodium Nitrate (E251)',
           description: 'Meat preservative converted to nitrite in the body',
+          type: 'nitrite',
+          score: 1,
           positives: ['Shelf-life extension'],
           negatives: ['Converts into nitrites in the body', 'Carries same cancer risks as nitrite'],
           warning: 'Avoid frequent intake',
@@ -354,6 +412,8 @@ export const messages = {
         {
           name: 'BHA (E320)',
           description: 'Synthetic antioxidant preservative',
+          type: 'synthetic',
+          score: 1,
           positives: ['Prevents fat oxidation in snacks'],
           negatives: ['Suspected endocrine disruption', 'Cancer risk concerns'],
           warning: 'Avoid completely if possible',
@@ -363,6 +423,8 @@ export const messages = {
         {
           name: 'BHT (E321)',
           description: 'Synthetic antioxidant, often paired with BHA',
+          type: 'synthetic',
+          score: 1,
           positives: ['Increases shelf life of fatty foods'],
           negatives: ['Hormonal disruption', 'Liver effects', 'Accumulates in body fat'],
           warning: 'Accumulates in body fat — avoid',
@@ -372,6 +434,8 @@ export const messages = {
         {
           name: 'Ethoxyquin (E324)',
           description: 'Strong synthetic antioxidant',
+          type: 'synthetic',
+          score: 0,
           positives: ['Very effective antioxidant at low doses'],
           negatives: ['Neurotoxicity concerns', 'Banned in many food categories'],
           warning: 'Banned in most EU foods — mostly animal feed now',
@@ -381,6 +445,8 @@ export const messages = {
         {
           name: 'Acetic Acid (E260)',
           description: 'Vinegar-based preservative',
+          type: 'acid',
+          score: 4,
           positives: ['Natural origin', 'Antimicrobial', 'Long history of safe use'],
           negatives: ['Can irritate stomach in excess'],
           warning: 'Acid sensitivity — not suitable for everyone in large amounts',
@@ -390,6 +456,8 @@ export const messages = {
         {
           name: 'Lactic Acid (E270)',
           description: 'Fermentation-derived acid preservative',
+          type: 'acid',
+          score: 4,
           positives: ['Naturally occurring in fermented foods', 'Gut-compatible'],
           negatives: ['Acidic — potential enamel erosion at high exposure'],
           warning: 'Dental caution with frequent acidic food consumption',
@@ -399,6 +467,8 @@ export const messages = {
         {
           name: 'Citric Acid (E330)',
           description: 'Acidifier, preservative, and flavour enhancer',
+          type: 'acid',
+          score: 3,
           positives: ['Natural origin', 'Antioxidant properties'],
           negatives: ['Tooth erosion with frequent exposure', 'Gut irritation in excess', 'Not always citrus-derived — often mold-fermented'],
           warning: 'Overused in drinks — can erode enamel',
@@ -408,6 +478,8 @@ export const messages = {
         {
           name: 'Ascorbic Acid (E300)',
           description: 'Vitamin C used as a preservative and antioxidant',
+          type: 'vitamin',
+          score: 4,
           positives: ['Antioxidant', 'Essential nutrient', 'One of the best preservative options'],
           negatives: ['Can interact with benzoates to form benzene'],
           warning: 'Watch combinations with sodium benzoate in acidic drinks',
@@ -417,6 +489,8 @@ export const messages = {
         {
           name: 'Rosemary Extract (E392)',
           description: 'Plant-based antioxidant preservative',
+          type: 'plant',
+          score: 4,
           positives: ['Contains polyphenols', 'Anti-inflammatory properties', 'Natural origin'],
           negatives: ['Strong taste can affect product flavour', 'Limited antimicrobial spectrum'],
           warning: 'Flavour impact — may not suit all products',
@@ -447,6 +521,8 @@ export const messages = {
         {
           name: 'Lecithins (E322)',
           description: 'Emulsifier sourced from soy, sunflower, or egg',
+          type: 'natural',
+          score: 4,
           positives: ['Naturally occurring', 'Improves texture', 'Least problematic emulsifier'],
           negatives: ['Often highly processed', 'Soy allergy risk'],
           warning: 'Check source — prefer sunflower lecithin over soy',
@@ -456,6 +532,8 @@ export const messages = {
         {
           name: 'Mono- & Diglycerides of Fatty Acids (E471)',
           description: 'Fat-derived emulsifiers widely used in baked goods',
+          type: 'natural',
+          score: 2,
           positives: ['Improves shelf life and mouthfeel'],
           negatives: ['Often industrial trans-fat related', 'Metabolic concerns', 'Very common in baked goods'],
           warning: 'Avoid frequent intake — potential trans-fat residues',
@@ -465,6 +543,8 @@ export const messages = {
         {
           name: 'Polysorbate 80 (E433)',
           description: 'Synthetic emulsifier in ice cream and sauces',
+          type: 'synthetic',
+          score: 1,
           positives: ['Highly effective emulsification'],
           negatives: ['Disrupts gut barrier', 'Alters microbiome composition (animal data)', 'Chronic exposure concern'],
           warning: 'Avoid chronic exposure — significant gut concerns',
@@ -474,6 +554,8 @@ export const messages = {
         {
           name: 'Carboxymethylcellulose (E466)',
           description: 'Synthetic cellulose derivative used as a thickener',
+          type: 'synthetic',
+          score: 1,
           positives: ['Texture stabilisation'],
           negatives: ['Linked to gut inflammation', 'Metabolic syndrome associations', 'Strong microbiome concerns'],
           warning: 'Strong microbiome concerns — avoid in "low-fat" products',
@@ -483,6 +565,8 @@ export const messages = {
         {
           name: 'Carrageenan (E407)',
           description: 'Seaweed-derived thickener used in plant milks and dairy',
+          type: 'seaweed',
+          score: 1,
           positives: ['Natural seaweed origin'],
           negatives: ['Gut inflammation', 'Degraded form (poligeenan) highly problematic', 'Avoid if gut-sensitive'],
           warning: 'Avoid if gut-sensitive or inflammatory conditions present',
@@ -492,6 +576,8 @@ export const messages = {
         {
           name: 'Locust Bean Gum (E410)',
           description: 'Seed-derived natural thickener',
+          type: 'seed',
+          score: 3,
           positives: ['Natural origin', 'Fiber-like properties'],
           negatives: ['Bloating', 'Fermentation in gut at higher doses'],
           warning: 'IBS caution',
@@ -501,6 +587,8 @@ export const messages = {
         {
           name: 'Guar Gum (E412)',
           description: 'Legume-derived stabilizer',
+          type: 'seed',
+          score: 3,
           positives: ['Natural fiber', 'Effective thickening', 'Better tolerated than synthetics'],
           negatives: ['Gas and bloating at higher doses'],
           warning: 'Start with low exposure',
@@ -510,6 +598,8 @@ export const messages = {
         {
           name: 'Xanthan Gum (E415)',
           description: 'Fermentation-derived gum widely used in sauces',
+          type: 'fermented',
+          score: 2,
           positives: ['Stable across temperatures', 'Useful in gluten-free products'],
           negatives: ['GI distress at higher amounts', 'Ultra-processed marker'],
           warning: 'Avoid large quantities',
@@ -519,6 +609,8 @@ export const messages = {
         {
           name: 'Gellan Gum (E418)',
           description: 'Bacterial fermentation product used as a gelling agent',
+          type: 'fermented',
+          score: 2,
           positives: ['Effective at very low doses'],
           negatives: ['Possible gut irritation', 'Limited long-term human data'],
           warning: 'Limited long-term data',
@@ -528,6 +620,8 @@ export const messages = {
         {
           name: 'Agar (E406)',
           description: 'Seaweed-derived gelling agent',
+          type: 'seaweed',
+          score: 4,
           positives: ['Traditional use', 'Non-toxic at normal doses', 'One of the safer stabilizers'],
           negatives: ['Laxative effect in excess'],
           warning: 'Ensure adequate hydration when consuming agar-rich foods',
@@ -537,6 +631,8 @@ export const messages = {
         {
           name: 'Pectin (E440)',
           description: 'Fruit-derived gelling agent used in jams',
+          type: 'natural',
+          score: 4,
           positives: ['Natural fruit origin', 'Prebiotic-like gut effects', 'Used in jams and jellies'],
           negatives: ['Can cause bloating at high doses'],
           warning: 'Sensitive digestion — watch total intake',
@@ -546,6 +642,8 @@ export const messages = {
         {
           name: 'Modified Starches (E1404–E1451)',
           description: 'Chemically altered starches for texture and stability',
+          type: 'modified',
+          score: 2,
           positives: ['Improve texture and stability in processed foods'],
           negatives: ['Highly processed', 'Glycemic impact', 'Not whole-food'],
           warning: 'Not whole-food — common in sauces and ready meals',
@@ -555,6 +653,8 @@ export const messages = {
         {
           name: 'Sodium Alginate (E401)',
           description: 'Seaweed polysaccharide used in dairy and foams',
+          type: 'seaweed',
+          score: 3,
           positives: ['Mineral-binding properties', 'Natural seaweed origin'],
           negatives: ['GI discomfort possible at higher doses'],
           warning: 'Not daily use',
@@ -564,6 +664,8 @@ export const messages = {
         {
           name: 'Propylene Glycol Alginate (E405)',
           description: 'Modified alginate used in dressings and beer',
+          type: 'seaweed',
+          score: 2,
           positives: ['Stabilises emulsions effectively'],
           negatives: ['Synthetic processing', 'Propylene glycol component'],
           warning: 'Avoid frequent intake',
@@ -573,6 +675,8 @@ export const messages = {
         {
           name: 'Ascorbyl Palmitate (E304)',
           description: 'Fat-soluble form of vitamin C used as antioxidant and emulsifier',
+          type: 'natural',
+          score: 3,
           positives: ['Vitamin C derivative', 'Antioxidant properties', 'Protects fats from oxidation'],
           negatives: ['Synthetic processing', 'High doses may cause GI upset'],
           warning: 'Generally regarded as safe in typical food amounts',
@@ -582,6 +686,8 @@ export const messages = {
         {
           name: 'Sodium Phosphate (E339)',
           description: 'Phosphate salt used as emulsifier and acidity regulator',
+          type: 'synthetic',
+          score: 2,
           positives: ['Effective emulsification', 'Improves texture in processed cheese'],
           negatives: ['Excess phosphate disrupts calcium/phosphate balance', 'Kidney strain at high intake', 'Common in ultra-processed foods'],
           warning: 'Limit total phosphate intake — especially with kidney issues',
@@ -591,6 +697,8 @@ export const messages = {
         {
           name: 'Potassium Phosphate (E340)',
           description: 'Potassium salt of phosphoric acid used as emulsifier and stabiliser',
+          type: 'synthetic',
+          score: 2,
           positives: ['Effective pH control', 'Stabilises emulsions'],
           negatives: ['Phosphate overload risk', 'Kidney strain', 'Often combined with other phosphates'],
           warning: 'Limit — particularly alongside other phosphate additives',
@@ -600,6 +708,8 @@ export const messages = {
         {
           name: 'Salts of Fatty Acids (E470)',
           description: 'Sodium, potassium, calcium, or magnesium salts of fatty acids',
+          type: 'synthetic',
+          score: 2,
           positives: ['Derived from natural fats', 'Effective anti-caking and emulsification'],
           negatives: ['Source fat quality varies', 'May include animal-derived fats'],
           warning: 'Check for animal origin if relevant to your diet',
@@ -609,6 +719,8 @@ export const messages = {
         {
           name: 'Acetic Acid Esters of Mono- and Diglycerides (E472a)',
           description: 'Acetylated glycerides used in bread and whipped products',
+          type: 'synthetic',
+          score: 1,
           positives: ['Improves dough stability', 'Effective at low concentrations'],
           negatives: ['Derived from processed fats', 'Possible trans-fat residues', 'Ultra-processed marker'],
           warning: 'Avoid frequent intake — same concerns as E471',
@@ -618,6 +730,8 @@ export const messages = {
         {
           name: 'Lactic Acid Esters of Mono- and Diglycerides (E472b)',
           description: 'Lactylated glycerides used in bread and margarine',
+          type: 'synthetic',
+          score: 1,
           positives: ['Improves crumb structure in bread'],
           negatives: ['Processed fat origin', 'May contain trans-fat residues'],
           warning: 'Limit in everyday products',
@@ -627,6 +741,8 @@ export const messages = {
         {
           name: 'Citric Acid Esters of Mono- and Diglycerides (E472c)',
           description: 'Citroglycerides used as emulsifiers in margarine and spreads',
+          type: 'synthetic',
+          score: 2,
           positives: ['Citric acid component is natural', 'Effective emulsification'],
           negatives: ['Processed fat base', 'Industrial production'],
           warning: 'Limit in everyday use',
@@ -636,6 +752,8 @@ export const messages = {
         {
           name: 'Tartaric Acid Esters of Mono- and Diglycerides (E472d)',
           description: 'Tartrate glycerides used in baked goods',
+          type: 'synthetic',
+          score: 2,
           positives: ['Improves volume and texture in baked goods'],
           negatives: ['Processed fat origin', 'Less commonly studied'],
           warning: 'Limit in everyday products',
@@ -645,6 +763,8 @@ export const messages = {
         {
           name: 'Mono- and Diacetyltartaric Acid Esters of Mono- and Diglycerides (E472e)',
           description: 'DATEM — widely used dough conditioner in bread production',
+          type: 'synthetic',
+          score: 1,
           positives: ['Very effective dough strengthening', 'Improves bread volume'],
           negatives: ['Highly processed', 'Trans-fat residues possible', 'Very common in industrial bread'],
           warning: 'Avoid in daily bread — choose sourdough or short-ingredient-list alternatives',
@@ -654,6 +774,8 @@ export const messages = {
         {
           name: 'Mixed Tartaric and Acetic Acid Esters of Mono- and Diglycerides (E472f)',
           description: 'Mixed ester glycerides used in bakery and confectionery',
+          type: 'synthetic',
+          score: 1,
           positives: ['Combined emulsification properties'],
           negatives: ['Highly processed', 'Industrial fat origin'],
           warning: 'Limit — same concerns as other E472 variants',
@@ -663,6 +785,8 @@ export const messages = {
         {
           name: 'Sucrose Esters of Fatty Acids (E473)',
           description: 'Sugar-fatty acid esters used in low-fat and confectionery products',
+          type: 'synthetic',
+          score: 2,
           positives: ['Can be made from natural sugars and fats', 'Effective at low doses'],
           negatives: ['Industrial synthesis', 'GI discomfort at higher doses', 'Often in low-fat products'],
           warning: 'Moderate caution — especially in low-fat products',
@@ -672,6 +796,8 @@ export const messages = {
         {
           name: 'Sucroglycerides (E474)',
           description: 'Mixture of sucrose esters and mono/diglycerides of fatty acids',
+          type: 'synthetic',
+          score: 1,
           positives: ['Effective emulsification'],
           negatives: ['Industrial processing', 'Combined concerns of E471 and E473'],
           warning: 'Limit — combination product with multiple processing concerns',
@@ -681,6 +807,8 @@ export const messages = {
         {
           name: 'Polyglycerol Esters of Fatty Acids (E475)',
           description: 'Polyglycerol-based emulsifiers used in cakes and margarine',
+          type: 'synthetic',
+          score: 1,
           positives: ['Effective in low-fat formulations', 'Improves aeration'],
           negatives: ['Highly processed', 'Industrial synthesis', 'Limited long-term data'],
           warning: 'Limit — synthetic emulsifier with limited safety data',
@@ -690,6 +818,8 @@ export const messages = {
         {
           name: 'Polyglycerol Polyricinoleate (E476)',
           description: 'Castor-oil derived emulsifier used primarily in chocolate',
+          type: 'synthetic',
+          score: 0,
           positives: ['Reduces cocoa butter usage', 'Effective viscosity reducer'],
           negatives: ['Castor oil derivative', 'Used to cheapen chocolate formulations', 'Not present in quality chocolate'],
           warning: 'Avoid — indicates low-quality chocolate or compound coating',
@@ -699,6 +829,8 @@ export const messages = {
         {
           name: 'Propylene Glycol Esters of Fatty Acids (E477)',
           description: 'Propylene glycol-based emulsifiers used in cakes and whipped products',
+          type: 'synthetic',
+          score: 1,
           positives: ['Effective aerating agent in cake batters'],
           negatives: ['Propylene glycol component', 'Synthetic processing', 'Ultra-processed marker'],
           warning: 'Avoid frequent intake — synthetic emulsifier',

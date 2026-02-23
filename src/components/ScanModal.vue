@@ -18,92 +18,15 @@ const emit = defineEmits<{
 
 const { tm, t } = useI18n()
 
-// ─── Static metadata (mirrors page meta arrays) ────────────────────────────
-
-const sweetenersMeta: { type: string; score: number }[] = [
-  { type: 'artificial', score: 1 },
-  { type: 'natural',    score: 9 },
-  { type: 'natural',    score: 7 },
-  { type: 'amino',      score: 7 },
-  { type: 'natural',    score: 6 },
-  { type: 'natural',    score: 6 },
-  { type: 'natural',    score: 5 },
-  { type: 'alcohol',    score: 4 },
-  { type: 'artificial', score: 3 },
-  { type: 'artificial', score: 2 },
-  { type: 'artificial', score: 3 },
-  { type: 'artificial', score: 3 },
-  { type: 'artificial', score: 3 },
-  { type: 'artificial', score: 4 },
-  { type: 'artificial', score: 2 },
-  { type: 'artificial', score: 2 },
-  { type: 'protein',    score: 6 },
-  { type: 'flavonoid',  score: 5 },
-  { type: 'alcohol',    score: 4 },
-  { type: 'alcohol',    score: 4 },
-  { type: 'alcohol',    score: 3 },
-  { type: 'alcohol',    score: 4 },
-]
-
-const preservativesMeta: { type: string; score: number }[] = [
-  { type: 'synthetic', score: 2 },
-  { type: 'synthetic', score: 3 },
-  { type: 'synthetic', score: 2 },
-  { type: 'sulfite',   score: 1 },
-  { type: 'sulfite',   score: 1 },
-  { type: 'nitrite',   score: 1 },
-  { type: 'nitrite',   score: 1 },
-  { type: 'synthetic', score: 1 },
-  { type: 'synthetic', score: 1 },
-  { type: 'synthetic', score: 0 },
-  { type: 'acid',      score: 4 },
-  { type: 'acid',      score: 4 },
-  { type: 'acid',      score: 3 },
-  { type: 'vitamin',   score: 4 },
-  { type: 'plant',     score: 4 },
-]
-
-const emulsifiersMeta: { type: string; score: number }[] = [
-  { type: 'natural',   score: 4 },
-  { type: 'natural',   score: 2 },
-  { type: 'synthetic', score: 1 },
-  { type: 'synthetic', score: 1 },
-  { type: 'seaweed',   score: 1 },
-  { type: 'seed',      score: 3 },
-  { type: 'seed',      score: 3 },
-  { type: 'fermented', score: 2 },
-  { type: 'fermented', score: 2 },
-  { type: 'seaweed',   score: 4 },
-  { type: 'natural',   score: 4 },
-  { type: 'modified',  score: 2 },
-  { type: 'seaweed',   score: 3 },
-  { type: 'seaweed',   score: 2 },
-  { type: 'natural',   score: 3 }, // Ascorbyl Palmitate E304
-  { type: 'synthetic', score: 2 }, // Sodium Phosphate E339
-  { type: 'synthetic', score: 2 }, // Potassium Phosphate E340
-  { type: 'synthetic', score: 2 }, // Salts of Fatty Acids E470
-  { type: 'synthetic', score: 1 }, // Acetic Acid Esters E472a
-  { type: 'synthetic', score: 1 }, // Lactic Acid Esters E472b
-  { type: 'synthetic', score: 2 }, // Citric Acid Esters E472c
-  { type: 'synthetic', score: 2 }, // Tartaric Acid Esters E472d
-  { type: 'synthetic', score: 1 }, // DATEM E472e
-  { type: 'synthetic', score: 1 }, // Mixed Esters E472f
-  { type: 'synthetic', score: 2 }, // Sucrose Esters E473
-  { type: 'synthetic', score: 1 }, // Sucroglycerides E474
-  { type: 'synthetic', score: 1 }, // Polyglycerol Esters E475
-  { type: 'synthetic', score: 0 }, // PGPR E476
-  { type: 'synthetic', score: 1 }, // Propylene Glycol Esters E477
-]
-
 // ─── All items assembled ────────────────────────────────────────────────────
 
 type AnyItem = Item & { route: string; enName: string; catKey: string; catIdx: number }
 
 const allItems = computed<AnyItem[]>(() => {
   const cats = [
-    { key: 'sweeteners',    route: '/sweeteners',    meta: sweetenersMeta },
-    { key: 'preservatives', route: '/preservatives', meta: preservativesMeta },
-    { key: 'emulsifiers',   route: '/emulsifiers',   meta: emulsifiersMeta },
+    { key: 'sweeteners',    route: '/sweeteners'    },
+    { key: 'preservatives', route: '/preservatives' },
+    { key: 'emulsifiers',   route: '/emulsifiers'   },
   ]
   const result: AnyItem[] = []
   for (const cat of cats) {
@@ -112,8 +35,8 @@ const allItems = computed<AnyItem[]>(() => {
     for (let i = 0; i < enItems.length; i++) {
       result.push({
         ...localItems[i],
-        type: cat.meta[i]!.type,
-        score: cat.meta[i]!.score,
+        type: enItems[i]!.type as string,
+        score: enItems[i]!.score as number,
         route: cat.route,
         enName: enItems[i]!.name as string,
         catKey: cat.key,

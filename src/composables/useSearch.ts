@@ -9,12 +9,6 @@ export interface SearchResult {
   itemScore: number   // Health score 0–10
 }
 
-const itemScores: Record<string, number[]> = {
-  sweeteners:    [1, 9, 7, 7, 6, 6, 5, 4, 3, 2, 3, 3, 3, 4, 2, 2, 6, 5, 4, 4, 3, 4],
-  preservatives: [2, 3, 2, 1, 1, 1, 1, 1, 1, 0, 4, 4, 3, 4, 4],
-  emulsifiers:   [4, 2, 1, 1, 1, 3, 3, 2, 2, 4, 4, 2, 3, 2],
-}
-
 // Search-only aliases — not translated, not shown in UI.
 // Indexed by category key, then by item index (matching the meta arrays in each page).
 export const aliases: Record<string, string[][]> = {
@@ -201,7 +195,7 @@ export function useSearch() {
             displayName: localItems[i]?.name ?? enName,
             category: t(`nav.${cat.key}`),
             route: cat.route,
-            itemScore: itemScores[cat.key]![i] ?? 0,
+            itemScore: (item.score as number) ?? 0,
             score,
           })
         }

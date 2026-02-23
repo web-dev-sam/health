@@ -21,34 +21,6 @@ interface Sweetener extends Item {
 
 const { t, tm } = useI18n()
 
-// ─── Static (non-translated) per-item metadata ─────────────────────────────
-
-const meta: { type: SweetenerType; score: number }[] = [
-  { type: 'artificial', score: 1 },
-  { type: 'natural',    score: 9 },
-  { type: 'natural',    score: 7 },
-  { type: 'amino',      score: 7 },
-  { type: 'natural',    score: 6 },
-  { type: 'natural',    score: 6 },
-  { type: 'natural',    score: 5 },
-  { type: 'alcohol',    score: 4 },
-  { type: 'artificial', score: 3 },
-  { type: 'artificial', score: 2 },
-  // new entries
-  { type: 'artificial', score: 3 },
-  { type: 'artificial', score: 3 },
-  { type: 'artificial', score: 3 },
-  { type: 'artificial', score: 4 },
-  { type: 'artificial', score: 2 },
-  { type: 'artificial', score: 2 },
-  { type: 'protein',    score: 6 },
-  { type: 'flavonoid',  score: 5 },
-  { type: 'alcohol',    score: 4 },
-  { type: 'alcohol',    score: 4 },
-  { type: 'alcohol',    score: 3 },
-  { type: 'alcohol',    score: 4 },
-]
-
 // ─── Reactive data from translations ───────────────────────────────────────
 
 const principles = computed<string[]>(() => tm('sweeteners.principles') as string[])
@@ -56,8 +28,9 @@ const principles = computed<string[]>(() => tm('sweeteners.principles') as strin
 const typeLabels = computed<Record<string, string>>(() => tm('sweeteners.typeLabels') as Record<string, string>)
 
 const sweeteners = computed<Sweetener[]>(() => {
-  const raw = tm('sweeteners.items') as Array<Omit<Sweetener, 'type' | 'score'>>
-  return raw.map((item, i) => ({ ...item, ...meta[i]! }) as Sweetener).sort((a, b) => b.score - a.score)
+  const enItems = (messages.en as any).sweeteners.items as Sweetener[]
+  const localItems = tm('sweeteners.items') as Array<Omit<Sweetener, 'type' | 'score'>>
+  return localItems.map((item, i) => ({ ...item, type: enItems[i]!.type, score: enItems[i]!.score })).sort((a, b) => b.score - a.score)
 })
 
 // ─── State ─────────────────────────────────────────────────────────────────

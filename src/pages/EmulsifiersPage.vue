@@ -21,40 +21,6 @@ interface Emulsifier extends Item {
 
 const { t, tm } = useI18n()
 
-// ─── Static (non-translated) per-item metadata ─────────────────────────────
-
-const meta: { type: EmulsifierType; score: number }[] = [
-  { type: 'natural',   score: 4 }, // Lecithins E322
-  { type: 'natural',   score: 2 }, // Mono- & Diglycerides E471
-  { type: 'synthetic', score: 1 }, // Polysorbate 80 E433
-  { type: 'synthetic', score: 1 }, // Carboxymethylcellulose E466
-  { type: 'seaweed',   score: 1 }, // Carrageenan E407
-  { type: 'seed',      score: 3 }, // Locust Bean Gum E410
-  { type: 'seed',      score: 3 }, // Guar Gum E412
-  { type: 'fermented', score: 2 }, // Xanthan Gum E415
-  { type: 'fermented', score: 2 }, // Gellan Gum E418
-  { type: 'seaweed',   score: 4 }, // Agar E406
-  { type: 'natural',   score: 4 }, // Pectin E440
-  { type: 'modified',  score: 2 }, // Modified Starches E1404-E1451
-  { type: 'seaweed',   score: 3 }, // Sodium Alginate E401
-  { type: 'seaweed',   score: 2 }, // Propylene Glycol Alginate E405
-  { type: 'natural',   score: 3 }, // Ascorbyl Palmitate E304
-  { type: 'synthetic', score: 2 }, // Sodium Phosphate E339
-  { type: 'synthetic', score: 2 }, // Potassium Phosphate E340
-  { type: 'synthetic', score: 2 }, // Salts of Fatty Acids E470
-  { type: 'synthetic', score: 1 }, // Acetic Acid Esters E472a
-  { type: 'synthetic', score: 1 }, // Lactic Acid Esters E472b
-  { type: 'synthetic', score: 2 }, // Citric Acid Esters E472c
-  { type: 'synthetic', score: 2 }, // Tartaric Acid Esters E472d
-  { type: 'synthetic', score: 1 }, // DATEM E472e
-  { type: 'synthetic', score: 1 }, // Mixed Esters E472f
-  { type: 'synthetic', score: 2 }, // Sucrose Esters E473
-  { type: 'synthetic', score: 1 }, // Sucroglycerides E474
-  { type: 'synthetic', score: 1 }, // Polyglycerol Esters E475
-  { type: 'synthetic', score: 0 }, // PGPR E476
-  { type: 'synthetic', score: 1 }, // Propylene Glycol Esters E477
-]
-
 // ─── Reactive data from translations ───────────────────────────────────────
 
 const principles = computed<string[]>(() => tm('emulsifiers.principles') as string[])
@@ -62,8 +28,9 @@ const principles = computed<string[]>(() => tm('emulsifiers.principles') as stri
 const typeLabels = computed<Record<string, string>>(() => tm('emulsifiers.typeLabels') as Record<string, string>)
 
 const emulsifiers = computed<Emulsifier[]>(() => {
-  const raw = tm('emulsifiers.items') as Array<Omit<Emulsifier, 'type' | 'score'>>
-  return raw.map((item, i) => ({ ...item, ...meta[i]! }) as Emulsifier).sort((a, b) => b.score - a.score)
+  const enItems = (messages.en as any).emulsifiers.items as Emulsifier[]
+  const localItems = tm('emulsifiers.items') as Array<Omit<Emulsifier, 'type' | 'score'>>
+  return localItems.map((item, i) => ({ ...item, type: enItems[i]!.type, score: enItems[i]!.score })).sort((a, b) => b.score - a.score)
 })
 
 // ─── State ─────────────────────────────────────────────────────────────────
