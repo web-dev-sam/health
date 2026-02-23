@@ -78,6 +78,21 @@ const emulsifiersMeta: { type: string; score: number }[] = [
   { type: 'modified',  score: 2 },
   { type: 'seaweed',   score: 3 },
   { type: 'seaweed',   score: 2 },
+  { type: 'natural',   score: 3 }, // Ascorbyl Palmitate E304
+  { type: 'synthetic', score: 2 }, // Sodium Phosphate E339
+  { type: 'synthetic', score: 2 }, // Potassium Phosphate E340
+  { type: 'synthetic', score: 2 }, // Salts of Fatty Acids E470
+  { type: 'synthetic', score: 1 }, // Acetic Acid Esters E472a
+  { type: 'synthetic', score: 1 }, // Lactic Acid Esters E472b
+  { type: 'synthetic', score: 2 }, // Citric Acid Esters E472c
+  { type: 'synthetic', score: 2 }, // Tartaric Acid Esters E472d
+  { type: 'synthetic', score: 1 }, // DATEM E472e
+  { type: 'synthetic', score: 1 }, // Mixed Esters E472f
+  { type: 'synthetic', score: 2 }, // Sucrose Esters E473
+  { type: 'synthetic', score: 1 }, // Sucroglycerides E474
+  { type: 'synthetic', score: 1 }, // Polyglycerol Esters E475
+  { type: 'synthetic', score: 0 }, // PGPR E476
+  { type: 'synthetic', score: 1 }, // Propylene Glycol Esters E477
 ]
 
 // ─── All items assembled ────────────────────────────────────────────────────
@@ -231,7 +246,6 @@ function matchToken(token: string): AnyItem | null {
 }
 
 function scan() {
-  if (!rawText.value) return
 
   // Handle hyphenated line breaks before splitting
   const text = rawText.value.replace(/-[ \t]*\n[ \t]*/g, '')
