@@ -6,7 +6,8 @@ export const messages = {
   en: {
     home: {
       title: 'Nutrition Wiki',
-      description: 'The food industry operates at a scale most people never see. Additives, sweeteners, preservatives, emulsifiers — engineered for shelf life and palatability, not health. This wiki is an overview of what is actually in the things you consume.',
+      description:
+        'The food industry operates at a scale most people never see. Additives, sweeteners, preservatives, emulsifiers — engineered for shelf life and palatability, not health. This wiki is an overview of what is actually in the things you consume.',
       guides: 'Guides',
       sweetenersBlurb: 'Ranked overview of natural & artificial sweeteners',
       preservativesBlurb: 'What keeps food "fresh" — and at what cost',
@@ -35,7 +36,8 @@ export const messages = {
       ocrError: 'Could not read image',
     },
     footer: {
-      disclaimer: 'Not medical advice. This wiki is for educational purposes only. Always consult a qualified healthcare professional before making dietary changes.',
+      disclaimer:
+        'Not medical advice. This wiki is for educational purposes only. Always consult a qualified healthcare professional before making dietary changes.',
     },
     ui: {
       principles: 'Principles',
@@ -75,9 +77,15 @@ export const messages = {
           type: 'artificial',
           score: 1,
           positives: ['Cheap', 'Familiar taste', 'Quick energy'],
-          negatives: ['Pro-inflammatory', 'Promotes cravings', 'Hidden in many processed foods', 'Linked to metabolic issues'],
+          negatives: [
+            'Pro-inflammatory',
+            'Promotes cravings',
+            'Hidden in many processed foods',
+            'Linked to metabolic issues',
+          ],
           warning: 'Avoid hidden sugar in processed foods',
-          consumption: 'Eliminate entirely if possible. Check ingredient labels — sugar hides under 50+ names (dextrose, maltose, corn syrup, etc.).',
+          consumption:
+            'Eliminate entirely if possible. Check ingredient labels — sugar hides under 50+ names (dextrose, maltose, corn syrup, etc.).',
           notes: 'Prioritize "real food" without ingredient lists as the baseline strategy.',
         },
         {
@@ -85,33 +93,55 @@ export const messages = {
           description: 'Natural dried fruit used as sweetener',
           type: 'natural',
           score: 9,
-          positives: ['High in minerals and antioxidants', 'Contains aspirin-like compounds', 'Hard to overeat — satiating', 'Whole-food matrix slows sugar absorption'],
+          positives: [
+            'High in minerals and antioxidants',
+            'Contains aspirin-like compounds',
+            'Hard to overeat — satiating',
+            'Whole-food matrix slows sugar absorption',
+          ],
           negatives: ['Still contains fructose', 'Excess can contribute to weight gain'],
           warning: 'Moderation needed; not a free pass',
-          consumption: 'Use 1–3 dates as a sweetener substitute in smoothies, energy balls, or eaten whole as a snack. Whole form strongly preferred over date sugar.',
-          notes: 'Whole dates preferred over any processed form. The fiber and mineral content make this the top pick among natural sweeteners.',
+          consumption:
+            'Use 1–3 dates as a sweetener substitute in smoothies, energy balls, or eaten whole as a snack. Whole form strongly preferred over date sugar.',
+          notes:
+            'Whole dates preferred over any processed form. The fiber and mineral content make this the top pick among natural sweeteners.',
         },
         {
           name: 'Raw Honey',
           description: 'Natural sweetener produced by bees',
           type: 'natural',
           score: 7,
-          positives: ['Contains antioxidants and anti-inflammatory compounds', 'Harder to overconsume than refined sugar', 'Long history of traditional medicinal use'],
+          positives: [
+            'Contains antioxidants and anti-inflammatory compounds',
+            'Harder to overconsume than refined sugar',
+            'Long history of traditional medicinal use',
+          ],
           negatives: ['High sugar content', 'Calorie dense'],
           warning: 'Not ideal if managing obesity or blood sugar issues',
-          consumption: '1–2 tsp max in tea or food. Always raw/unfiltered — pasteurised honey loses most beneficial compounds. Fermented with garlic or spices for additional benefit.',
-          notes: 'Fermented honey with garlic and spices has been used as a traditional remedy across many cultures.',
+          consumption:
+            '1–2 tsp max in tea or food. Always raw/unfiltered — pasteurised honey loses most beneficial compounds. Fermented with garlic or spices for additional benefit.',
+          notes:
+            'Fermented honey with garlic and spices has been used as a traditional remedy across many cultures.',
         },
         {
           name: 'Glycine',
           description: 'Sweet-tasting amino acid used as a sugar substitute',
           type: 'amino',
           score: 7,
-          positives: ['No sugar metabolism — does not spike blood glucose', 'Calming and sleep-supportive', 'Can replace sugar 1:1 in recipes'],
-          negatives: ['Clumps easily in humid conditions', 'Rare reports of anxiety or vivid dreams with long-term isolated use'],
+          positives: [
+            'No sugar metabolism — does not spike blood glucose',
+            'Calming and sleep-supportive',
+            'Can replace sugar 1:1 in recipes',
+          ],
+          negatives: [
+            'Clumps easily in humid conditions',
+            'Rare reports of anxiety or vivid dreams with long-term isolated use',
+          ],
           warning: 'Avoid excessive or long-term use in isolation',
-          consumption: 'Use in the evening — calming properties complement wind-down routines. 1–3g in tea or food. Available as a powder; store in dry conditions.',
-          notes: 'Unique among sweeteners in that it has no glycemic impact and may actively support sleep quality.',
+          consumption:
+            'Use in the evening — calming properties complement wind-down routines. 1–3g in tea or food. Available as a powder; store in dry conditions.',
+          notes:
+            'Unique among sweeteners in that it has no glycemic impact and may actively support sleep quality.',
         },
         {
           name: 'Processed Date Sugar',
@@ -121,41 +151,70 @@ export const messages = {
           positives: ['Better than refined sugar', 'Retains some date-derived nutrients'],
           negatives: ['Loses nutritional value vs whole dates', 'Still a processed product'],
           warning: 'Less beneficial than eating whole dates',
-          consumption: 'Use as a 1:1 substitute for refined sugar in baking when whole dates are impractical. A reasonable compromise — not the ideal.',
-          notes: 'Whole-food form is always strongly preferred. Use processed date sugar only when the whole fruit form is impractical.',
+          consumption:
+            'Use as a 1:1 substitute for refined sugar in baking when whole dates are impractical. A reasonable compromise — not the ideal.',
+          notes:
+            'Whole-food form is always strongly preferred. Use processed date sugar only when the whole fruit form is impractical.',
         },
         {
           name: 'Monk Fruit',
           description: 'Sweet extract from monk fruit (luo han guo)',
           type: 'natural',
           score: 6,
-          positives: ['No known metabolic issues', 'No blood sugar impact', 'No known cancer associations'],
-          negatives: ['Still activates sweet taste receptors — may sustain cravings', 'Limited EU availability'],
+          positives: [
+            'No known metabolic issues',
+            'No blood sugar impact',
+            'No known cancer associations',
+          ],
+          negatives: [
+            'Still activates sweet taste receptors — may sustain cravings',
+            'Limited EU availability',
+          ],
           warning: 'Not approved in the EU yet — check local regulations',
-          consumption: 'Use sparingly in beverages or baking. Start with ¼ of the amount you would use for sugar — it is significantly sweeter. EU approval predicted around 2026.',
-          notes: 'Among the cleanest profiles of any high-intensity sweetener. Availability is the main limitation in Europe.',
+          consumption:
+            'Use sparingly in beverages or baking. Start with ¼ of the amount you would use for sugar — it is significantly sweeter. EU approval predicted around 2026.',
+          notes:
+            'Among the cleanest profiles of any high-intensity sweetener. Availability is the main limitation in Europe.',
         },
         {
           name: 'Stevia',
           description: 'Plant-based high-intensity sweetener from Stevia rebaudiana',
           type: 'natural',
           score: 5,
-          positives: ['Better study profile than most artificial sweeteners', 'Natural botanical origin', 'Zero glycemic impact'],
-          negatives: ['Bitter or metallic aftertaste for many people', 'May cause GI issues or blood sugar variability in some individuals'],
+          positives: [
+            'Better study profile than most artificial sweeteners',
+            'Natural botanical origin',
+            'Zero glycemic impact',
+          ],
+          negatives: [
+            'Bitter or metallic aftertaste for many people',
+            'May cause GI issues or blood sugar variability in some individuals',
+          ],
           warning: 'Individual tolerance varies — test carefully',
-          consumption: 'Use minimally in coffee or tea. Avoid products that blend stevia with maltodextrin or other fillers. Pure stevia extract only. Best considered a transitional tool, not a long-term default.',
-          notes: 'Considered the best among commonly available artificial sweeteners, but still activates sweetness receptors — the core issue.',
+          consumption:
+            'Use minimally in coffee or tea. Avoid products that blend stevia with maltodextrin or other fillers. Pure stevia extract only. Best considered a transitional tool, not a long-term default.',
+          notes:
+            'Considered the best among commonly available artificial sweeteners, but still activates sweetness receptors — the core issue.',
         },
         {
           name: 'Sugar Alcohols',
           description: 'Carbohydrate alcohols: xylitol, erythritol, maltitol, sorbitol, etc.',
           type: 'alcohol',
           score: 4,
-          positives: ['Lower glycemic impact than sugar', 'Usable in baking', 'Erythritol best tolerated of the group'],
-          negatives: ['GI distress at moderate doses (diarrhea, cramps, bloating)', 'Possible cardiovascular risk correlation in some research'],
+          positives: [
+            'Lower glycemic impact than sugar',
+            'Usable in baking',
+            'Erythritol best tolerated of the group',
+          ],
+          negatives: [
+            'GI distress at moderate doses (diarrhea, cramps, bloating)',
+            'Possible cardiovascular risk correlation in some research',
+          ],
           warning: 'Not suitable for sensitive digestion; CV risk data still emerging',
-          consumption: 'If used, choose erythritol over others — it has the lowest GI impact and better gut tolerance. Limit to small amounts; avoid daily use. Never use maltitol.',
-          notes: 'Individual tolerance varies widely. Some people have zero GI issues; others experience severe discomfort with even small amounts.',
+          consumption:
+            'If used, choose erythritol over others — it has the lowest GI impact and better gut tolerance. Limit to small amounts; avoid daily use. Never use maltitol.',
+          notes:
+            'Individual tolerance varies widely. Some people have zero GI issues; others experience severe discomfort with even small amounts.',
         },
         {
           name: 'Sucralose',
@@ -163,32 +222,56 @@ export const messages = {
           type: 'artificial',
           score: 3,
           positives: ['Very sweet — tiny amounts needed', 'Zero calories'],
-          negatives: ['Disrupts gut microbiome (animal + anecdotal human data)', 'Associated with bloating and inflammation', 'Chlorine-modified compound with unclear long-term effects'],
+          negatives: [
+            'Disrupts gut microbiome (animal + anecdotal human data)',
+            'Associated with bloating and inflammation',
+            'Chlorine-modified compound with unclear long-term effects',
+          ],
           warning: 'Avoid daily or high-intake use',
-          consumption: 'Occasional use considered low risk. Avoid as a daily habit. Do not heat — sucralose can degrade into potentially harmful compounds at high temperatures.',
-          notes: 'Not recommended for regular use. If you must use an artificial sweetener occasionally, stevia or monk fruit are better choices.',
+          consumption:
+            'Occasional use considered low risk. Avoid as a daily habit. Do not heat — sucralose can degrade into potentially harmful compounds at high temperatures.',
+          notes:
+            'Not recommended for regular use. If you must use an artificial sweetener occasionally, stevia or monk fruit are better choices.',
         },
         {
           name: 'Aspartame',
-          description: 'Artificial sweetener: phenylalanine + aspartic acid + methanol breakdown products',
+          description:
+            'Artificial sweetener: phenylalanine + aspartic acid + methanol breakdown products',
           type: 'artificial',
           score: 2,
           positives: ['Very sweet; low calories'],
-          negatives: ['Animal studies suggest brain inflammation and neurological effects', 'Associated with migraines', 'Unnatural taste perception for many', 'Conflicting but concerning science body'],
+          negatives: [
+            'Animal studies suggest brain inflammation and neurological effects',
+            'Associated with migraines',
+            'Unnatural taste perception for many',
+            'Conflicting but concerning science body',
+          ],
           warning: 'Avoid long-term use entirely',
-          consumption: 'Avoid. If unavoidable in a social setting, treat as a rare exception — not a daily substitute. Do not give to children.',
-          notes: 'WHO classifies aspartame as "possibly carcinogenic." The phenylalanine and aspartic acid components are excitatory — potentially neurotoxic at chronic doses.',
+          consumption:
+            'Avoid. If unavoidable in a social setting, treat as a rare exception — not a daily substitute. Do not give to children.',
+          notes:
+            'WHO classifies aspartame as "possibly carcinogenic." The phenylalanine and aspartic acid components are excitatory — potentially neurotoxic at chronic doses.',
         },
         {
           name: 'Acesulfame K (E950)',
           description: 'Artificial high-intensity sweetener (~200× sweeter than sugar)',
           type: 'artificial',
           score: 3,
-          positives: ['Zero calories', 'Heat-stable; suitable for baking', 'Widely approved globally'],
-          negatives: ['Bitter aftertaste', 'Often combined with other sweeteners to mask taste', 'Possible gut microbiome concerns'],
+          positives: [
+            'Zero calories',
+            'Heat-stable; suitable for baking',
+            'Widely approved globally',
+          ],
+          negatives: [
+            'Bitter aftertaste',
+            'Often combined with other sweeteners to mask taste',
+            'Possible gut microbiome concerns',
+          ],
           warning: 'Not suitable as a daily staple',
-          consumption: 'Avoid where possible. Common in energy drinks (incl. Monster EU) and diet sodas — check labels.',
-          notes: 'Frequently stacked with aspartame or sucralose in commercial products. The combination does not improve the safety profile.',
+          consumption:
+            'Avoid where possible. Common in energy drinks (incl. Monster EU) and diet sodas — check labels.',
+          notes:
+            'Frequently stacked with aspartame or sucralose in commercial products. The combination does not improve the safety profile.',
         },
         {
           name: 'Aspartame–Acesulfame Salt (E962)',
@@ -196,7 +279,10 @@ export const messages = {
           type: 'artificial',
           score: 3,
           positives: ['Masks individual aftertastes', 'Very high sweetness intensity'],
-          negatives: ['Contains phenylalanine — unsafe for PKU', 'Inherits concerns from both component sweeteners'],
+          negatives: [
+            'Contains phenylalanine — unsafe for PKU',
+            'Inherits concerns from both component sweeteners',
+          ],
           warning: 'Avoid if PKU; same concerns as aspartame and acesulfame K',
           consumption: 'Avoid. Very common in soft drinks — read labels carefully.',
           notes: 'Blending the two does not eliminate their individual issues; it adds them.',
@@ -207,32 +293,51 @@ export const messages = {
           type: 'artificial',
           score: 3,
           positives: ['Zero calories', 'Long shelf life', 'Inexpensive'],
-          negatives: ['Metallic or bitter aftertaste', 'Historical cancer controversy (later largely dismissed in humans)', 'May alter gut microbiome'],
+          negatives: [
+            'Metallic or bitter aftertaste',
+            'Historical cancer controversy (later largely dismissed in humans)',
+            'May alter gut microbiome',
+          ],
           warning: 'Avoid high or daily intake',
-          consumption: 'Occasional use only. Found in some diet drinks and tabletop sweeteners — check labels.',
-          notes: 'Despite reassessment, it remains one of the least well-tolerated sweeteners organoleptically.',
+          consumption:
+            'Occasional use only. Found in some diet drinks and tabletop sweeteners — check labels.',
+          notes:
+            'Despite reassessment, it remains one of the least well-tolerated sweeteners organoleptically.',
         },
         {
           name: 'Cyclamate (E952)',
           description: 'Synthetic sweetener (30–50× sweeter than sugar)',
           type: 'artificial',
           score: 4,
-          positives: ['Heat-stable', 'Cheaper than most alternatives', 'Often blended with saccharin to improve taste'],
-          negatives: ['Banned in the US and some other countries', 'Weaker sweetness than other high-intensity options'],
+          positives: [
+            'Heat-stable',
+            'Cheaper than most alternatives',
+            'Often blended with saccharin to improve taste',
+          ],
+          negatives: [
+            'Banned in the US and some other countries',
+            'Weaker sweetness than other high-intensity options',
+          ],
           warning: 'ADI limits important; check local legal status',
           consumption: 'Avoid daily use. Often blended with saccharin in tabletop sweeteners.',
-          notes: 'Still approved in the EU and many other markets. The US ban since 1969 remains in place pending further review.',
+          notes:
+            'Still approved in the EU and many other markets. The US ban since 1969 remains in place pending further review.',
         },
         {
           name: 'Neotame (E961)',
           description: 'Ultra-potent artificial sweetener (7,000–13,000× sweeter than sugar)',
           type: 'artificial',
           score: 2,
-          positives: ['Tiny doses required', 'Heat-stable', 'Does not require PKU labelling unlike aspartame'],
+          positives: [
+            'Tiny doses required',
+            'Heat-stable',
+            'Does not require PKU labelling unlike aspartame',
+          ],
           negatives: ['Very synthetic', 'Lingering sweetness', 'Limited long-term human data'],
           warning: 'Long-term effects unclear',
           consumption: 'Avoid. Rarely encountered in retail — mostly in processed foods.',
-          notes: 'Structurally related to aspartame but metabolised differently. Lacks sufficient independent safety data.',
+          notes:
+            'Structurally related to aspartame but metabolised differently. Lacks sufficient independent safety data.',
         },
         {
           name: 'Advantame (E969)',
@@ -243,18 +348,29 @@ export const messages = {
           negatives: ['Highly artificial', 'Very limited real-world human data'],
           warning: 'Not well studied long-term',
           consumption: 'Avoid. Primarily industrial use — unlikely to appear on retail labels.',
-          notes: 'One of the newest approved sweeteners. Essentially no independent long-term safety evidence exists.',
+          notes:
+            'One of the newest approved sweeteners. Essentially no independent long-term safety evidence exists.',
         },
         {
           name: 'Thaumatin (E957)',
           description: 'Sweet protein extracted from the katemfe fruit (West Africa)',
           type: 'protein',
           score: 6,
-          positives: ['Natural origin', 'No blood sugar impact', 'Also functions as a flavour enhancer'],
-          negatives: ['Expensive', 'Unusual lingering flavour profile', 'Rare allergic reactions possible'],
+          positives: [
+            'Natural origin',
+            'No blood sugar impact',
+            'Also functions as a flavour enhancer',
+          ],
+          negatives: [
+            'Expensive',
+            'Unusual lingering flavour profile',
+            'Rare allergic reactions possible',
+          ],
           warning: 'Rare allergies possible',
-          consumption: 'Mainly encountered as a flavour modifier, not a bulk sweetener. Use incidentally where present.',
-          notes: 'One of the few sweet proteins approved for use. More commonly used to mask bitterness than to sweeten.',
+          consumption:
+            'Mainly encountered as a flavour modifier, not a bulk sweetener. Use incidentally where present.',
+          notes:
+            'One of the few sweet proteins approved for use. More commonly used to mask bitterness than to sweeten.',
         },
         {
           name: 'Neohesperidin DC (E959)',
@@ -262,10 +378,15 @@ export const messages = {
           type: 'flavonoid',
           score: 5,
           positives: ['Non-cariogenic', 'Plant-derived', 'Useful for masking bitterness'],
-          negatives: ['Alters flavour perception at higher doses', 'Niche — limited standalone use'],
+          negatives: [
+            'Alters flavour perception at higher doses',
+            'Niche — limited standalone use',
+          ],
           warning: 'Not suitable as a standalone sweetener at typical doses',
-          consumption: 'Rarely encountered in retail. Primarily used by food manufacturers to balance bitter notes.',
-          notes: 'More a functional flavour tool than a true sweetener. Derived from citrus bioflavonoids.',
+          consumption:
+            'Rarely encountered in retail. Primarily used by food manufacturers to balance bitter notes.',
+          notes:
+            'More a functional flavour tool than a true sweetener. Derived from citrus bioflavonoids.',
         },
         {
           name: 'Mannitol (E421)',
@@ -275,19 +396,30 @@ export const messages = {
           positives: ['Tooth-friendly', 'Low glycemic impact', 'Slow absorption'],
           negatives: ['Laxative effect at moderate doses', 'Bloating and gas common'],
           warning: 'GI intolerance common; do not exceed ~20g/day',
-          consumption: 'Incidental exposure via gum and candies is low risk. Avoid concentrated sources.',
-          notes: 'Common in chewing gum and sugar-free sweets. The laxative threshold is lower than some other polyols.',
+          consumption:
+            'Incidental exposure via gum and candies is low risk. Avoid concentrated sources.',
+          notes:
+            'Common in chewing gum and sugar-free sweets. The laxative threshold is lower than some other polyols.',
         },
         {
           name: 'Isomalt (E953)',
           description: 'Sugar alcohol derived from beet sugar; widely used in confectionery',
           type: 'alcohol',
           score: 4,
-          positives: ['Heat-stable — popular in sugar work and hard candy', 'Tooth-friendly', 'Low glycemic impact'],
-          negatives: ['Gas and diarrhea at higher intakes', 'Lower sweetness than sugar (needs more to match)'],
+          positives: [
+            'Heat-stable — popular in sugar work and hard candy',
+            'Tooth-friendly',
+            'Low glycemic impact',
+          ],
+          negatives: [
+            'Gas and diarrhea at higher intakes',
+            'Lower sweetness than sugar (needs more to match)',
+          ],
           warning: 'Not suitable for sensitive digestion',
-          consumption: 'Low exposure from occasional sugar-free sweets is generally tolerable. Avoid large amounts.',
-          notes: 'Particularly popular in artisan confectionery and decorative sugar work due to its heat stability.',
+          consumption:
+            'Low exposure from occasional sugar-free sweets is generally tolerable. Avoid large amounts.',
+          notes:
+            'Particularly popular in artisan confectionery and decorative sugar work due to its heat stability.',
         },
         {
           name: 'Lactitol (E966)',
@@ -295,10 +427,15 @@ export const messages = {
           type: 'alcohol',
           score: 3,
           positives: ['Lower calories than sugar', 'Mild, clean sweetness'],
-          negatives: ['Strong laxative effect even at moderate doses', 'Not suitable for lactose-intolerant individuals'],
+          negatives: [
+            'Strong laxative effect even at moderate doses',
+            'Not suitable for lactose-intolerant individuals',
+          ],
           warning: 'Avoid in IBS or sensitive digestion',
-          consumption: 'Avoid seeking it out. Found in some sugar-free chocolate — keep portions small.',
-          notes: 'Has a prebiotic-like effect in the colon, which is the source of both the laxative effect and some putative gut benefits.',
+          consumption:
+            'Avoid seeking it out. Found in some sugar-free chocolate — keep portions small.',
+          notes:
+            'Has a prebiotic-like effect in the colon, which is the source of both the laxative effect and some putative gut benefits.',
         },
         {
           name: 'Polyglycitol Syrup (E964)',
@@ -308,14 +445,17 @@ export const messages = {
           positives: ['Provides bulk and texture', 'Lower glycemic impact than sugar'],
           negatives: ['Digestive distress possible', 'Blended nature makes dosing harder to gauge'],
           warning: 'Portion control critical',
-          consumption: 'Found in "sugar-free" candy and baked goods. Limit intake — GI effects accumulate with other polyols.',
-          notes: 'A blend of hydrogenated glucose syrups. Effects depend on the specific composition of the batch.',
+          consumption:
+            'Found in "sugar-free" candy and baked goods. Limit intake — GI effects accumulate with other polyols.',
+          notes:
+            'A blend of hydrogenated glucose syrups. Effects depend on the specific composition of the batch.',
         },
       ],
     },
     preservatives: {
       title: 'Preservative Protocol',
-      intro: 'Preservatives extend shelf life — but most come with trade-offs. All scores are absolute; even the least harmful options are not healthy.',
+      intro:
+        'Preservatives extend shelf life — but most come with trade-offs. All scores are absolute; even the least harmful options are not healthy.',
       principles: [
         'Preservatives ≠ nutrients — all are trade-offs',
         'Nitrites, sulfites, BHA/BHT are the worst offenders',
@@ -341,7 +481,8 @@ export const messages = {
           negatives: ['Can form benzene with vitamin C', 'Linked to hyperactivity in children'],
           warning: 'Avoid with acidic drinks',
           consumption: 'Avoid where possible. Common in soft drinks and sauces — check labels.',
-          notes: 'The benzene-forming reaction with ascorbic acid (E300) is a known concern in acidic beverages.',
+          notes:
+            'The benzene-forming reaction with ascorbic acid (E300) is a known concern in acidic beverages.',
         },
         {
           name: 'Potassium Sorbate (E202)',
@@ -352,7 +493,8 @@ export const messages = {
           negatives: ['May irritate gut & skin', 'Affects microbiome with regular use'],
           warning: 'Avoid daily intake',
           consumption: 'Limit exposure. Found in cheeses, dips, and baked goods.',
-          notes: 'Considered one of the less harmful synthetic preservatives, but still not benign at high frequency.',
+          notes:
+            'Considered one of the less harmful synthetic preservatives, but still not benign at high frequency.',
         },
         {
           name: 'Calcium Propionate (E282)',
@@ -360,9 +502,14 @@ export const messages = {
           type: 'synthetic',
           score: 2,
           positives: ['Prevents spoilage in bread'],
-          negatives: ['Linked to headaches', 'Irritability in children', 'Neurobehavioral concerns'],
+          negatives: [
+            'Linked to headaches',
+            'Irritability in children',
+            'Neurobehavioral concerns',
+          ],
           warning: 'Neurobehavioral concerns — especially for children',
-          consumption: 'Limit bread and baked goods containing this additive. Choose sourdough when possible.',
+          consumption:
+            'Limit bread and baked goods containing this additive. Choose sourdough when possible.',
           notes: 'Very common in commercial bread — read labels carefully.',
         },
         {
@@ -382,7 +529,11 @@ export const messages = {
           type: 'sulfite',
           score: 1,
           positives: ['Strong antimicrobial action'],
-          negatives: ['Destroys vitamin B1', 'Allergic reactions common', 'Hidden in many processed foods'],
+          negatives: [
+            'Destroys vitamin B1',
+            'Allergic reactions common',
+            'Hidden in many processed foods',
+          ],
           warning: 'High allergy risk',
           consumption: 'Avoid. Often hidden in processed foods under generic "sulfites" labelling.',
           notes: 'Frequently used in seafood, dried fruit, and beer production.',
@@ -395,7 +546,8 @@ export const messages = {
           positives: ['Prevents botulism in cured meats'],
           negatives: ['Forms nitrosamines (carcinogenic)', 'Strong cancer association'],
           warning: 'Strong cancer association — limit cured meat intake',
-          consumption: 'Limit cured and processed meats significantly. Prefer unprocessed fresh meat.',
+          consumption:
+            'Limit cured and processed meats significantly. Prefer unprocessed fresh meat.',
           notes: 'IARC classifies processed meat (which contains nitrites) as Group 1 carcinogen.',
         },
         {
@@ -439,7 +591,8 @@ export const messages = {
           positives: ['Very effective antioxidant at low doses'],
           negatives: ['Neurotoxicity concerns', 'Banned in many food categories'],
           warning: 'Banned in most EU foods — mostly animal feed now',
-          consumption: 'Avoid. Primarily found in animal feed; avoid fish meal products if concerned.',
+          consumption:
+            'Avoid. Primarily found in animal feed; avoid fish meal products if concerned.',
           notes: 'No longer permitted in EU food for humans in most categories.',
         },
         {
@@ -450,7 +603,8 @@ export const messages = {
           positives: ['Natural origin', 'Antimicrobial', 'Long history of safe use'],
           negatives: ['Can irritate stomach in excess'],
           warning: 'Acid sensitivity — not suitable for everyone in large amounts',
-          consumption: 'Generally safe. Found naturally in vinegar — one of the least harmful preservatives.',
+          consumption:
+            'Generally safe. Found naturally in vinegar — one of the least harmful preservatives.',
           notes: 'One of the safest options. Traditional use as vinegar dates back millennia.',
         },
         {
@@ -462,7 +616,8 @@ export const messages = {
           negatives: ['Acidic — potential enamel erosion at high exposure'],
           warning: 'Dental caution with frequent acidic food consumption',
           consumption: 'Generally well tolerated. Present naturally in yogurt and fermented foods.',
-          notes: 'Produced by beneficial bacteria during fermentation — one of the least harmful options.',
+          notes:
+            'Produced by beneficial bacteria during fermentation — one of the least harmful options.',
         },
         {
           name: 'Citric Acid (E330)',
@@ -470,10 +625,15 @@ export const messages = {
           type: 'acid',
           score: 3,
           positives: ['Natural origin', 'Antioxidant properties'],
-          negatives: ['Tooth erosion with frequent exposure', 'Gut irritation in excess', 'Not always citrus-derived — often mold-fermented'],
+          negatives: [
+            'Tooth erosion with frequent exposure',
+            'Gut irritation in excess',
+            'Not always citrus-derived — often mold-fermented',
+          ],
           warning: 'Overused in drinks — can erode enamel',
           consumption: 'Moderate exposure acceptable. Watch frequency in acidic beverages.',
-          notes: 'Commercially produced via fungal fermentation (Aspergillus niger), not necessarily from citrus fruit.',
+          notes:
+            'Commercially produced via fungal fermentation (Aspergillus niger), not necessarily from citrus fruit.',
         },
         {
           name: 'Ascorbic Acid (E300)',
@@ -483,7 +643,8 @@ export const messages = {
           positives: ['Antioxidant', 'Essential nutrient', 'One of the best preservative options'],
           negatives: ['Can interact with benzoates to form benzene'],
           warning: 'Watch combinations with sodium benzoate in acidic drinks',
-          consumption: 'Generally beneficial. Check it is not combined with E211 in the same product.',
+          consumption:
+            'Generally beneficial. Check it is not combined with E211 in the same product.',
           notes: 'One of the few preservatives that also has genuine nutritional value.',
         },
         {
@@ -501,7 +662,8 @@ export const messages = {
     },
     emulsifiers: {
       title: 'Emulsifier Protocol',
-      intro: 'Emulsifiers bind oil and water — but emerging research links several to gut barrier damage and metabolic disruption. All scores are absolute.',
+      intro:
+        'Emulsifiers bind oil and water — but emerging research links several to gut barrier damage and metabolic disruption. All scores are absolute.',
       principles: [
         'Emulsifiers affect gut integrity more than preservatives',
         'Strong evidence links E433, E466, E407 to gut barrier damage',
@@ -535,10 +697,15 @@ export const messages = {
           type: 'natural',
           score: 2,
           positives: ['Improves shelf life and mouthfeel'],
-          negatives: ['Often industrial trans-fat related', 'Metabolic concerns', 'Very common in baked goods'],
+          negatives: [
+            'Often industrial trans-fat related',
+            'Metabolic concerns',
+            'Very common in baked goods',
+          ],
           warning: 'Avoid frequent intake — potential trans-fat residues',
           consumption: 'Limit. Common in commercial bread and pastries.',
-          notes: 'Can contain trans fats that do not need to be declared separately under EU labelling rules.',
+          notes:
+            'Can contain trans fats that do not need to be declared separately under EU labelling rules.',
         },
         {
           name: 'Polysorbate 80 (E433)',
@@ -546,7 +713,11 @@ export const messages = {
           type: 'synthetic',
           score: 1,
           positives: ['Highly effective emulsification'],
-          negatives: ['Disrupts gut barrier', 'Alters microbiome composition (animal data)', 'Chronic exposure concern'],
+          negatives: [
+            'Disrupts gut barrier',
+            'Alters microbiome composition (animal data)',
+            'Chronic exposure concern',
+          ],
           warning: 'Avoid chronic exposure — significant gut concerns',
           consumption: 'Avoid where possible. Found in ice cream, sauces, and some medications.',
           notes: 'Among the most concerning emulsifiers for gut health based on current evidence.',
@@ -557,7 +728,11 @@ export const messages = {
           type: 'synthetic',
           score: 1,
           positives: ['Texture stabilisation'],
-          negatives: ['Linked to gut inflammation', 'Metabolic syndrome associations', 'Strong microbiome concerns'],
+          negatives: [
+            'Linked to gut inflammation',
+            'Metabolic syndrome associations',
+            'Strong microbiome concerns',
+          ],
           warning: 'Strong microbiome concerns — avoid in "low-fat" products',
           consumption: 'Avoid. Common in "low-fat" dairy and sauces.',
           notes: 'Human trials (not just animal data) have shown microbiome disruption.',
@@ -568,10 +743,15 @@ export const messages = {
           type: 'seaweed',
           score: 1,
           positives: ['Natural seaweed origin'],
-          negatives: ['Gut inflammation', 'Degraded form (poligeenan) highly problematic', 'Avoid if gut-sensitive'],
+          negatives: [
+            'Gut inflammation',
+            'Degraded form (poligeenan) highly problematic',
+            'Avoid if gut-sensitive',
+          ],
           warning: 'Avoid if gut-sensitive or inflammatory conditions present',
           consumption: 'Avoid. Choose plant milks without carrageenan.',
-          notes: 'Degraded carrageenan (poligeenan) is a known inflammatory agent; food-grade may partially degrade in the gut.',
+          notes:
+            'Degraded carrageenan (poligeenan) is a known inflammatory agent; food-grade may partially degrade in the gut.',
         },
         {
           name: 'Locust Bean Gum (E410)',
@@ -603,7 +783,8 @@ export const messages = {
           positives: ['Stable across temperatures', 'Useful in gluten-free products'],
           negatives: ['GI distress at higher amounts', 'Ultra-processed marker'],
           warning: 'Avoid large quantities',
-          consumption: 'Low exposure acceptable. Avoid products that list it early in the ingredients.',
+          consumption:
+            'Low exposure acceptable. Avoid products that list it early in the ingredients.',
           notes: 'Produced via bacterial fermentation. Ubiquitous in ultra-processed foods.',
         },
         {
@@ -622,7 +803,11 @@ export const messages = {
           description: 'Seaweed-derived gelling agent',
           type: 'seaweed',
           score: 4,
-          positives: ['Traditional use', 'Non-toxic at normal doses', 'One of the safer stabilizers'],
+          positives: [
+            'Traditional use',
+            'Non-toxic at normal doses',
+            'One of the safer stabilizers',
+          ],
           negatives: ['Laxative effect in excess'],
           warning: 'Ensure adequate hydration when consuming agar-rich foods',
           consumption: 'Generally safe. Traditional use in Asian cuisines is a good reference.',
@@ -633,7 +818,11 @@ export const messages = {
           description: 'Fruit-derived gelling agent used in jams',
           type: 'natural',
           score: 4,
-          positives: ['Natural fruit origin', 'Prebiotic-like gut effects', 'Used in jams and jellies'],
+          positives: [
+            'Natural fruit origin',
+            'Prebiotic-like gut effects',
+            'Used in jams and jellies',
+          ],
           negatives: ['Can cause bloating at high doses'],
           warning: 'Sensitive digestion — watch total intake',
           consumption: 'Generally well tolerated. One of the better options.',
@@ -648,7 +837,8 @@ export const messages = {
           negatives: ['Highly processed', 'Glycemic impact', 'Not whole-food'],
           warning: 'Not whole-food — common in sauces and ready meals',
           consumption: 'Limit processed foods relying heavily on modified starches.',
-          notes: 'Broad category — some modifications are milder than others, but all are ultra-processed.',
+          notes:
+            'Broad category — some modifications are milder than others, but all are ultra-processed.',
         },
         {
           name: 'Sodium Alginate (E401)',
@@ -677,7 +867,11 @@ export const messages = {
           description: 'Fat-soluble form of vitamin C used as antioxidant and emulsifier',
           type: 'natural',
           score: 3,
-          positives: ['Vitamin C derivative', 'Antioxidant properties', 'Protects fats from oxidation'],
+          positives: [
+            'Vitamin C derivative',
+            'Antioxidant properties',
+            'Protects fats from oxidation',
+          ],
           negatives: ['Synthetic processing', 'High doses may cause GI upset'],
           warning: 'Generally regarded as safe in typical food amounts',
           consumption: 'Acceptable in moderate amounts. Found in fats, oils, and processed foods.',
@@ -689,10 +883,15 @@ export const messages = {
           type: 'synthetic',
           score: 2,
           positives: ['Effective emulsification', 'Improves texture in processed cheese'],
-          negatives: ['Excess phosphate disrupts calcium/phosphate balance', 'Kidney strain at high intake', 'Common in ultra-processed foods'],
+          negatives: [
+            'Excess phosphate disrupts calcium/phosphate balance',
+            'Kidney strain at high intake',
+            'Common in ultra-processed foods',
+          ],
           warning: 'Limit total phosphate intake — especially with kidney issues',
           consumption: 'Avoid frequent exposure. Common in processed cheese and meat products.',
-          notes: 'Phosphate additives are often overlooked but collectively contribute significantly to dietary phosphate load.',
+          notes:
+            'Phosphate additives are often overlooked but collectively contribute significantly to dietary phosphate load.',
         },
         {
           name: 'Potassium Phosphate (E340)',
@@ -700,10 +899,15 @@ export const messages = {
           type: 'synthetic',
           score: 2,
           positives: ['Effective pH control', 'Stabilises emulsions'],
-          negatives: ['Phosphate overload risk', 'Kidney strain', 'Often combined with other phosphates'],
+          negatives: [
+            'Phosphate overload risk',
+            'Kidney strain',
+            'Often combined with other phosphates',
+          ],
           warning: 'Limit — particularly alongside other phosphate additives',
           consumption: 'Avoid in processed products where multiple phosphate additives are listed.',
-          notes: 'Similar concerns to sodium phosphate (E339). Cumulative phosphate intake matters.',
+          notes:
+            'Similar concerns to sodium phosphate (E339). Cumulative phosphate intake matters.',
         },
         {
           name: 'Salts of Fatty Acids (E470)',
@@ -713,7 +917,8 @@ export const messages = {
           positives: ['Derived from natural fats', 'Effective anti-caking and emulsification'],
           negatives: ['Source fat quality varies', 'May include animal-derived fats'],
           warning: 'Check for animal origin if relevant to your diet',
-          consumption: 'Generally tolerable in typical amounts. Found in baked goods and confectionery.',
+          consumption:
+            'Generally tolerable in typical amounts. Found in baked goods and confectionery.',
           notes: 'Broad category — quality depends on the origin of the fatty acids used.',
         },
         {
@@ -722,7 +927,11 @@ export const messages = {
           type: 'synthetic',
           score: 1,
           positives: ['Improves dough stability', 'Effective at low concentrations'],
-          negatives: ['Derived from processed fats', 'Possible trans-fat residues', 'Ultra-processed marker'],
+          negatives: [
+            'Derived from processed fats',
+            'Possible trans-fat residues',
+            'Ultra-processed marker',
+          ],
           warning: 'Avoid frequent intake — same concerns as E471',
           consumption: 'Limit. Common in commercial baked goods.',
           notes: 'Modified form of E471 — similar metabolic concerns apply.',
@@ -736,7 +945,8 @@ export const messages = {
           negatives: ['Processed fat origin', 'May contain trans-fat residues'],
           warning: 'Limit in everyday products',
           consumption: 'Limit. Found in commercial bread, margarine, and pastries.',
-          notes: 'Lactic acid component is generally benign, but the glyceride base carries the same concerns as E471.',
+          notes:
+            'Lactic acid component is generally benign, but the glyceride base carries the same concerns as E471.',
         },
         {
           name: 'Citric Acid Esters of Mono- and Diglycerides (E472c)',
@@ -747,7 +957,8 @@ export const messages = {
           negatives: ['Processed fat base', 'Industrial production'],
           warning: 'Limit in everyday use',
           consumption: 'Moderate exposure tolerable. Found in margarine and spreads.',
-          notes: 'Citric acid is a natural component, but the fatty acid base warrants the same caution as E471.',
+          notes:
+            'Citric acid is a natural component, but the fatty acid base warrants the same caution as E471.',
         },
         {
           name: 'Tartaric Acid Esters of Mono- and Diglycerides (E472d)',
@@ -766,10 +977,15 @@ export const messages = {
           type: 'synthetic',
           score: 1,
           positives: ['Very effective dough strengthening', 'Improves bread volume'],
-          negatives: ['Highly processed', 'Trans-fat residues possible', 'Very common in industrial bread'],
+          negatives: [
+            'Highly processed',
+            'Trans-fat residues possible',
+            'Very common in industrial bread',
+          ],
           warning: 'Avoid in daily bread — choose sourdough or short-ingredient-list alternatives',
           consumption: 'Avoid where possible. Very common in commercial bread and rolls.',
-          notes: 'One of the most common emulsifiers in industrial bread. A key indicator of ultra-processed baking.',
+          notes:
+            'One of the most common emulsifiers in industrial bread. A key indicator of ultra-processed baking.',
         },
         {
           name: 'Mixed Tartaric and Acetic Acid Esters of Mono- and Diglycerides (E472f)',
@@ -780,7 +996,8 @@ export const messages = {
           negatives: ['Highly processed', 'Industrial fat origin'],
           warning: 'Limit — same concerns as other E472 variants',
           consumption: 'Limit. Found in commercial baked goods and confectionery.',
-          notes: 'Combination of E472a and E472d properties. Cumulative exposure with other E472 additives matters.',
+          notes:
+            'Combination of E472a and E472d properties. Cumulative exposure with other E472 additives matters.',
         },
         {
           name: 'Sucrose Esters of Fatty Acids (E473)',
@@ -788,9 +1005,14 @@ export const messages = {
           type: 'synthetic',
           score: 2,
           positives: ['Can be made from natural sugars and fats', 'Effective at low doses'],
-          negatives: ['Industrial synthesis', 'GI discomfort at higher doses', 'Often in low-fat products'],
+          negatives: [
+            'Industrial synthesis',
+            'GI discomfort at higher doses',
+            'Often in low-fat products',
+          ],
           warning: 'Moderate caution — especially in low-fat products',
-          consumption: 'Occasional exposure acceptable. Watch total intake in low-fat product heavy diets.',
+          consumption:
+            'Occasional exposure acceptable. Watch total intake in low-fat product heavy diets.',
           notes: 'Sometimes positioned as a "cleaner" emulsifier, but still industrially produced.',
         },
         {
@@ -802,7 +1024,8 @@ export const messages = {
           negatives: ['Industrial processing', 'Combined concerns of E471 and E473'],
           warning: 'Limit — combination product with multiple processing concerns',
           consumption: 'Limit. Found in baked goods and confectionery.',
-          notes: 'Less common than other emulsifiers. Combines the concerns of sucrose esters and glycerides.',
+          notes:
+            'Less common than other emulsifiers. Combines the concerns of sucrose esters and glycerides.',
         },
         {
           name: 'Polyglycerol Esters of Fatty Acids (E475)',
@@ -821,10 +1044,16 @@ export const messages = {
           type: 'synthetic',
           score: 0,
           positives: ['Reduces cocoa butter usage', 'Effective viscosity reducer'],
-          negatives: ['Castor oil derivative', 'Used to cheapen chocolate formulations', 'Not present in quality chocolate'],
+          negatives: [
+            'Castor oil derivative',
+            'Used to cheapen chocolate formulations',
+            'Not present in quality chocolate',
+          ],
           warning: 'Avoid — indicates low-quality chocolate or compound coating',
-          consumption: 'Avoid. Presence in chocolate is a sign of reduced cocoa butter and lower quality.',
-          notes: 'A key indicator of industrial chocolate. Quality chocolate uses only cocoa butter as per traditional recipes.',
+          consumption:
+            'Avoid. Presence in chocolate is a sign of reduced cocoa butter and lower quality.',
+          notes:
+            'A key indicator of industrial chocolate. Quality chocolate uses only cocoa butter as per traditional recipes.',
         },
         {
           name: 'Propylene Glycol Esters of Fatty Acids (E477)',
@@ -832,10 +1061,15 @@ export const messages = {
           type: 'synthetic',
           score: 1,
           positives: ['Effective aerating agent in cake batters'],
-          negatives: ['Propylene glycol component', 'Synthetic processing', 'Ultra-processed marker'],
+          negatives: [
+            'Propylene glycol component',
+            'Synthetic processing',
+            'Ultra-processed marker',
+          ],
           warning: 'Avoid frequent intake — synthetic emulsifier',
           consumption: 'Limit. Found in commercial cake mixes and whipped toppings.',
-          notes: 'Similar concerns to E405 (propylene glycol alginate) due to the propylene glycol component.',
+          notes:
+            'Similar concerns to E405 (propylene glycol alginate) due to the propylene glycol component.',
         },
       ],
     },
@@ -844,7 +1078,8 @@ export const messages = {
   de: {
     home: {
       title: 'Ernährungs-Wiki',
-      description: 'Die Lebensmittelindustrie arbeitet in einem Ausmaß, das die meisten Menschen nie sehen. Zusatzstoffe, Süßungsmittel, Konservierungsmittel, Emulgatoren – entwickelt für Haltbarkeit und Geschmack, nicht für Gesundheit. Dieses Wiki ist eine Übersicht darüber, was wirklich in dem steckt, was du konsumierst.',
+      description:
+        'Die Lebensmittelindustrie arbeitet in einem Ausmaß, das die meisten Menschen nie sehen. Zusatzstoffe, Süßungsmittel, Konservierungsmittel, Emulgatoren – entwickelt für Haltbarkeit und Geschmack, nicht für Gesundheit. Dieses Wiki ist eine Übersicht darüber, was wirklich in dem steckt, was du konsumierst.',
       guides: 'Übersichten',
       sweetenersBlurb: 'Bewertete Übersicht natürlicher & künstlicher Süßungsmittel',
       preservativesBlurb: 'Was Lebensmittel „frisch" hält – und zu welchem Preis',
@@ -873,7 +1108,8 @@ export const messages = {
       ocrError: 'Bild konnte nicht gelesen werden',
     },
     footer: {
-      disclaimer: 'Kein medizinischer Rat. Dieses Wiki dient ausschließlich zu Bildungszwecken. Konsultiere stets einen qualifizierten Arzt, bevor du deine Ernährung änderst.',
+      disclaimer:
+        'Kein medizinischer Rat. Dieses Wiki dient ausschließlich zu Bildungszwecken. Konsultiere stets einen qualifizierten Arzt, bevor du deine Ernährung änderst.',
     },
     ui: {
       principles: 'Grundsätze',
@@ -911,136 +1147,257 @@ export const messages = {
           name: 'Raffinierter Zucker',
           description: 'Industriezucker, weit verbreitet in verarbeiteten Lebensmitteln',
           positives: ['Günstig', 'Vertrauter Geschmack', 'Schnelle Energie'],
-          negatives: ['Entzündungsfördernd', 'Fördert Heißhunger', 'Versteckt in vielen verarbeiteten Lebensmitteln', 'Mit Stoffwechselproblemen verbunden'],
+          negatives: [
+            'Entzündungsfördernd',
+            'Fördert Heißhunger',
+            'Versteckt in vielen verarbeiteten Lebensmitteln',
+            'Mit Stoffwechselproblemen verbunden',
+          ],
           warning: 'Versteckten Zucker in verarbeiteten Lebensmitteln vermeiden',
-          consumption: 'Nach Möglichkeit vollständig vermeiden. Zutatenlisten prüfen — Zucker versteckt sich unter 50+ Namen (Dextrose, Maltose, Maissirup usw.).',
+          consumption:
+            'Nach Möglichkeit vollständig vermeiden. Zutatenlisten prüfen — Zucker versteckt sich unter 50+ Namen (Dextrose, Maltose, Maissirup usw.).',
           notes: 'Echte Lebensmittel ohne Zutatenlisten als Basisstrategie priorisieren.',
         },
         {
           name: 'Datteln (ganz)',
           description: 'Natürliche Trockenfrüchte als Süßungsmittel',
-          positives: ['Reich an Mineralien und Antioxidantien', 'Enthält aspirinähnliche Verbindungen', 'Schwer zu überessen — sättigend', 'Vollkornmatrix verlangsamt Zuckeraufnahme'],
-          negatives: ['Enthält noch Fructose', 'Übermäßiger Konsum kann zur Gewichtszunahme beitragen'],
+          positives: [
+            'Reich an Mineralien und Antioxidantien',
+            'Enthält aspirinähnliche Verbindungen',
+            'Schwer zu überessen — sättigend',
+            'Vollkornmatrix verlangsamt Zuckeraufnahme',
+          ],
+          negatives: [
+            'Enthält noch Fructose',
+            'Übermäßiger Konsum kann zur Gewichtszunahme beitragen',
+          ],
           warning: 'Maßhalten erforderlich; kein Freifahrschein',
-          consumption: '1–3 Datteln als Süßungsmittelersatz in Smoothies, Energy Balls oder ganz als Snack. Ganze Form dem Dattelzucker deutlich vorzuziehen.',
-          notes: 'Ganze Datteln jeder verarbeiteten Form vorzuziehen. Ballaststoff- und Mineralstoffgehalt machen sie zur besten natürlichen Süßungsoption.',
+          consumption:
+            '1–3 Datteln als Süßungsmittelersatz in Smoothies, Energy Balls oder ganz als Snack. Ganze Form dem Dattelzucker deutlich vorzuziehen.',
+          notes:
+            'Ganze Datteln jeder verarbeiteten Form vorzuziehen. Ballaststoff- und Mineralstoffgehalt machen sie zur besten natürlichen Süßungsoption.',
         },
         {
           name: 'Roher Honig',
           description: 'Natürliches Süßungsmittel von Bienen',
-          positives: ['Enthält Antioxidantien und entzündungshemmende Verbindungen', 'Schwerer zu überkonsumieren als raffinierter Zucker', 'Lange Tradition in der Volksmedizin'],
+          positives: [
+            'Enthält Antioxidantien und entzündungshemmende Verbindungen',
+            'Schwerer zu überkonsumieren als raffinierter Zucker',
+            'Lange Tradition in der Volksmedizin',
+          ],
           negatives: ['Hoher Zuckergehalt', 'Kalorienreich'],
           warning: 'Nicht ideal bei Adipositas oder Blutzuckerproblemen',
-          consumption: 'Maximal 1–2 TL in Tee oder Speisen. Immer roh/ungefiltert — pasteurisierter Honig verliert die meisten Wirkstoffe. Fermentiert mit Knoblauch oder Gewürzen für zusätzlichen Nutzen.',
-          notes: 'Fermentierter Honig mit Knoblauch und Gewürzen wird in vielen Kulturen traditionell als Heilmittel verwendet.',
+          consumption:
+            'Maximal 1–2 TL in Tee oder Speisen. Immer roh/ungefiltert — pasteurisierter Honig verliert die meisten Wirkstoffe. Fermentiert mit Knoblauch oder Gewürzen für zusätzlichen Nutzen.',
+          notes:
+            'Fermentierter Honig mit Knoblauch und Gewürzen wird in vielen Kulturen traditionell als Heilmittel verwendet.',
         },
         {
           name: 'Glycin',
           description: 'Süß schmeckende Aminosäure als Zuckerersatz',
-          positives: ['Kein Zuckerstoffwechsel — kein Blutzuckeranstieg', 'Beruhigend und schlaffördernd', 'Kann Zucker 1:1 in Rezepten ersetzen'],
-          negatives: ['Klumpt leicht bei Feuchtigkeit', 'Seltene Berichte über Angstzustände oder lebhafte Träume bei langfristiger isolierter Einnahme'],
+          positives: [
+            'Kein Zuckerstoffwechsel — kein Blutzuckeranstieg',
+            'Beruhigend und schlaffördernd',
+            'Kann Zucker 1:1 in Rezepten ersetzen',
+          ],
+          negatives: [
+            'Klumpt leicht bei Feuchtigkeit',
+            'Seltene Berichte über Angstzustände oder lebhafte Träume bei langfristiger isolierter Einnahme',
+          ],
           warning: 'Übermäßige oder langfristige isolierte Einnahme vermeiden',
-          consumption: 'Abends verwenden — beruhigende Wirkung ergänzt Abendroutinen. 1–3 g in Tee oder Speisen. Als Pulver erhältlich; trocken lagern.',
-          notes: 'Einzigartig unter den Süßungsmitteln: kein glykämischer Einfluss, kann aktiv die Schlafqualität unterstützen.',
+          consumption:
+            'Abends verwenden — beruhigende Wirkung ergänzt Abendroutinen. 1–3 g in Tee oder Speisen. Als Pulver erhältlich; trocken lagern.',
+          notes:
+            'Einzigartig unter den Süßungsmitteln: kein glykämischer Einfluss, kann aktiv die Schlafqualität unterstützen.',
         },
         {
           name: 'Verarbeiteter Dattelzucker',
           description: 'Industriell verarbeitetes Süßungsmittel aus Datteln',
-          positives: ['Besser als raffinierter Zucker', 'Behält einige aus Datteln stammende Nährstoffe'],
-          negatives: ['Verliert Nährwert gegenüber ganzen Datteln', 'Immer noch ein verarbeitetes Produkt'],
+          positives: [
+            'Besser als raffinierter Zucker',
+            'Behält einige aus Datteln stammende Nährstoffe',
+          ],
+          negatives: [
+            'Verliert Nährwert gegenüber ganzen Datteln',
+            'Immer noch ein verarbeitetes Produkt',
+          ],
           warning: 'Weniger vorteilhaft als ganze Datteln',
-          consumption: 'Als 1:1-Ersatz für raffinierten Zucker beim Backen, wenn ganze Datteln unpraktisch sind. Ein vernünftiger Kompromiss — nicht ideal.',
-          notes: 'Die vollwertige Form ist immer deutlich vorzuziehen. Verarbeiteten Dattelzucker nur verwenden, wenn die ganze Frucht unpraktisch ist.',
+          consumption:
+            'Als 1:1-Ersatz für raffinierten Zucker beim Backen, wenn ganze Datteln unpraktisch sind. Ein vernünftiger Kompromiss — nicht ideal.',
+          notes:
+            'Die vollwertige Form ist immer deutlich vorzuziehen. Verarbeiteten Dattelzucker nur verwenden, wenn die ganze Frucht unpraktisch ist.',
         },
         {
           name: 'Mönchsfrucht',
           description: 'Süßer Extrakt aus der Mönchsfrucht (Luo Han Guo)',
-          positives: ['Keine bekannten Stoffwechselprobleme', 'Kein Einfluss auf den Blutzucker', 'Keine bekannten Krebsassoziationen'],
-          negatives: ['Aktiviert weiterhin Süßrezeptoren — kann Heißhunger aufrechterhalten', 'Begrenzte Verfügbarkeit in der EU'],
+          positives: [
+            'Keine bekannten Stoffwechselprobleme',
+            'Kein Einfluss auf den Blutzucker',
+            'Keine bekannten Krebsassoziationen',
+          ],
+          negatives: [
+            'Aktiviert weiterhin Süßrezeptoren — kann Heißhunger aufrechterhalten',
+            'Begrenzte Verfügbarkeit in der EU',
+          ],
           warning: 'In der EU noch nicht zugelassen — lokale Vorschriften prüfen',
-          consumption: 'Sparsam in Getränken oder beim Backen verwenden. Mit ¼ der für Zucker verwendeten Menge beginnen — deutlich süßer. EU-Zulassung um 2026 erwartet.',
-          notes: 'Eines der saubersten Profile aller hochintensiven Süßungsmittel. Verfügbarkeit ist die Haupteinschränkung in Europa.',
+          consumption:
+            'Sparsam in Getränken oder beim Backen verwenden. Mit ¼ der für Zucker verwendeten Menge beginnen — deutlich süßer. EU-Zulassung um 2026 erwartet.',
+          notes:
+            'Eines der saubersten Profile aller hochintensiven Süßungsmittel. Verfügbarkeit ist die Haupteinschränkung in Europa.',
         },
         {
           name: 'Stevia',
           description: 'Pflanzenbasiertes hochintensives Süßungsmittel aus Stevia rebaudiana',
-          positives: ['Besseres Studienprofil als die meisten künstlichen Süßstoffe', 'Natürlicher botanischer Ursprung', 'Kein glykämischer Einfluss'],
-          negatives: ['Bitterer oder metallischer Nachgeschmack für viele', 'Kann bei manchen GI-Probleme oder Blutzuckerschwankungen verursachen'],
+          positives: [
+            'Besseres Studienprofil als die meisten künstlichen Süßstoffe',
+            'Natürlicher botanischer Ursprung',
+            'Kein glykämischer Einfluss',
+          ],
+          negatives: [
+            'Bitterer oder metallischer Nachgeschmack für viele',
+            'Kann bei manchen GI-Probleme oder Blutzuckerschwankungen verursachen',
+          ],
           warning: 'Individuelle Verträglichkeit variiert — sorgfältig testen',
-          consumption: 'Minimal in Kaffee oder Tee verwenden. Produkte mit Maltodextrin oder anderen Füllstoffen meiden. Nur reinen Stevia-Extrakt verwenden. Am besten als Übergangshilfe, nicht als langfristige Standardlösung.',
-          notes: 'Gilt als bester unter den gängigen künstlichen Süßstoffen, aktiviert jedoch noch Süßrezeptoren — das Kernproblem.',
+          consumption:
+            'Minimal in Kaffee oder Tee verwenden. Produkte mit Maltodextrin oder anderen Füllstoffen meiden. Nur reinen Stevia-Extrakt verwenden. Am besten als Übergangshilfe, nicht als langfristige Standardlösung.',
+          notes:
+            'Gilt als bester unter den gängigen künstlichen Süßstoffen, aktiviert jedoch noch Süßrezeptoren — das Kernproblem.',
         },
         {
           name: 'Zuckeralkohole',
           description: 'Kohlenhydratalkohole: Xylit, Erythrit, Maltit, Sorbit usw.',
-          positives: ['Niedrigere glykämische Auswirkung als Zucker', 'Im Backen verwendbar', 'Erythrit am besten verträglich der Gruppe'],
-          negatives: ['GI-Beschwerden bei moderaten Mengen (Durchfall, Krämpfe, Blähungen)', 'Mögliche kardiovaskuläre Risiken in einigen Studien'],
-          warning: 'Nicht geeignet bei empfindlicher Verdauung; KV-Risikodaten noch nicht abschließend',
-          consumption: 'Falls verwendet, Erythrit bevorzugen — niedrigste GI-Auswirkung und bessere Darmverträglichkeit. Auf kleine Mengen begrenzen; täglichen Gebrauch vermeiden. Maltit nie verwenden.',
-          notes: 'Individuelle Verträglichkeit variiert stark. Manche haben keine GI-Probleme; andere reagieren bereits auf kleine Mengen mit starken Beschwerden.',
+          positives: [
+            'Niedrigere glykämische Auswirkung als Zucker',
+            'Im Backen verwendbar',
+            'Erythrit am besten verträglich der Gruppe',
+          ],
+          negatives: [
+            'GI-Beschwerden bei moderaten Mengen (Durchfall, Krämpfe, Blähungen)',
+            'Mögliche kardiovaskuläre Risiken in einigen Studien',
+          ],
+          warning:
+            'Nicht geeignet bei empfindlicher Verdauung; KV-Risikodaten noch nicht abschließend',
+          consumption:
+            'Falls verwendet, Erythrit bevorzugen — niedrigste GI-Auswirkung und bessere Darmverträglichkeit. Auf kleine Mengen begrenzen; täglichen Gebrauch vermeiden. Maltit nie verwenden.',
+          notes:
+            'Individuelle Verträglichkeit variiert stark. Manche haben keine GI-Probleme; andere reagieren bereits auf kleine Mengen mit starken Beschwerden.',
         },
         {
           name: 'Sucralose',
           description: 'Chloriertes Zuckermolekül (Splenda)',
           positives: ['Sehr süß — winzige Mengen nötig', 'Null Kalorien'],
-          negatives: ['Stört Darmmikrobiom (Tier- und anekdotische Humandaten)', 'Mit Blähungen und Entzündungen verbunden', 'Chlormodifizierte Verbindung mit unklaren Langzeiteffekten'],
+          negatives: [
+            'Stört Darmmikrobiom (Tier- und anekdotische Humandaten)',
+            'Mit Blähungen und Entzündungen verbunden',
+            'Chlormodifizierte Verbindung mit unklaren Langzeiteffekten',
+          ],
           warning: 'Täglichen oder hohen Konsum vermeiden',
-          consumption: 'Gelegentliche Verwendung gilt als geringes Risiko. Nicht als tägliche Gewohnheit. Nicht erhitzen — Sucralose kann bei hohen Temperaturen in potenziell schädliche Verbindungen zerfallen.',
-          notes: 'Für regelmäßigen Gebrauch nicht empfohlen. Bei gelegentlichem Bedarf sind Stevia oder Mönchsfrucht bessere Alternativen.',
+          consumption:
+            'Gelegentliche Verwendung gilt als geringes Risiko. Nicht als tägliche Gewohnheit. Nicht erhitzen — Sucralose kann bei hohen Temperaturen in potenziell schädliche Verbindungen zerfallen.',
+          notes:
+            'Für regelmäßigen Gebrauch nicht empfohlen. Bei gelegentlichem Bedarf sind Stevia oder Mönchsfrucht bessere Alternativen.',
         },
         {
           name: 'Aspartam',
-          description: 'Künstlicher Süßstoff: Phenylalanin + Asparaginsäure + Methanol-Abbauprodukte',
+          description:
+            'Künstlicher Süßstoff: Phenylalanin + Asparaginsäure + Methanol-Abbauprodukte',
           positives: ['Sehr süß; kalorienarm'],
-          negatives: ['Tierstudien deuten auf Gehirnentzündungen und neurologische Effekte hin', 'Mit Migräne verbunden', 'Unnatürliche Geschmackswahrnehmung bei vielen', 'Widersprüchliche, aber besorgniserregende Studienlage'],
+          negatives: [
+            'Tierstudien deuten auf Gehirnentzündungen und neurologische Effekte hin',
+            'Mit Migräne verbunden',
+            'Unnatürliche Geschmackswahrnehmung bei vielen',
+            'Widersprüchliche, aber besorgniserregende Studienlage',
+          ],
           warning: 'Langfristigen Gebrauch vollständig vermeiden',
-          consumption: 'Vermeiden. Falls in einer sozialen Situation unvermeidlich, als seltene Ausnahme behandeln — kein täglicher Ersatz. Nicht an Kinder geben.',
-          notes: 'Die WHO stuft Aspartam als „möglicherweise krebserregend" ein. Phenylalanin und Asparaginsäure sind exzitatorisch — bei chronischen Dosen potenziell neurotoxisch.',
+          consumption:
+            'Vermeiden. Falls in einer sozialen Situation unvermeidlich, als seltene Ausnahme behandeln — kein täglicher Ersatz. Nicht an Kinder geben.',
+          notes:
+            'Die WHO stuft Aspartam als „möglicherweise krebserregend" ein. Phenylalanin und Asparaginsäure sind exzitatorisch — bei chronischen Dosen potenziell neurotoxisch.',
         },
         {
           name: 'Acesulfam K (E950)',
           description: 'Künstlicher hochintensiver Süßstoff (~200× süßer als Zucker)',
-          positives: ['Null Kalorien', 'Hitzestabil; backgeeignet', 'Weltweit weitgehend zugelassen'],
-          negatives: ['Bitterer Nachgeschmack', 'Häufig mit anderen Süßstoffen kombiniert', 'Mögliche Auswirkungen auf das Darmmikrobiom'],
+          positives: [
+            'Null Kalorien',
+            'Hitzestabil; backgeeignet',
+            'Weltweit weitgehend zugelassen',
+          ],
+          negatives: [
+            'Bitterer Nachgeschmack',
+            'Häufig mit anderen Süßstoffen kombiniert',
+            'Mögliche Auswirkungen auf das Darmmikrobiom',
+          ],
           warning: 'Nicht als täglicher Süßstoff geeignet',
-          consumption: 'Möglichst meiden. Häufig in Energy Drinks (u.a. Monster EU) und Diät-Limonaden — Etiketten prüfen.',
-          notes: 'Wird häufig mit Aspartam oder Sucralose kombiniert. Die Kombination verbessert das Sicherheitsprofil nicht.',
+          consumption:
+            'Möglichst meiden. Häufig in Energy Drinks (u.a. Monster EU) und Diät-Limonaden — Etiketten prüfen.',
+          notes:
+            'Wird häufig mit Aspartam oder Sucralose kombiniert. Die Kombination verbessert das Sicherheitsprofil nicht.',
         },
         {
           name: 'Aspartam-Acesulfam-Salz (E962)',
           description: 'Kombinationssüßstoff aus Aspartam und Acesulfam K',
           positives: ['Überdeckt den Eigengeschmack beider Komponenten', 'Sehr hohe Süßkraft'],
-          negatives: ['Enthält Phenylalanin — nicht für PKU-Betroffene', 'Vereint die Nachteile beider Einzelstoffe'],
+          negatives: [
+            'Enthält Phenylalanin — nicht für PKU-Betroffene',
+            'Vereint die Nachteile beider Einzelstoffe',
+          ],
           warning: 'Bei PKU meiden; gleiche Bedenken wie bei Aspartam und Acesulfam K',
-          consumption: 'Meiden. Sehr verbreitet in Erfrischungsgetränken — Zutatenlisten sorgfältig lesen.',
-          notes: 'Die Kombination beider Stoffe beseitigt nicht die individuellen Risiken, sondern addiert sie.',
+          consumption:
+            'Meiden. Sehr verbreitet in Erfrischungsgetränken — Zutatenlisten sorgfältig lesen.',
+          notes:
+            'Die Kombination beider Stoffe beseitigt nicht die individuellen Risiken, sondern addiert sie.',
         },
         {
           name: 'Saccharin (E954)',
           description: 'Einer der ältesten künstlichen Süßstoffe (300–500× süßer als Zucker)',
           positives: ['Null Kalorien', 'Lange Haltbarkeit', 'Günstig'],
-          negatives: ['Metallischer oder bitterer Nachgeschmack', 'Historische Krebsdiskussion (beim Menschen weitgehend entkräftet)', 'Kann das Darmmikrobiom beeinflussen'],
+          negatives: [
+            'Metallischer oder bitterer Nachgeschmack',
+            'Historische Krebsdiskussion (beim Menschen weitgehend entkräftet)',
+            'Kann das Darmmikrobiom beeinflussen',
+          ],
           warning: 'Hohe oder tägliche Aufnahme vermeiden',
-          consumption: 'Nur gelegentlich verwenden. In manchen Diätgetränken und Tafelsüßen enthalten — Etiketten prüfen.',
-          notes: 'Trotz Neubewertung eines der am schlechtesten verträglichen Süßstoffe im Geschmack.',
+          consumption:
+            'Nur gelegentlich verwenden. In manchen Diätgetränken und Tafelsüßen enthalten — Etiketten prüfen.',
+          notes:
+            'Trotz Neubewertung eines der am schlechtesten verträglichen Süßstoffe im Geschmack.',
         },
         {
           name: 'Cyclamat (E952)',
           description: 'Synthetischer Süßstoff (30–50× süßer als Zucker)',
-          positives: ['Hitzestabil', 'Günstiger als die meisten Alternativen', 'Häufig mit Saccharin kombiniert zur Geschmacksverbesserung'],
-          negatives: ['In den USA und einigen anderen Ländern verboten', 'Geringere Süßkraft als andere hochintensive Optionen'],
+          positives: [
+            'Hitzestabil',
+            'Günstiger als die meisten Alternativen',
+            'Häufig mit Saccharin kombiniert zur Geschmacksverbesserung',
+          ],
+          negatives: [
+            'In den USA und einigen anderen Ländern verboten',
+            'Geringere Süßkraft als andere hochintensive Optionen',
+          ],
           warning: 'ADI-Grenzen beachten; rechtlichen Status im jeweiligen Land prüfen',
-          consumption: 'Tägliche Verwendung vermeiden. Häufig in Tafelsüßen mit Saccharin kombiniert.',
-          notes: 'In der EU und vielen anderen Märkten noch zugelassen. Das US-Verbot seit 1969 besteht weiterhin.',
+          consumption:
+            'Tägliche Verwendung vermeiden. Häufig in Tafelsüßen mit Saccharin kombiniert.',
+          notes:
+            'In der EU und vielen anderen Märkten noch zugelassen. Das US-Verbot seit 1969 besteht weiterhin.',
         },
         {
           name: 'Neotam (E961)',
           description: 'Ultrapotenter künstlicher Süßstoff (7.000–13.000× süßer als Zucker)',
-          positives: ['Sehr kleine Mengen ausreichend', 'Hitzestabil', 'Erfordert im Gegensatz zu Aspartam keine PKU-Kennzeichnung'],
-          negatives: ['Sehr synthetisch', 'Anhaltende Süße', 'Begrenzte Langzeitdaten beim Menschen'],
+          positives: [
+            'Sehr kleine Mengen ausreichend',
+            'Hitzestabil',
+            'Erfordert im Gegensatz zu Aspartam keine PKU-Kennzeichnung',
+          ],
+          negatives: [
+            'Sehr synthetisch',
+            'Anhaltende Süße',
+            'Begrenzte Langzeitdaten beim Menschen',
+          ],
           warning: 'Langzeiteffekte unklar',
-          consumption: 'Meiden. Selten im Einzelhandel — hauptsächlich in verarbeiteten Lebensmitteln.',
-          notes: 'Strukturell mit Aspartam verwandt, aber anders verstoffwechselt. Keine ausreichenden unabhängigen Sicherheitsdaten.',
+          consumption:
+            'Meiden. Selten im Einzelhandel — hauptsächlich in verarbeiteten Lebensmitteln.',
+          notes:
+            'Strukturell mit Aspartam verwandt, aber anders verstoffwechselt. Keine ausreichenden unabhängigen Sicherheitsdaten.',
         },
         {
           name: 'Advantam (E969)',
@@ -1048,68 +1405,108 @@ export const messages = {
           positives: ['Minimale Mengen erforderlich', 'Thermisch stabil'],
           negatives: ['Hochgradig künstlich', 'Kaum reale Humandaten'],
           warning: 'Langzeitwirkung nicht ausreichend untersucht',
-          consumption: 'Meiden. Hauptsächlich industrieller Einsatz — im Einzelhandel kaum anzutreffen.',
-          notes: 'Einer der neuesten zugelassenen Süßstoffe. Keine unabhängigen Langzeitsicherheitsnachweise vorhanden.',
+          consumption:
+            'Meiden. Hauptsächlich industrieller Einsatz — im Einzelhandel kaum anzutreffen.',
+          notes:
+            'Einer der neuesten zugelassenen Süßstoffe. Keine unabhängigen Langzeitsicherheitsnachweise vorhanden.',
         },
         {
           name: 'Thaumatin (E957)',
           description: 'Süßes Protein aus der Katemfe-Frucht (Westafrika)',
-          positives: ['Natürlicher Ursprung', 'Kein Einfluss auf den Blutzucker', 'Wirkt auch als Aromaverstärker'],
-          negatives: ['Teuer', 'Ungewöhnliches, anhaltendes Geschmacksprofil', 'Seltene allergische Reaktionen möglich'],
+          positives: [
+            'Natürlicher Ursprung',
+            'Kein Einfluss auf den Blutzucker',
+            'Wirkt auch als Aromaverstärker',
+          ],
+          negatives: [
+            'Teuer',
+            'Ungewöhnliches, anhaltendes Geschmacksprofil',
+            'Seltene allergische Reaktionen möglich',
+          ],
           warning: 'Seltene Allergien möglich',
-          consumption: 'Hauptsächlich als Geschmacksmodifikator eingesetzt, nicht als Massenersatz. Gelegentliche Exposition unkritisch.',
-          notes: 'Eines der wenigen zugelassenen Süßproteine. Häufiger zur Bitterabmilderung als zur Süßung eingesetzt.',
+          consumption:
+            'Hauptsächlich als Geschmacksmodifikator eingesetzt, nicht als Massenersatz. Gelegentliche Exposition unkritisch.',
+          notes:
+            'Eines der wenigen zugelassenen Süßproteine. Häufiger zur Bitterabmilderung als zur Süßung eingesetzt.',
         },
         {
           name: 'Neohesperidin DC (E959)',
           description: 'Flavonoid-Süßstoff aus Zitrusfrüchten (50–1.800× süßer als Zucker)',
           positives: ['Nicht kariogen', 'Pflanzlichen Ursprungs', 'Geeignet zur Bitterabmilderung'],
-          negatives: ['Verändert die Geschmackswahrnehmung bei höheren Dosen', 'Nischenanwendung — kaum eigenständig nutzbar'],
+          negatives: [
+            'Verändert die Geschmackswahrnehmung bei höheren Dosen',
+            'Nischenanwendung — kaum eigenständig nutzbar',
+          ],
           warning: 'Nicht als eigenständiger Süßstoff in üblichen Mengen geeignet',
-          consumption: 'Im Einzelhandel kaum vorhanden. Hauptsächlich von Lebensmittelherstellern zur Geschmackskorrektur eingesetzt.',
-          notes: 'Eher ein funktionelles Aromawerkzeug als ein echter Süßstoff. Aus Citrus-Bioflavonoiden gewonnen.',
+          consumption:
+            'Im Einzelhandel kaum vorhanden. Hauptsächlich von Lebensmittelherstellern zur Geschmackskorrektur eingesetzt.',
+          notes:
+            'Eher ein funktionelles Aromawerkzeug als ein echter Süßstoff. Aus Citrus-Bioflavonoiden gewonnen.',
         },
         {
           name: 'Mannit (E421)',
-          description: 'Zuckeralkohol (Polyol), der natürlich in manchen Früchten und Gemüsesorten vorkommt',
+          description:
+            'Zuckeralkohol (Polyol), der natürlich in manchen Früchten und Gemüsesorten vorkommt',
           positives: ['Zahnfreundlich', 'Niedriger glykämischer Index', 'Langsame Resorption'],
           negatives: ['Abführende Wirkung bei moderaten Mengen', 'Blähungen und Gasbildung häufig'],
           warning: 'GI-Unverträglichkeit häufig; nicht mehr als ca. 20 g/Tag',
-          consumption: 'Gelegentliche Exposition über Kaugummi und Bonbons ist risikoarm. Konzentrierte Quellen meiden.',
-          notes: 'Häufig in Kaugummi und zuckerfreien Süßigkeiten. Die abführende Schwelle ist niedriger als bei anderen Polyolen.',
+          consumption:
+            'Gelegentliche Exposition über Kaugummi und Bonbons ist risikoarm. Konzentrierte Quellen meiden.',
+          notes:
+            'Häufig in Kaugummi und zuckerfreien Süßigkeiten. Die abführende Schwelle ist niedriger als bei anderen Polyolen.',
         },
         {
           name: 'Isomalt (E953)',
           description: 'Zuckeralkohol aus Rübenzucker; weit verbreitet in der Süßwarenherstellung',
-          positives: ['Hitzestabil — beliebt in der Zuckerarbeit', 'Zahnfreundlich', 'Niedriger glykämischer Index'],
-          negatives: ['Gas und Durchfall bei höherer Aufnahme', 'Geringere Süßkraft als Zucker — größere Mengen nötig'],
+          positives: [
+            'Hitzestabil — beliebt in der Zuckerarbeit',
+            'Zahnfreundlich',
+            'Niedriger glykämischer Index',
+          ],
+          negatives: [
+            'Gas und Durchfall bei höherer Aufnahme',
+            'Geringere Süßkraft als Zucker — größere Mengen nötig',
+          ],
           warning: 'Nicht geeignet bei empfindlicher Verdauung',
-          consumption: 'Geringe Exposition durch gelegentliche zuckerfreie Süßwaren ist i.d.R. tolerierbar. Große Mengen meiden.',
-          notes: 'Besonders beliebt in der handwerklichen Konditorei aufgrund seiner Hitzestabilität.',
+          consumption:
+            'Geringe Exposition durch gelegentliche zuckerfreie Süßwaren ist i.d.R. tolerierbar. Große Mengen meiden.',
+          notes:
+            'Besonders beliebt in der handwerklichen Konditorei aufgrund seiner Hitzestabilität.',
         },
         {
           name: 'Lactit (E966)',
           description: 'Zuckeralkohol aus Laktose',
           positives: ['Kalorienärmer als Zucker', 'Milde, saubere Süße'],
-          negatives: ['Stark abführende Wirkung bereits bei moderaten Mengen', 'Nicht für Laktoseintolerante geeignet'],
+          negatives: [
+            'Stark abführende Wirkung bereits bei moderaten Mengen',
+            'Nicht für Laktoseintolerante geeignet',
+          ],
           warning: 'Bei Reizdarmsyndrom oder empfindlicher Verdauung meiden',
-          consumption: 'Nicht gezielt verwenden. In mancher zuckerfreier Schokolade enthalten — Portionen klein halten.',
-          notes: 'Hat eine präbiotische Wirkung im Dickdarm, die sowohl die abführende Wirkung als auch mögliche Darmvorteile erklärt.',
+          consumption:
+            'Nicht gezielt verwenden. In mancher zuckerfreier Schokolade enthalten — Portionen klein halten.',
+          notes:
+            'Hat eine präbiotische Wirkung im Dickdarm, die sowohl die abführende Wirkung als auch mögliche Darmvorteile erklärt.',
         },
         {
           name: 'Polyglycitolsirup (E964)',
           description: 'Gemischter Polyolsirup als Massenersatzstoff und Texturmittel',
           positives: ['Gibt Volumen und Textur', 'Niedrigere glykämische Wirkung als Zucker'],
-          negatives: ['Verdauungsbeschwerden möglich', 'Zusammensetzung variiert — Dosierung schwer einschätzbar'],
+          negatives: [
+            'Verdauungsbeschwerden möglich',
+            'Zusammensetzung variiert — Dosierung schwer einschätzbar',
+          ],
           warning: 'Portionskontrolle wichtig',
-          consumption: 'In „zuckerfreien" Bonbons und Backwaren enthalten. Menge begrenzen — GI-Effekte summieren sich mit anderen Polyolen.',
-          notes: 'Eine Mischung hydrierter Glukosesirupe. Wirkung hängt von der jeweiligen Chargenzusammensetzung ab.',
+          consumption:
+            'In „zuckerfreien" Bonbons und Backwaren enthalten. Menge begrenzen — GI-Effekte summieren sich mit anderen Polyolen.',
+          notes:
+            'Eine Mischung hydrierter Glukosesirupe. Wirkung hängt von der jeweiligen Chargenzusammensetzung ab.',
         },
       ],
     },
     preservatives: {
       title: 'Konservierungsstoff-Protokoll',
-      intro: 'Konservierungsstoffe verlängern die Haltbarkeit – aber die meisten gehen mit Kompromissen einher. Alle Bewertungen sind absolut; selbst die am wenigsten schädlichen Optionen sind nicht gesund.',
+      intro:
+        'Konservierungsstoffe verlängern die Haltbarkeit – aber die meisten gehen mit Kompromissen einher. Alle Bewertungen sind absolut; selbst die am wenigsten schädlichen Optionen sind nicht gesund.',
       principles: [
         'Konservierungsstoffe ≠ Nährstoffe – alle sind Kompromisse',
         'Nitrite, Sulfite, BHA/BHT sind die schlimmsten',
@@ -1130,27 +1527,41 @@ export const messages = {
           name: 'Natriumbenzoat (E211)',
           description: 'Synthetischer Konservierungsstoff gegen Hefe & Bakterien',
           positives: ['Wirksam in kleinen Mengen', 'Günstig'],
-          negatives: ['Kann mit Vitamin C Benzol bilden', 'Mit Hyperaktivität bei Kindern verbunden'],
+          negatives: [
+            'Kann mit Vitamin C Benzol bilden',
+            'Mit Hyperaktivität bei Kindern verbunden',
+          ],
           warning: 'In Kombination mit sauren Getränken meiden',
-          consumption: 'Wenn möglich meiden. Häufig in Erfrischungsgetränken und Saucen – Etiketten prüfen.',
-          notes: 'Die Benzolbildung mit Ascorbinsäure (E300) ist ein bekanntes Problem in sauren Getränken.',
+          consumption:
+            'Wenn möglich meiden. Häufig in Erfrischungsgetränken und Saucen – Etiketten prüfen.',
+          notes:
+            'Die Benzolbildung mit Ascorbinsäure (E300) ist ein bekanntes Problem in sauren Getränken.',
         },
         {
           name: 'Kaliumsorbat (E202)',
           description: 'Schimmel- & Hefehemmer',
           positives: ['Relativ geringe Toxizität', 'Eines der milderen Synthetika'],
-          negatives: ['Kann Darm & Haut reizen', 'Beeinflusst das Mikrobiom bei regelmäßigem Gebrauch'],
+          negatives: [
+            'Kann Darm & Haut reizen',
+            'Beeinflusst das Mikrobiom bei regelmäßigem Gebrauch',
+          ],
           warning: 'Tägliche Einnahme vermeiden',
           consumption: 'Exposition begrenzen. In Käse, Dips und Backwaren enthalten.',
-          notes: 'Gilt als einer der weniger schädlichen synthetischen Konservierungsstoffe, aber nicht unbedenklich bei hoher Häufigkeit.',
+          notes:
+            'Gilt als einer der weniger schädlichen synthetischen Konservierungsstoffe, aber nicht unbedenklich bei hoher Häufigkeit.',
         },
         {
           name: 'Calciumpropionat (E282)',
           description: 'Schimmelhemmer, häufig in Backwaren',
           positives: ['Verhindert Schimmelbildung in Brot'],
-          negatives: ['Mit Kopfschmerzen verbunden', 'Reizbarkeit bei Kindern', 'Neuroverhaltenliche Bedenken'],
+          negatives: [
+            'Mit Kopfschmerzen verbunden',
+            'Reizbarkeit bei Kindern',
+            'Neuroverhaltenliche Bedenken',
+          ],
           warning: 'Neuroverhaltenliche Bedenken – besonders für Kinder',
-          consumption: 'Brot und Backwaren mit diesem Zusatzstoff einschränken. Wenn möglich Sauerteig wählen.',
+          consumption:
+            'Brot und Backwaren mit diesem Zusatzstoff einschränken. Wenn möglich Sauerteig wählen.',
           notes: 'Sehr verbreitet in Industriebrot – Etiketten sorgfältig lesen.',
         },
         {
@@ -1159,26 +1570,34 @@ export const messages = {
           positives: ['Sehr effektive Konservierung'],
           negatives: ['Löst Asthma aus', 'Kopfschmerzen', 'Darmbeschwerden'],
           warning: 'Gefährlich für Asthmatiker – vollständig meiden',
-          consumption: 'Bei Asthma oder Sulfitempfindlichkeit vollständig meiden. In Wein und Trockenfrüchten.',
+          consumption:
+            'Bei Asthma oder Sulfitempfindlichkeit vollständig meiden. In Wein und Trockenfrüchten.',
           notes: 'Muss in der EU bei >10 mg/kg auf dem Etikett deklariert werden.',
         },
         {
           name: 'Natriummetabisulfit (E223)',
           description: 'Starker Sulfit-Konservierungsstoff',
           positives: ['Starke antimikrobielle Wirkung'],
-          negatives: ['Zerstört Vitamin B1', 'Häufige Allergiereaktion', 'In vielen verarbeiteten Lebensmitteln versteckt'],
+          negatives: [
+            'Zerstört Vitamin B1',
+            'Häufige Allergiereaktion',
+            'In vielen verarbeiteten Lebensmitteln versteckt',
+          ],
           warning: 'Hohes Allergierisiko',
           consumption: 'Meiden. Häufig als "Sulfite" auf Etiketten versteckt.',
           notes: 'Häufig bei Meeresfrüchten, Trockenfrüchten und Bierherstellung eingesetzt.',
         },
         {
           name: 'Natriumnitrit (E250)',
-          description: 'Fleischkonservierungsstoff, der Botulismus verhindert und Fleischfarbe erhält',
+          description:
+            'Fleischkonservierungsstoff, der Botulismus verhindert und Fleischfarbe erhält',
           positives: ['Verhindert Botulismus in gepökeltem Fleisch'],
           negatives: ['Bildet Nitrosamine (krebserregend)', 'Starke Krebsassoziation'],
           warning: 'Starke Krebsassoziation – gepökeltes Fleisch einschränken',
-          consumption: 'Gepökeltes und verarbeitetes Fleisch deutlich einschränken. Frisches unverarbeitetes Fleisch bevorzugen.',
-          notes: 'Die IARC stuft verarbeitetes Fleisch (das Nitrite enthält) als Gruppe-1-Karzinogen ein.',
+          consumption:
+            'Gepökeltes und verarbeitetes Fleisch deutlich einschränken. Frisches unverarbeitetes Fleisch bevorzugen.',
+          notes:
+            'Die IARC stuft verarbeitetes Fleisch (das Nitrite enthält) als Gruppe-1-Karzinogen ein.',
         },
         {
           name: 'Natriumnitrat (E251)',
@@ -1186,7 +1605,8 @@ export const messages = {
           positives: ['Verlängert die Haltbarkeit'],
           negatives: ['Wird im Körper zu Nitrit umgewandelt', 'Gleiche Krebsrisiken wie Nitrit'],
           warning: 'Häufige Aufnahme vermeiden',
-          consumption: 'Gleiche Empfehlung wie bei Natriumnitrit – verarbeitetes Fleisch insgesamt einschränken.',
+          consumption:
+            'Gleiche Empfehlung wie bei Natriumnitrit – verarbeitetes Fleisch insgesamt einschränken.',
           notes: 'Häufig zusammen mit E250 in gepökelten Produkten.',
         },
         {
@@ -1213,17 +1633,25 @@ export const messages = {
           positives: ['Sehr wirksames Antioxidans in kleinen Mengen'],
           negatives: ['Neurotoxizitätsbedenken', 'In vielen Lebensmittelkategorien verboten'],
           warning: 'In den meisten EU-Lebensmitteln verboten – hauptsächlich Tierfutter',
-          consumption: 'Meiden. Hauptsächlich in Tierfutter; bei Bedenken Fischmehleprodukte meiden.',
-          notes: 'In der EU für menschliche Lebensmittel in den meisten Kategorien nicht mehr zugelassen.',
+          consumption:
+            'Meiden. Hauptsächlich in Tierfutter; bei Bedenken Fischmehleprodukte meiden.',
+          notes:
+            'In der EU für menschliche Lebensmittel in den meisten Kategorien nicht mehr zugelassen.',
         },
         {
           name: 'Essigsäure (E260)',
           description: 'Essigbasierter Konservierungsstoff',
-          positives: ['Natürlicher Ursprung', 'Antimikrobiell', 'Lange Geschichte sicherer Anwendung'],
+          positives: [
+            'Natürlicher Ursprung',
+            'Antimikrobiell',
+            'Lange Geschichte sicherer Anwendung',
+          ],
           negatives: ['Kann den Magen bei übermäßigem Konsum reizen'],
           warning: 'Säureempfindlichkeit – nicht für alle in großen Mengen geeignet',
-          consumption: 'Generell sicher. In Essig natürlich vorhanden – einer der am wenigsten schädlichen Konservierungsstoffe.',
-          notes: 'Eine der sichersten Optionen. Traditionelle Verwendung als Essig reicht jahrtausende zurück.',
+          consumption:
+            'Generell sicher. In Essig natürlich vorhanden – einer der am wenigsten schädlichen Konservierungsstoffe.',
+          notes:
+            'Eine der sichersten Optionen. Traditionelle Verwendung als Essig reicht jahrtausende zurück.',
         },
         {
           name: 'Milchsäure (E270)',
@@ -1231,41 +1659,62 @@ export const messages = {
           positives: ['Natürlich in fermentierten Lebensmitteln vorhanden', 'Darmverträglich'],
           negatives: ['Sauer – potenzielle Zahnschmelzerosion bei häufiger Exposition'],
           warning: 'Zahnvorsicht bei häufigem Konsum saurer Lebensmittel',
-          consumption: 'Generell gut verträglich. Natürlich in Joghurt und fermentierten Lebensmitteln vorhanden.',
-          notes: 'Von nützlichen Bakterien bei der Fermentation produziert – eine der am wenigsten schädlichen Optionen.',
+          consumption:
+            'Generell gut verträglich. Natürlich in Joghurt und fermentierten Lebensmitteln vorhanden.',
+          notes:
+            'Von nützlichen Bakterien bei der Fermentation produziert – eine der am wenigsten schädlichen Optionen.',
         },
         {
           name: 'Zitronensäure (E330)',
           description: 'Säuerungsmittel, Konservierungsstoff und Geschmacksverstärker',
           positives: ['Natürlicher Ursprung', 'Antioxidative Eigenschaften'],
-          negatives: ['Zahnschmelzerosion bei häufiger Exposition', 'Darmbeschwerden im Übermaß', 'Nicht immer aus Zitrusfrüchten – oft durch Schimmelpilzfermentation gewonnen'],
+          negatives: [
+            'Zahnschmelzerosion bei häufiger Exposition',
+            'Darmbeschwerden im Übermaß',
+            'Nicht immer aus Zitrusfrüchten – oft durch Schimmelpilzfermentation gewonnen',
+          ],
           warning: 'In Getränken übermäßig eingesetzt – kann Zahnschmelz erodieren',
           consumption: 'Moderate Exposition akzeptabel. Häufigkeit in sauren Getränken beachten.',
-          notes: 'Kommerziell durch Pilzfermentation (Aspergillus niger) hergestellt, nicht zwingend aus Zitrusfrüchten.',
+          notes:
+            'Kommerziell durch Pilzfermentation (Aspergillus niger) hergestellt, nicht zwingend aus Zitrusfrüchten.',
         },
         {
           name: 'Ascorbinsäure (E300)',
           description: 'Vitamin C als Konservierungsstoff und Antioxidans',
-          positives: ['Antioxidans', 'Essenzieller Nährstoff', 'Eine der besten Konservierungsoptionen'],
+          positives: [
+            'Antioxidans',
+            'Essenzieller Nährstoff',
+            'Eine der besten Konservierungsoptionen',
+          ],
           negatives: ['Kann mit Benzoaten Benzol bilden'],
           warning: 'Kombination mit Natriumbenzoat in sauren Getränken beachten',
-          consumption: 'Generell vorteilhaft. Prüfen ob nicht mit E211 im selben Produkt kombiniert.',
+          consumption:
+            'Generell vorteilhaft. Prüfen ob nicht mit E211 im selben Produkt kombiniert.',
           notes: 'Einer der wenigen Konservierungsstoffe mit echtem Nährwert.',
         },
         {
           name: 'Rosmarinextrakt (E392)',
           description: 'Pflanzenbasiertes antioxidatives Konservierungsmittel',
-          positives: ['Enthält Polyphenole', 'Entzündungshemmende Eigenschaften', 'Natürlicher Ursprung'],
-          negatives: ['Starker Eigengeschmack kann Produkte beeinflussen', 'Begrenztes antimikrobielles Spektrum'],
+          positives: [
+            'Enthält Polyphenole',
+            'Entzündungshemmende Eigenschaften',
+            'Natürlicher Ursprung',
+          ],
+          negatives: [
+            'Starker Eigengeschmack kann Produkte beeinflussen',
+            'Begrenztes antimikrobielles Spektrum',
+          ],
           warning: 'Geschmackseinfluss – nicht für alle Produkte geeignet',
           consumption: 'Gute Option. In „Clean-Label"-Produkten als Konservierungsstoff suchen.',
-          notes: 'Wird zunehmend als natürliche Alternative zu synthetischen Antioxidantien eingesetzt.',
+          notes:
+            'Wird zunehmend als natürliche Alternative zu synthetischen Antioxidantien eingesetzt.',
         },
       ],
     },
     emulsifiers: {
       title: 'Emulgator-Protokoll',
-      intro: 'Emulgatoren verbinden Öl und Wasser – aber aktuelle Forschung zeigt, dass einige die Darmbarriere schädigen und den Stoffwechsel stören können. Alle Bewertungen sind absolut.',
+      intro:
+        'Emulgatoren verbinden Öl und Wasser – aber aktuelle Forschung zeigt, dass einige die Darmbarriere schädigen und den Stoffwechsel stören können. Alle Bewertungen sind absolut.',
       principles: [
         'Emulgatoren beeinflussen die Darmintegrität stärker als Konservierungsstoffe',
         'Starke Belege verbinden E433, E466, E407 mit Schäden an der Darmbarriere',
@@ -1285,7 +1734,11 @@ export const messages = {
         {
           name: 'Lecithine (E322)',
           description: 'Emulgator aus Soja, Sonnenblume oder Ei',
-          positives: ['Natürlich vorkommend', 'Verbessert Textur', 'Problematischster Emulgator auf der Liste'],
+          positives: [
+            'Natürlich vorkommend',
+            'Verbessert Textur',
+            'Problematischster Emulgator auf der Liste',
+          ],
           negatives: ['Häufig stark verarbeitet', 'Sojaallergierisiko'],
           warning: 'Quelle prüfen – Sonnenblumenlecithin gegenüber Soja bevorzugen',
           consumption: 'In Maßen akzeptabel. Sonnenblumenlecithin gegenüber Soja bevorzugen.',
@@ -1295,25 +1748,39 @@ export const messages = {
           name: 'Mono- & Diglyceride von Fettsäuren (E471)',
           description: 'Fettbasierte Emulgatoren in Backwaren',
           positives: ['Verbessert Haltbarkeit und Mundgefühl'],
-          negatives: ['Häufig mit industriellen Transfetten verbunden', 'Stoffwechselbedenken', 'Sehr verbreitet in Backwaren'],
+          negatives: [
+            'Häufig mit industriellen Transfetten verbunden',
+            'Stoffwechselbedenken',
+            'Sehr verbreitet in Backwaren',
+          ],
           warning: 'Häufige Einnahme vermeiden – mögliche Transfettrückstände',
           consumption: 'Einschränken. In kommerziellem Brot und Gebäck verbreitet.',
-          notes: 'Können Transfette enthalten, die nach EU-Kennzeichnungsregeln nicht separat deklariert werden müssen.',
+          notes:
+            'Können Transfette enthalten, die nach EU-Kennzeichnungsregeln nicht separat deklariert werden müssen.',
         },
         {
           name: 'Polysorbat 80 (E433)',
           description: 'Synthetischer Emulgator in Eis und Saucen',
           positives: ['Hocheffektive Emulgierung'],
-          negatives: ['Stört die Darmbarriere', 'Verändert die Mikrobiomzusammensetzung (Tierdaten)', 'Bedenken bei chronischer Exposition'],
+          negatives: [
+            'Stört die Darmbarriere',
+            'Verändert die Mikrobiomzusammensetzung (Tierdaten)',
+            'Bedenken bei chronischer Exposition',
+          ],
           warning: 'Chronische Exposition meiden – erhebliche Darmbedenken',
           consumption: 'Wenn möglich meiden. In Eis, Saucen und manchen Medikamenten enthalten.',
-          notes: 'Einer der besorgniserregendsten Emulgatoren für die Darmgesundheit nach aktuellem Forschungsstand.',
+          notes:
+            'Einer der besorgniserregendsten Emulgatoren für die Darmgesundheit nach aktuellem Forschungsstand.',
         },
         {
           name: 'Carboxymethylcellulose (E466)',
           description: 'Synthetisches Cellulosederivat als Verdickungsmittel',
           positives: ['Texturstabilisierung'],
-          negatives: ['Mit Darmentzündungen verbunden', 'Assoziationen mit metabolischem Syndrom', 'Starke Mikrobiombedenken'],
+          negatives: [
+            'Mit Darmentzündungen verbunden',
+            'Assoziationen mit metabolischem Syndrom',
+            'Starke Mikrobiombedenken',
+          ],
           warning: 'Starke Mikrobiombedenken – in „fettarmen" Produkten meiden',
           consumption: 'Meiden. In „fettarmen" Milchprodukten und Saucen verbreitet.',
           notes: 'Humanversuche (nicht nur Tierdaten) haben Mikrobiomstörungen gezeigt.',
@@ -1322,10 +1789,15 @@ export const messages = {
           name: 'Carrageen (E407)',
           description: 'Meeresalgenbasiertes Verdickungsmittel in Pflanzenmilch und Milchprodukten',
           positives: ['Natürlicher Meeresalgenursprung'],
-          negatives: ['Darmentzündung', 'Degradierte Form (Poligeenan) hochproblematisch', 'Bei Darmempfindlichkeit meiden'],
+          negatives: [
+            'Darmentzündung',
+            'Degradierte Form (Poligeenan) hochproblematisch',
+            'Bei Darmempfindlichkeit meiden',
+          ],
           warning: 'Bei Darmempfindlichkeit oder Entzündungszuständen meiden',
           consumption: 'Meiden. Pflanzenmilch ohne Carrageen wählen.',
-          notes: 'Degradiertes Carrageen (Poligeenan) ist ein bekanntes Entzündungsmittel; lebensmittelqualitatives Carrageen kann im Darm teilweise degradieren.',
+          notes:
+            'Degradiertes Carrageen (Poligeenan) ist ein bekanntes Entzündungsmittel; lebensmittelqualitatives Carrageen kann im Darm teilweise degradieren.',
         },
         {
           name: 'Johannisbrotkernmehl (E410)',
@@ -1339,20 +1811,30 @@ export const messages = {
         {
           name: 'Guarkernmehl (E412)',
           description: 'Hülsenfruchtbasiertes Stabilisierungsmittel',
-          positives: ['Natürliche Ballaststoffe', 'Effektives Verdickungsmittel', 'Besser verträglich als Synthetika'],
+          positives: [
+            'Natürliche Ballaststoffe',
+            'Effektives Verdickungsmittel',
+            'Besser verträglich als Synthetika',
+          ],
           negatives: ['Gas und Blähungen bei höheren Dosen'],
           warning: 'Mit niedriger Exposition beginnen',
-          consumption: 'Für die meisten verträglich. Gesamte Gummizufuhr aus allen Produkten beachten.',
+          consumption:
+            'Für die meisten verträglich. Gesamte Gummizufuhr aus allen Produkten beachten.',
           notes: 'Eines der verträglicheren natürlichen Gummis.',
         },
         {
           name: 'Xanthan (E415)',
           description: 'Fermentationsbasiertes Gummi, weit verbreitet in Saucen',
           positives: ['Temperaturstabil', 'Nützlich in glutenfreien Produkten'],
-          negatives: ['GI-Beschwerden bei höheren Mengen', 'Marker für stark verarbeitete Lebensmittel'],
+          negatives: [
+            'GI-Beschwerden bei höheren Mengen',
+            'Marker für stark verarbeitete Lebensmittel',
+          ],
           warning: 'Große Mengen vermeiden',
-          consumption: 'Geringe Exposition akzeptabel. Produkte meiden, bei denen es zu den ersten Zutaten gehört.',
-          notes: 'Durch bakterielle Fermentation hergestellt. Allgegenwärtig in ultra-verarbeiteten Lebensmitteln.',
+          consumption:
+            'Geringe Exposition akzeptabel. Produkte meiden, bei denen es zu den ersten Zutaten gehört.',
+          notes:
+            'Durch bakterielle Fermentation hergestellt. Allgegenwärtig in ultra-verarbeiteten Lebensmitteln.',
         },
         {
           name: 'Gellangummi (E418)',
@@ -1366,20 +1848,30 @@ export const messages = {
         {
           name: 'Agar-Agar (E406)',
           description: 'Meeresalgenbasiertes Geliermittel',
-          positives: ['Traditionelle Verwendung', 'Bei normalen Dosen nicht toxisch', 'Eines der sichereren Stabilisierungsmittel'],
+          positives: [
+            'Traditionelle Verwendung',
+            'Bei normalen Dosen nicht toxisch',
+            'Eines der sichereren Stabilisierungsmittel',
+          ],
           negatives: ['Abführende Wirkung im Übermaß'],
           warning: 'Ausreichende Flüssigkeitszufuhr bei agar-reichen Speisen sicherstellen',
-          consumption: 'Generell sicher. Traditionelle Verwendung in asiatischen Küchen als Referenz.',
+          consumption:
+            'Generell sicher. Traditionelle Verwendung in asiatischen Küchen als Referenz.',
           notes: 'Eine der sichereren Optionen auf dieser Liste.',
         },
         {
           name: 'Pektin (E440)',
           description: 'Fruchtbasiertes Geliermittel in Marmeladen',
-          positives: ['Natürlicher Fruchtürsprung', 'Präbiotische Darmwirkung', 'In Marmeladen verwendet'],
+          positives: [
+            'Natürlicher Fruchtürsprung',
+            'Präbiotische Darmwirkung',
+            'In Marmeladen verwendet',
+          ],
           negatives: ['Kann bei hohen Dosen Blähungen verursachen'],
           warning: 'Empfindliche Verdauung – Gesamtaufnahme beachten',
           consumption: 'Generell gut verträglich. Eine der besseren Optionen.',
-          notes: 'Einer der natürlichsten und vorteilhaftesten Emulgatoren/Stabilisatoren auf dieser Liste.',
+          notes:
+            'Einer der natürlichsten und vorteilhaftesten Emulgatoren/Stabilisatoren auf dieser Liste.',
         },
         {
           name: 'Modifizierte Stärken (E1404–E1451)',
@@ -1387,8 +1879,10 @@ export const messages = {
           positives: ['Verbessern Textur und Stabilität in verarbeiteten Lebensmitteln'],
           negatives: ['Stark verarbeitet', 'Glykämische Auswirkung', 'Kein Vollwertkost-Produkt'],
           warning: 'Kein Vollwertkost-Produkt – in Saucen und Fertiggerichten verbreitet',
-          consumption: 'Verarbeitete Lebensmittel, die stark auf modifizierte Stärken setzen, einschränken.',
-          notes: 'Breite Kategorie – einige Modifikationen sind milder als andere, aber alle sind ultra-verarbeitet.',
+          consumption:
+            'Verarbeitete Lebensmittel, die stark auf modifizierte Stärken setzen, einschränken.',
+          notes:
+            'Breite Kategorie – einige Modifikationen sind milder als andere, aber alle sind ultra-verarbeitet.',
         },
         {
           name: 'Natriumalginat (E401)',
@@ -1396,8 +1890,10 @@ export const messages = {
           positives: ['Mineralstoffbindende Eigenschaften', 'Natürlicher Meeresalgenursprung'],
           negatives: ['GI-Beschwerden bei höheren Dosen möglich'],
           warning: 'Nicht täglich verwenden',
-          consumption: 'Gelegentliche Exposition verträglich. In Milchprodukten und manchen Süßwaren enthalten.',
-          notes: 'In der Molekularküche verwendet (Sphärifizierung). In kleinen Mengen generell sicher.',
+          consumption:
+            'Gelegentliche Exposition verträglich. In Milchprodukten und manchen Süßwaren enthalten.',
+          notes:
+            'In der Molekularküche verwendet (Sphärifizierung). In kleinen Mengen generell sicher.',
         },
         {
           name: 'Propylenglykolalginat (E405)',
@@ -1406,34 +1902,52 @@ export const messages = {
           negatives: ['Synthetische Verarbeitung', 'Propylenglykol-Komponente'],
           warning: 'Häufige Einnahme vermeiden',
           consumption: 'Einschränken. In manchen Dressings und Bierschäumen enthalten.',
-          notes: 'Modifizierte Version des natürlichen Alginats – weniger erwünscht als die unmodifizierte Form.',
+          notes:
+            'Modifizierte Version des natürlichen Alginats – weniger erwünscht als die unmodifizierte Form.',
         },
         {
           name: 'Ascorbylpalmitat (E304)',
           description: 'Fettlösliche Form von Vitamin C als Antioxidans und Emulgator',
-          positives: ['Vitamin-C-Derivat', 'Antioxidative Eigenschaften', 'Schützt Fette vor Oxidation'],
+          positives: [
+            'Vitamin-C-Derivat',
+            'Antioxidative Eigenschaften',
+            'Schützt Fette vor Oxidation',
+          ],
           negatives: ['Synthetische Verarbeitung', 'Hohe Dosen können GI-Beschwerden verursachen'],
           warning: 'Bei typischen Lebensmittelmengen allgemein als sicher eingestuft',
-          consumption: 'In moderaten Mengen akzeptabel. In Fetten, Ölen und verarbeiteten Lebensmitteln enthalten.',
-          notes: 'Einer der gutartigeren Zusatzstoffe auf dieser Liste aufgrund seines Vitamin-C-Ursprungs.',
+          consumption:
+            'In moderaten Mengen akzeptabel. In Fetten, Ölen und verarbeiteten Lebensmitteln enthalten.',
+          notes:
+            'Einer der gutartigeren Zusatzstoffe auf dieser Liste aufgrund seines Vitamin-C-Ursprungs.',
         },
         {
           name: 'Natriumphosphat (E339)',
           description: 'Phosphatsalz als Emulgator und Säureregulator',
           positives: ['Effektive Emulgierung', 'Verbessert Textur in Schmelzkäse'],
-          negatives: ['Übermäßiges Phosphat stört Kalzium-/Phosphat-Gleichgewicht', 'Nierenbelastung bei hoher Aufnahme', 'Häufig in ultra-verarbeiteten Lebensmitteln'],
+          negatives: [
+            'Übermäßiges Phosphat stört Kalzium-/Phosphat-Gleichgewicht',
+            'Nierenbelastung bei hoher Aufnahme',
+            'Häufig in ultra-verarbeiteten Lebensmitteln',
+          ],
           warning: 'Gesamte Phosphatzufuhr begrenzen – besonders bei Nierenproblemen',
           consumption: 'Häufige Exposition meiden. In Schmelzkäse und Fleischprodukten verbreitet.',
-          notes: 'Phosphatzusätze werden oft übersehen, tragen aber gemeinsam erheblich zur diätetischen Phosphatlast bei.',
+          notes:
+            'Phosphatzusätze werden oft übersehen, tragen aber gemeinsam erheblich zur diätetischen Phosphatlast bei.',
         },
         {
           name: 'Kaliumphosphat (E340)',
           description: 'Kaliumsalz der Phosphorsäure als Emulgator und Stabilisator',
           positives: ['Effektive pH-Kontrolle', 'Stabilisiert Emulsionen'],
-          negatives: ['Phosphatüberlastungsrisiko', 'Nierenbelastung', 'Häufig mit anderen Phosphaten kombiniert'],
+          negatives: [
+            'Phosphatüberlastungsrisiko',
+            'Nierenbelastung',
+            'Häufig mit anderen Phosphaten kombiniert',
+          ],
           warning: 'Einschränken – besonders zusammen mit anderen Phosphatzusätzen',
-          consumption: 'In verarbeiteten Produkten meiden, wo mehrere Phosphatzusätze aufgeführt sind.',
-          notes: 'Ähnliche Bedenken wie Natriumphosphat (E339). Kumulative Phosphatzufuhr ist entscheidend.',
+          consumption:
+            'In verarbeiteten Produkten meiden, wo mehrere Phosphatzusätze aufgeführt sind.',
+          notes:
+            'Ähnliche Bedenken wie Natriumphosphat (E339). Kumulative Phosphatzufuhr ist entscheidend.',
         },
         {
           name: 'Salze der Speisefettsäuren (E470)',
@@ -1441,14 +1955,19 @@ export const messages = {
           positives: ['Aus natürlichen Fetten gewonnen', 'Effektive Rieselhilfe und Emulgierung'],
           negatives: ['Qualität der Ausgangsfette variiert', 'Kann tierische Fette enthalten'],
           warning: 'Tierischen Ursprung prüfen, falls diätrelevant',
-          consumption: 'Bei typischen Mengen generell verträglich. In Backwaren und Süßwaren enthalten.',
+          consumption:
+            'Bei typischen Mengen generell verträglich. In Backwaren und Süßwaren enthalten.',
           notes: 'Breite Kategorie – Qualität hängt vom Ursprung der verwendeten Fettsäuren ab.',
         },
         {
           name: 'Essigsäureester von Mono- und Diglyceriden der Speisefettsäuren (E472a)',
           description: 'Acetylierte Glyceride in Brot und Schlagprodukten',
           positives: ['Verbessert Teigstabilität', 'Wirksam in geringen Konzentrationen'],
-          negatives: ['Aus verarbeiteten Fetten gewonnen', 'Mögliche Transfettrückstände', 'Marker für stark verarbeitete Lebensmittel'],
+          negatives: [
+            'Aus verarbeiteten Fetten gewonnen',
+            'Mögliche Transfettrückstände',
+            'Marker für stark verarbeitete Lebensmittel',
+          ],
           warning: 'Häufige Einnahme vermeiden – gleiche Bedenken wie E471',
           consumption: 'Einschränken. In kommerziellen Backwaren verbreitet.',
           notes: 'Modifizierte Form von E471 – ähnliche Stoffwechselbedenken gelten.',
@@ -1460,7 +1979,8 @@ export const messages = {
           negatives: ['Verarbeiteter Fettursprung', 'Kann Transfettrückstände enthalten'],
           warning: 'In Alltagsprodukten einschränken',
           consumption: 'Einschränken. In kommerziellem Brot, Margarine und Gebäck enthalten.',
-          notes: 'Milchsäure-Komponente ist generell unbedenklich, aber die Glyceridbasis hat dieselben Bedenken wie E471.',
+          notes:
+            'Milchsäure-Komponente ist generell unbedenklich, aber die Glyceridbasis hat dieselben Bedenken wie E471.',
         },
         {
           name: 'Citronensäureester von Mono- und Diglyceriden der Speisefettsäuren (E472c)',
@@ -1469,7 +1989,8 @@ export const messages = {
           negatives: ['Verarbeitete Fettbasis', 'Industrielle Produktion'],
           warning: 'Im Alltag einschränken',
           consumption: 'Mäßige Exposition verträglich. In Margarine und Aufstrichen enthalten.',
-          notes: 'Zitronensäure ist eine natürliche Komponente, aber die Fettsäurebasis erfordert dieselbe Vorsicht wie E471.',
+          notes:
+            'Zitronensäure ist eine natürliche Komponente, aber die Fettsäurebasis erfordert dieselbe Vorsicht wie E471.',
         },
         {
           name: 'Weinsäureester von Mono- und Diglyceriden der Speisefettsäuren (E472d)',
@@ -1477,17 +1998,23 @@ export const messages = {
           positives: ['Verbessert Volumen und Textur in Backwaren'],
           negatives: ['Verarbeiteter Fettürsprung', 'Weniger gut erforscht'],
           warning: 'In Alltagsprodukten einschränken',
-          consumption: 'Gelegentliche Exposition akzeptabel. In manchen kommerziellen Backwaren enthalten.',
+          consumption:
+            'Gelegentliche Exposition akzeptabel. In manchen kommerziellen Backwaren enthalten.',
           notes: 'Weniger verbreitet als andere E472-Varianten. Gleiche Grundbedenken wie E471.',
         },
         {
           name: 'Mono- und Diacetylweinsäureester von Mono- und Diglyceriden der Speisefettsäuren (E472e)',
           description: 'DATEM – weit verbreiteter Teigverbesserer in der Brotproduktion',
           positives: ['Sehr effektive Teigstärkung', 'Verbessert Brotvolumen'],
-          negatives: ['Stark verarbeitet', 'Transfettrückstände möglich', 'Sehr häufig in Industriebrot'],
+          negatives: [
+            'Stark verarbeitet',
+            'Transfettrückstände möglich',
+            'Sehr häufig in Industriebrot',
+          ],
           warning: 'Im Alltag meiden – Sauerteig oder Produkte mit kurzer Zutatenliste wählen',
           consumption: 'Wenn möglich meiden. Sehr häufig in kommerziellem Brot und Brötchen.',
-          notes: 'Einer der verbreitetsten Emulgatoren in Industriebrot. Schlüsselindikator für ultra-verarbeitetes Backen.',
+          notes:
+            'Einer der verbreitetsten Emulgatoren in Industriebrot. Schlüsselindikator für ultra-verarbeitetes Backen.',
         },
         {
           name: 'Gemischte Wein- und Essigsäureester von Mono- und Diglyceriden der Speisefettsäuren (E472f)',
@@ -1496,16 +2023,26 @@ export const messages = {
           negatives: ['Stark verarbeitet', 'Industrieller Fettürsprung'],
           warning: 'Einschränken – gleiche Bedenken wie andere E472-Varianten',
           consumption: 'Einschränken. In kommerziellen Backwaren und Süßwaren enthalten.',
-          notes: 'Kombination der Eigenschaften von E472a und E472d. Kumulative Exposition mit anderen E472-Zusätzen beachten.',
+          notes:
+            'Kombination der Eigenschaften von E472a und E472d. Kumulative Exposition mit anderen E472-Zusätzen beachten.',
         },
         {
           name: 'Zuckerester von Speisefettsäuren (E473)',
           description: 'Zucker-Fettsäure-Ester in fettarmen Produkten und Süßwaren',
-          positives: ['Kann aus natürlichem Zucker und Fetten hergestellt werden', 'Wirksam in kleinen Mengen'],
-          negatives: ['Industrielle Synthese', 'GI-Beschwerden bei höheren Dosen', 'Häufig in fettarmen Produkten'],
+          positives: [
+            'Kann aus natürlichem Zucker und Fetten hergestellt werden',
+            'Wirksam in kleinen Mengen',
+          ],
+          negatives: [
+            'Industrielle Synthese',
+            'GI-Beschwerden bei höheren Dosen',
+            'Häufig in fettarmen Produkten',
+          ],
           warning: 'Mäßige Vorsicht – besonders in fettarmen Produkten',
-          consumption: 'Gelegentliche Exposition akzeptabel. Gesamtaufnahme bei stark fettarmer Ernährung beachten.',
-          notes: 'Manchmal als „saubererer" Emulgator positioniert, aber dennoch industriell hergestellt.',
+          consumption:
+            'Gelegentliche Exposition akzeptabel. Gesamtaufnahme bei stark fettarmer Ernährung beachten.',
+          notes:
+            'Manchmal als „saubererer" Emulgator positioniert, aber dennoch industriell hergestellt.',
         },
         {
           name: 'Zuckerglyceride (E474)',
@@ -1514,7 +2051,8 @@ export const messages = {
           negatives: ['Industrielle Verarbeitung', 'Kombinierte Bedenken von E471 und E473'],
           warning: 'Einschränken – Kombinationsprodukt mit mehrfachen Verarbeitungsbedenken',
           consumption: 'Einschränken. In Backwaren und Süßwaren enthalten.',
-          notes: 'Weniger verbreitet als andere Emulgatoren. Kombiniert die Bedenken von Zuckerestern und Glyceriden.',
+          notes:
+            'Weniger verbreitet als andere Emulgatoren. Kombiniert die Bedenken von Zuckerestern und Glyceriden.',
         },
         {
           name: 'Polyglycerinester von Speisefettsäuren (E475)',
@@ -1529,19 +2067,31 @@ export const messages = {
           name: 'Polyglycerin-Polyricinoleat (E476)',
           description: 'Rizinusöl-Derivat, hauptsächlich in Schokolade verwendet',
           positives: ['Reduziert Kakaobutterbedarf', 'Effektiver Viskositätsminderer'],
-          negatives: ['Rizinusöl-Derivat', 'Wird verwendet, um Schokoladenformulierungen zu verbilligen', 'Nicht in Qualitätsschokolade vorhanden'],
+          negatives: [
+            'Rizinusöl-Derivat',
+            'Wird verwendet, um Schokoladenformulierungen zu verbilligen',
+            'Nicht in Qualitätsschokolade vorhanden',
+          ],
           warning: 'Meiden – weist auf minderwertige Schokolade oder Kuvertüre hin',
-          consumption: 'Meiden. Vorkommen in Schokolade ist ein Zeichen für reduzierten Kakaobuttereinsatz und geringere Qualität.',
-          notes: 'Schlüsselindikator für Industrieschokolade. Qualitätsschokolade verwendet nur Kakaobutter gemäß traditionellen Rezepten.',
+          consumption:
+            'Meiden. Vorkommen in Schokolade ist ein Zeichen für reduzierten Kakaobuttereinsatz und geringere Qualität.',
+          notes:
+            'Schlüsselindikator für Industrieschokolade. Qualitätsschokolade verwendet nur Kakaobutter gemäß traditionellen Rezepten.',
         },
         {
           name: 'Propylenglycolester von Speisefettsäuren (E477)',
           description: 'Propylenglykol-Emulgatoren in Kuchen und Schlagprodukten',
           positives: ['Effektives Auftreibmittel in Kuchenteigen'],
-          negatives: ['Propylenglykol-Komponente', 'Synthetische Verarbeitung', 'Marker für stark verarbeitete Lebensmittel'],
+          negatives: [
+            'Propylenglykol-Komponente',
+            'Synthetische Verarbeitung',
+            'Marker für stark verarbeitete Lebensmittel',
+          ],
           warning: 'Häufige Einnahme vermeiden – synthetischer Emulgator',
-          consumption: 'Einschränken. In kommerziellen Kuchenmischungen und Schlagtoppings enthalten.',
-          notes: 'Ähnliche Bedenken wie E405 (Propylenglykolalginat) aufgrund der Propylenglykol-Komponente.',
+          consumption:
+            'Einschränken. In kommerziellen Kuchenmischungen und Schlagtoppings enthalten.',
+          notes:
+            'Ähnliche Bedenken wie E405 (Propylenglykolalginat) aufgrund der Propylenglykol-Komponente.',
         },
       ],
     },

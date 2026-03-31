@@ -25,12 +25,16 @@ const { t, tm } = useI18n()
 
 const principles = computed<string[]>(() => tm('emulsifiers.principles') as string[])
 
-const typeLabels = computed<Record<string, string>>(() => tm('emulsifiers.typeLabels') as Record<string, string>)
+const typeLabels = computed<Record<string, string>>(
+  () => tm('emulsifiers.typeLabels') as Record<string, string>,
+)
 
 const emulsifiers = computed<Emulsifier[]>(() => {
   const enItems = (messages.en as any).emulsifiers.items as Emulsifier[]
   const localItems = tm('emulsifiers.items') as Array<Omit<Emulsifier, 'type' | 'score'>>
-  return localItems.map((item, i) => ({ ...item, type: enItems[i]!.type, score: enItems[i]!.score })).sort((a, b) => b.score - a.score)
+  return localItems
+    .map((item, i) => ({ ...item, type: enItems[i]!.type, score: enItems[i]!.score }))
+    .sort((a, b) => b.score - a.score)
 })
 
 // ─── State ─────────────────────────────────────────────────────────────────
@@ -51,7 +55,7 @@ function openItemFromQuery() {
   const localItems = tm('emulsifiers.items') as Array<{ name: string }>
   const localName = localItems[rawIdx]?.name
   if (!localName) return
-  const found = emulsifiers.value.find(em => em.name === localName)
+  const found = emulsifiers.value.find((em) => em.name === localName)
   if (found) {
     selected.value = found
     router.replace({ path: route.path, query: {} })
@@ -64,27 +68,14 @@ watch(() => route.query.item, openItemFromQuery)
 
 <template>
   <AppLayout :title="t('emulsifiers.title')">
-
     <section>
       <p class="text-white/30 text-xs">{{ t('emulsifiers.intro') }}</p>
     </section>
 
-    <PrinciplesList
-      :principles="principles"
-      :heading="t('ui.principles')"
-    />
+    <PrinciplesList :principles="principles" :heading="t('ui.principles')" />
 
-    <ItemTable
-      :items="emulsifiers"
-      :type-labels="typeLabels"
-      @select="selected = $event"
-    />
+    <ItemTable :items="emulsifiers" :type-labels="typeLabels" @select="selected = $event" />
 
-    <ItemModal
-      :item="selected"
-      :type-labels="typeLabels"
-      @close="selected = null"
-    />
-
+    <ItemModal :item="selected" :type-labels="typeLabels" @close="selected = null" />
   </AppLayout>
 </template>

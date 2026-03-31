@@ -57,17 +57,20 @@ const scoreColor = (score: number): string => {
                 @click="emit('close')"
                 class="text-white/30 hover:text-white/70 transition-colors text-lg leading-none cursor-pointer"
                 :aria-label="t('ui.close')"
-              >✕</button>
+              >
+                ✕
+              </button>
             </div>
           </div>
 
           <!-- Body -->
           <div class="px-6 py-5 space-y-5 text-xs">
-
             <!-- Positives / Negatives -->
             <div class="grid grid-cols-2 gap-4">
               <div>
-                <div class="text-white/30 uppercase tracking-widest text-[10px] mb-2">{{ t('ui.positives') }}</div>
+                <div class="text-white/30 uppercase tracking-widest text-[10px] mb-2">
+                  {{ t('ui.positives') }}
+                </div>
                 <ul class="space-y-1.5">
                   <li
                     v-for="p in item.positives"
@@ -79,7 +82,9 @@ const scoreColor = (score: number): string => {
                 </ul>
               </div>
               <div>
-                <div class="text-white/30 uppercase tracking-widest text-[10px] mb-2">{{ t('ui.negatives') }}</div>
+                <div class="text-white/30 uppercase tracking-widest text-[10px] mb-2">
+                  {{ t('ui.negatives') }}
+                </div>
                 <ul class="space-y-1.5">
                   <li
                     v-for="n in item.negatives"
@@ -94,22 +99,27 @@ const scoreColor = (score: number): string => {
 
             <!-- Consumption -->
             <div class="border border-blue-500/20 rounded p-4 bg-blue-500/6">
-              <div class="text-blue-400/60 uppercase tracking-widest text-[10px] mb-2">{{ t('ui.consumption') }}</div>
+              <div class="text-blue-400/60 uppercase tracking-widest text-[10px] mb-2">
+                {{ t('ui.consumption') }}
+              </div>
               <p class="text-blue-100/70 leading-relaxed">{{ item.consumption }}</p>
             </div>
 
             <!-- Warning / Notes -->
             <div class="grid grid-cols-2 gap-4">
               <div>
-                <div class="text-white/30 uppercase tracking-widest text-[10px] mb-2">{{ t('ui.warning') }}</div>
+                <div class="text-white/30 uppercase tracking-widest text-[10px] mb-2">
+                  {{ t('ui.warning') }}
+                </div>
                 <p class="text-orange-300/60 leading-relaxed">{{ item.warning }}</p>
               </div>
               <div>
-                <div class="text-white/30 uppercase tracking-widest text-[10px] mb-2">{{ t('ui.notes') }}</div>
+                <div class="text-white/30 uppercase tracking-widest text-[10px] mb-2">
+                  {{ t('ui.notes') }}
+                </div>
                 <p class="text-white/40 leading-relaxed">{{ item.notes }}</p>
               </div>
             </div>
-
           </div>
         </div>
       </div>

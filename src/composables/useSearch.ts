@@ -2,11 +2,11 @@ import { useI18n } from 'vue-i18n'
 import { messages } from '../i18n/index'
 
 export interface SearchResult {
-  name: string        // English name (used as URL param)
+  name: string // English name (used as URL param)
   displayName: string // Current locale name (shown in dropdown)
-  category: string    // Locale nav label
+  category: string // Locale nav label
   route: '/sweeteners' | '/preservatives' | '/emulsifiers'
-  itemScore: number   // Health score 0–10
+  itemScore: number // Health score 0–10
 }
 
 // Search-only aliases — not translated, not shown in UI.
@@ -14,10 +14,30 @@ export interface SearchResult {
 export const aliases: Record<string, string[][]> = {
   sweeteners: [
     // 0  Refined Sugar
-    ['sugar', 'sucrose', 'saccharose', 'glucose', 'fructose', 'dextrose', 'maltose',
-     'corn syrup', 'high fructose corn syrup', 'HFCS', 'invert sugar', 'cane sugar',
-     'brown sugar', 'raw sugar', 'turbinado', 'molasses', 'agave', 'agavendicksaft',
-     'zucker', 'haushaltszucker', 'rübenzucker', 'rohrzucker'],
+    [
+      'sugar',
+      'sucrose',
+      'saccharose',
+      'glucose',
+      'fructose',
+      'dextrose',
+      'maltose',
+      'corn syrup',
+      'high fructose corn syrup',
+      'HFCS',
+      'invert sugar',
+      'cane sugar',
+      'brown sugar',
+      'raw sugar',
+      'turbinado',
+      'molasses',
+      'agave',
+      'agavendicksaft',
+      'zucker',
+      'haushaltszucker',
+      'rübenzucker',
+      'rohrzucker',
+    ],
     // 1  Dates (whole)
     ['dates', 'date', 'dattel', 'datteln'],
     // 2  Raw Honey
@@ -31,8 +51,20 @@ export const aliases: Record<string, string[][]> = {
     // 6  Stevia
     ['stevia', 'steviol glycoside', 'stevioside', 'rebaudioside', 'E960', 'steviaextrakt'],
     // 7  Sugar Alcohols
-    ['xylitol', 'erythritol', 'maltitol', 'sorbitol', 'mannitol', 'polyol',
-     'sugar alcohol', 'zuckeralkohol', 'erythrit', 'xylit', 'maltit', 'sorbit'],
+    [
+      'xylitol',
+      'erythritol',
+      'maltitol',
+      'sorbitol',
+      'mannitol',
+      'polyol',
+      'sugar alcohol',
+      'zuckeralkohol',
+      'erythrit',
+      'xylit',
+      'maltit',
+      'sorbit',
+    ],
     // 8  Sucralose
     ['sucralose', 'splenda', 'E955', 'trichlorogalactosucrose'],
     // 9  Aspartame
@@ -88,9 +120,23 @@ export const aliases: Record<string, string[][]> = {
     // 11 Lactic Acid
     ['lactic acid', 'milchsäure', 'E270', 'lactate'],
     // 12 Citric Acid
-    ['citric acid', 'zitronensäure', 'citronensäure', 'E330', 'citrate',
-     'sodium citrate', 'natriumcitrat', 'E331', 'potassium citrate', 'kaliumcitrat', 'E332',
-     'calcium citrate', 'E333', 'säuerungsmittel', 'säureregulator'],
+    [
+      'citric acid',
+      'zitronensäure',
+      'citronensäure',
+      'E330',
+      'citrate',
+      'sodium citrate',
+      'natriumcitrat',
+      'E331',
+      'potassium citrate',
+      'kaliumcitrat',
+      'E332',
+      'calcium citrate',
+      'E333',
+      'säuerungsmittel',
+      'säureregulator',
+    ],
     // 13 Ascorbic Acid
     ['ascorbic acid', 'ascorbinsäure', 'E300', 'vitamin c', 'sodium ascorbate', 'E301'],
     // 14 Rosemary Extract
@@ -98,11 +144,25 @@ export const aliases: Record<string, string[][]> = {
   ],
   emulsifiers: [
     // 0  Lecithins
-    ['lecithin', 'lecithins', 'E322', 'soy lecithin', 'sunflower lecithin',
-     'sojalecithin', 'sonnenblumenlecithin'],
+    [
+      'lecithin',
+      'lecithins',
+      'E322',
+      'soy lecithin',
+      'sunflower lecithin',
+      'sojalecithin',
+      'sonnenblumenlecithin',
+    ],
     // 1  Mono- & Diglycerides
-    ['mono diglycerides', 'monoglycerides', 'diglycerides', 'E471',
-     'mono- und diglyceride', 'monoglycerid', 'diglycerid'],
+    [
+      'mono diglycerides',
+      'monoglycerides',
+      'diglycerides',
+      'E471',
+      'mono- und diglyceride',
+      'monoglycerid',
+      'diglycerid',
+    ],
     // 2  Polysorbate 80
     ['polysorbate 80', 'polysorbat 80', 'E433', 'tween 80'],
     // 3  Carboxymethylcellulose
@@ -122,8 +182,17 @@ export const aliases: Record<string, string[][]> = {
     // 10 Pectin
     ['pectin', 'pektin', 'E440'],
     // 11 Modified Starches
-    ['modified starch', 'modified starches', 'modifizierte stärke', 'E1404', 'E1422',
-     'E1442', 'E1450', 'acetylated starch', 'oxidized starch'],
+    [
+      'modified starch',
+      'modified starches',
+      'modifizierte stärke',
+      'E1404',
+      'E1422',
+      'E1442',
+      'E1450',
+      'acetylated starch',
+      'oxidized starch',
+    ],
     // 12 Sodium Alginate
     ['sodium alginate', 'natriumalginat', 'E401', 'alginate'],
     // 13 Propylene Glycol Alginate
@@ -148,6 +217,7 @@ function fuzzyScore(query: string, target: string): number {
 }
 
 export function useSearch() {
+  // eslint-disable-next-line @typescript-eslint/unbound-method
   const { tm, t } = useI18n()
 
   function search(query: string): SearchResult[] {
@@ -156,9 +226,9 @@ export function useSearch() {
     const q = query.toLowerCase().trim()
 
     const categories = [
-      { key: 'sweeteners',    route: '/sweeteners'    as const },
+      { key: 'sweeteners', route: '/sweeteners' as const },
       { key: 'preservatives', route: '/preservatives' as const },
-      { key: 'emulsifiers',   route: '/emulsifiers'   as const },
+      { key: 'emulsifiers', route: '/emulsifiers' as const },
     ]
 
     const results: (SearchResult & { score: number })[] = []
@@ -177,16 +247,21 @@ export function useSearch() {
 
         // 2. Alias score — substring match only, same tier as name contains (60)
         const itemAliases = catAliases[i] ?? []
-        const aliasScore = nameScore >= 0 ? -1
-          : itemAliases.some(a => a.toLowerCase().includes(q) || q.includes(a.toLowerCase()) || a.toLowerCase() === q)
-            ? 55
-            : -1
+        const aliasScore =
+          nameScore >= 0
+            ? -1
+            : itemAliases.some(
+                  (a) =>
+                    a.toLowerCase().includes(q) ||
+                    q.includes(a.toLowerCase()) ||
+                    a.toLowerCase() === q,
+                )
+              ? 55
+              : -1
 
         // 3. Full-text fallback across all item fields, lowest tier (20)
         const fullText = Object.values(item).flat().join(' ').toLowerCase()
-        const fullScore = (nameScore >= 0 || aliasScore >= 0) ? -1
-          : fullText.includes(q) ? 20
-          : -1
+        const fullScore = nameScore >= 0 || aliasScore >= 0 ? -1 : fullText.includes(q) ? 20 : -1
 
         const score = nameScore >= 0 ? nameScore : aliasScore >= 0 ? aliasScore : fullScore
         if (score >= 0) {
@@ -205,7 +280,7 @@ export function useSearch() {
     return results
       .sort((a, b) => b.score - a.score)
       .slice(0, 5)
-      .map(({ score, ...r }) => r)
+      .map(({ score: _score, ...r }) => r)
   }
 
   return { search }

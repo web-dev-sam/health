@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/nutr",
+      "destination": "https://nutr.webry.com",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

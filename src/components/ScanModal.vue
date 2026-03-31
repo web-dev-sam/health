@@ -24,9 +24,9 @@ type AnyItem = Item & { route: string; enName: string; catKey: string; catIdx: n
 
 const allItems = computed<AnyItem[]>(() => {
   const cats = [
-    { key: 'sweeteners',    route: '/sweeteners'    },
+    { key: 'sweeteners', route: '/sweeteners' },
     { key: 'preservatives', route: '/preservatives' },
-    { key: 'emulsifiers',   route: '/emulsifiers'   },
+    { key: 'emulsifiers', route: '/emulsifiers' },
   ]
   const result: AnyItem[] = []
   for (const cat of cats) {
@@ -68,23 +68,30 @@ const scoreColor = (score: number): string => {
 }
 
 // Pre-fill textarea when opened with initialText
-watch(() => props.open, (isOpen) => {
-  if (isOpen && props.initialText) {
-    rawText.value = props.initialText
-  }
-  if (!isOpen) {
-    // Clear hash when modal closes
-    if (window.location.hash.startsWith('#scan=')) {
-      history.replaceState(null, '', window.location.pathname + window.location.search)
+watch(
+  () => props.open,
+  (isOpen) => {
+    if (isOpen && props.initialText) {
+      rawText.value = props.initialText
     }
-  }
-})
+    if (!isOpen) {
+      // Clear hash when modal closes
+      if (window.location.hash.startsWith('#scan=')) {
+        history.replaceState(null, '', window.location.pathname + window.location.search)
+      }
+    }
+  },
+)
 
 // Keep hash in sync as the user types
 watch(rawText, (text) => {
   if (!props.open) return
   if (text.trim()) {
-    history.replaceState(null, '', window.location.pathname + window.location.search + '#scan=' + encodeURIComponent(text))
+    history.replaceState(
+      null,
+      '',
+      window.location.pathname + window.location.search + '#scan=' + encodeURIComponent(text),
+    )
   } else {
     if (window.location.hash.startsWith('#scan=')) {
       history.replaceState(null, '', window.location.pathname + window.location.search)
@@ -106,12 +113,16 @@ async function onImageCapture(e: Event) {
   try {
     const { createWorker } = await import('tesseract.js')
     const worker = await createWorker('eng+deu')
-    const { data: { text } } = await worker.recognize(file)
+    const {
+      data: { text },
+    } = await worker.recognize(file)
     await worker.terminate()
     rawText.value = text
   } catch {
     ocrError.value = true
-    setTimeout(() => { ocrError.value = false }, 2500)
+    setTimeout(() => {
+      ocrError.value = false
+    }, 2500)
   } finally {
     ocrLoading.value = false
   }
@@ -125,7 +136,9 @@ async function shareScan() {
   } else {
     await navigator.clipboard.writeText(url)
     scanCopied.value = true
-    setTimeout(() => { scanCopied.value = false }, 1500)
+    setTimeout(() => {
+      scanCopied.value = false
+    }, 1500)
   }
 }
 
@@ -133,8 +146,8 @@ async function shareScan() {
 
 function cleanToken(raw: string): string {
   return raw
-    .replace(/\([^)]*\)/g, ' ')              // strip parentheticals: "(0,4%)"
-    .replace(/[^\w\säöüÄÖÜß-]/gi, ' ')       // strip punctuation, keep hyphens
+    .replace(/\([^)]*\)/g, ' ') // strip parentheticals: "(0,4%)"
+    .replace(/[^\w\säöüÄÖÜß-]/gi, ' ') // strip punctuation, keep hyphens
     .replace(/\s+/g, ' ')
     .trim()
     .toLowerCase()
@@ -154,10 +167,12 @@ function matchToken(token: string): AnyItem | null {
     else {
       const itemAliases = aliases[item.catKey]?.[item.catIdx] ?? []
       const q = token
-      if (itemAliases.some(a => {
-        const al = a.toLowerCase()
-        return al === q || al.includes(q) || q.includes(al)
-      })) {
+      if (
+        itemAliases.some((a) => {
+          const al = a.toLowerCase()
+          return al === q || al.includes(q) || q.includes(al)
+        })
+      ) {
         score = 55
       }
     }
@@ -169,7 +184,6 @@ function matchToken(token: string): AnyItem | null {
 }
 
 function scan() {
-
   // Handle hyphenated line breaks before splitting
   const text = rawText.value.replace(/-[ \t]*\n[ \t]*/g, '')
 
@@ -180,7 +194,7 @@ function scan() {
   }
 
   const rawTokens = text.split(/[,\n.;]+/)
-  const tokens = [...rawTokens, ...parentheticals].map(cleanToken).filter(tok => tok.length >= 2)
+  const tokens = [...rawTokens, ...parentheticals].map(cleanToken).filter((tok) => tok.length >= 2)
 
   const seen = new Set<string>()
   const matched: AnyItem[] = []
@@ -245,29 +259,43 @@ function handleBackdropClick(e: MouseEvent) {
           <div class="flex items-start justify-between px-6 pt-6 pb-4 border-b border-white/10">
             <div>
               <template v-if="selectedItem">
-                <h3 class="text-white font-semibold text-base tracking-tight">{{ selectedItem.name }}</h3>
+                <h3 class="text-white font-semibold text-base tracking-tight">
+                  {{ selectedItem.name }}
+                </h3>
                 <p class="text-white/40 text-xs mt-0.5">{{ selectedItem.description }}</p>
               </template>
               <template v-else>
-                <h3 class="text-white font-semibold text-base tracking-tight">{{ t('scan.title') }}</h3>
-                <p v-if="scanned" class="text-white/30 text-xs mt-0.5">{{ results.length }} {{ t('scan.found') }}</p>
+                <h3 class="text-white font-semibold text-base tracking-tight">
+                  {{ t('scan.title') }}
+                </h3>
+                <p v-if="scanned" class="text-white/30 text-xs mt-0.5">
+                  {{ results.length }} {{ t('scan.found') }}
+                </p>
                 <p v-else class="text-white/30 text-xs mt-0.5">{{ t('scan.subtitle') }}</p>
               </template>
             </div>
             <div class="flex items-center gap-3 shrink-0 ml-4">
-              <span v-if="selectedItem" class="text-xl font-semibold" :class="scoreColor(selectedItem.score)">
+              <span
+                v-if="selectedItem"
+                class="text-xl font-semibold"
+                :class="scoreColor(selectedItem.score)"
+              >
                 {{ selectedItem.score ?? 0 }}/10
               </span>
               <button
                 v-if="scanned"
                 @click="reset"
                 class="text-xs text-white/40 hover:text-white/70 transition-colors border border-white/10 px-3 py-1 rounded cursor-pointer"
-              >← {{ t('scan.back') }}</button>
+              >
+                ← {{ t('scan.back') }}
+              </button>
               <button
                 @click="handleClose"
                 class="text-white/30 hover:text-white/70 transition-colors text-lg leading-none cursor-pointer"
                 :aria-label="t('ui.close')"
-              >✕</button>
+              >
+                ✕
+              </button>
             </div>
           </div>
 
@@ -290,7 +318,9 @@ function handleBackdropClick(e: MouseEvent) {
               <button
                 @click="scan"
                 class="text-xs border border-white/20 px-4 py-1.5 rounded text-white/60 hover:text-white hover:border-white/40 transition-colors cursor-pointer"
-              >{{ t('scan.scanBtn') }}</button>
+              >
+                {{ t('scan.scanBtn') }}
+              </button>
               <button
                 @click="fileInput?.click()"
                 :disabled="ocrLoading"
@@ -299,50 +329,86 @@ function handleBackdropClick(e: MouseEvent) {
               >
                 <span v-if="ocrLoading">{{ t('scan.ocrLoading') }}</span>
                 <span v-else-if="ocrError" class="text-red-400/70">{{ t('scan.ocrError') }}</span>
-                <svg v-else xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
-                  <circle cx="12" cy="13" r="4"/>
+                <svg
+                  v-else
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
+                  />
+                  <circle cx="12" cy="13" r="4" />
                 </svg>
               </button>
               <button
                 v-if="rawText.trim()"
                 @click="shareScan"
                 class="text-xs text-white/30 hover:text-white/60 transition-colors border border-white/10 px-3 py-1.5 rounded cursor-pointer"
-              >{{ scanCopied ? t('nav.copied') : t('nav.share') }}</button>
+              >
+                {{ scanCopied ? t('nav.copied') : t('nav.share') }}
+              </button>
             </div>
           </div>
 
           <!-- Detail view -->
-          <div v-else-if="selectedItem" class="px-6 py-5 space-y-5 text-xs max-h-[60vh] overflow-y-auto">
+          <div
+            v-else-if="selectedItem"
+            class="px-6 py-5 space-y-5 text-xs max-h-[60vh] overflow-y-auto"
+          >
             <div class="grid grid-cols-2 gap-4">
               <div>
-                <div class="text-white/30 uppercase tracking-widest text-[10px] mb-2">{{ t('ui.positives') }}</div>
+                <div class="text-white/30 uppercase tracking-widest text-[10px] mb-2">
+                  {{ t('ui.positives') }}
+                </div>
                 <ul class="space-y-1.5">
-                  <li v-for="p in selectedItem.positives" :key="p" class="flex items-start gap-1.5 text-white/60">
+                  <li
+                    v-for="p in selectedItem.positives"
+                    :key="p"
+                    class="flex items-start gap-1.5 text-white/60"
+                  >
                     <span class="text-emerald-500/60 shrink-0 mt-0.5">+</span>{{ p }}
                   </li>
                 </ul>
               </div>
               <div>
-                <div class="text-white/30 uppercase tracking-widest text-[10px] mb-2">{{ t('ui.negatives') }}</div>
+                <div class="text-white/30 uppercase tracking-widest text-[10px] mb-2">
+                  {{ t('ui.negatives') }}
+                </div>
                 <ul class="space-y-1.5">
-                  <li v-for="n in selectedItem.negatives" :key="n" class="flex items-start gap-1.5 text-white/60">
+                  <li
+                    v-for="n in selectedItem.negatives"
+                    :key="n"
+                    class="flex items-start gap-1.5 text-white/60"
+                  >
                     <span class="text-red-500/60 shrink-0 mt-0.5">−</span>{{ n }}
                   </li>
                 </ul>
               </div>
             </div>
             <div class="border border-blue-500/20 rounded p-4 bg-blue-500/6">
-              <div class="text-blue-400/60 uppercase tracking-widest text-[10px] mb-2">{{ t('ui.consumption') }}</div>
+              <div class="text-blue-400/60 uppercase tracking-widest text-[10px] mb-2">
+                {{ t('ui.consumption') }}
+              </div>
               <p class="text-blue-100/70 leading-relaxed">{{ selectedItem.consumption }}</p>
             </div>
             <div class="grid grid-cols-2 gap-4">
               <div>
-                <div class="text-white/30 uppercase tracking-widest text-[10px] mb-2">{{ t('ui.warning') }}</div>
+                <div class="text-white/30 uppercase tracking-widest text-[10px] mb-2">
+                  {{ t('ui.warning') }}
+                </div>
                 <p class="text-orange-300/60 leading-relaxed">{{ selectedItem.warning }}</p>
               </div>
               <div>
-                <div class="text-white/30 uppercase tracking-widest text-[10px] mb-2">{{ t('ui.notes') }}</div>
+                <div class="text-white/30 uppercase tracking-widest text-[10px] mb-2">
+                  {{ t('ui.notes') }}
+                </div>
                 <p class="text-white/40 leading-relaxed">{{ selectedItem.notes }}</p>
               </div>
             </div>
@@ -350,13 +416,10 @@ function handleBackdropClick(e: MouseEvent) {
 
           <!-- Results view -->
           <div v-else class="px-6 py-5 max-h-[60vh] overflow-y-auto">
-            <p v-if="results.length === 0" class="text-white/30 text-xs">{{ t('scan.noResults') }}</p>
-            <ItemTable
-              v-else
-              :items="results"
-              :type-labels="mergedTypeLabels"
-              @select="onSelect"
-            />
+            <p v-if="results.length === 0" class="text-white/30 text-xs">
+              {{ t('scan.noResults') }}
+            </p>
+            <ItemTable v-else :items="results" :type-labels="mergedTypeLabels" @select="onSelect" />
           </div>
         </div>
       </div>

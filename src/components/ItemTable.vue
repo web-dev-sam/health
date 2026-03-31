@@ -29,7 +29,9 @@ const scoreColor = (score: number): string => {
           <tr class="text-white/30 border-b border-white/10">
             <th class="text-left py-2 pr-4 font-normal">{{ t('ui.name') }}</th>
             <th class="text-left py-2 pr-4 font-normal hidden sm:table-cell">{{ t('ui.type') }}</th>
-            <th class="text-left py-2 pr-4 font-normal hidden md:table-cell">{{ t('ui.description') }}</th>
+            <th class="text-left py-2 pr-4 font-normal hidden md:table-cell">
+              {{ t('ui.description') }}
+            </th>
             <th class="text-right py-2 font-normal">{{ t('ui.score') }}</th>
           </tr>
         </thead>

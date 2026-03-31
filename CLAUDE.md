@@ -87,9 +87,9 @@ For GitHub Actions, consider using [`voidzero-dev/setup-vp`](https://github.com/
 - [ ] Run `vp check` and `vp test` to validate changes.
 <!--VITE PLUS END-->
 
-# Project: Health Wiki
+# Project: health.webry.com
 
-A personal knowledge base focused on food additives and nutrition science. Provides evidence-informed, scored guides (0–10) for sweeteners, preservatives, and emulsifiers — with bilingual support (English/German) and an ingredient-list scanner using OCR.
+A hub of health-focused tools, each at its own sub-path. Currently contains three tools: **Additives Wiki**, **RFB** (Resonance Frequency Breathing), and **Nutr** (external link). The additives wiki is the most complete — evidence-informed, scored guides (0–10) for sweeteners, preservatives, and emulsifiers, with bilingual support (EN/DE) and an OCR ingredient scanner.
 
 **Agents: keep this file up to date as the project evolves.** When adding new pages, categories, composables, dependencies, or patterns that would affect how an agent should work in this codebase, update the relevant section below.
 
@@ -99,12 +99,13 @@ A personal knowledge base focused on food additives and nutrition science. Provi
 
 - **Vue 3** (Composition API + `<script setup>`) with TypeScript
 - **Vue Router 5** — client-side SPA routing
-- **vue-i18n 11** — all content and UI strings are stored in `src/i18n/index.ts`
+- **vue-i18n 11** — all additives content and UI strings are stored in `src/i18n/index.ts`
 - **Tailwind CSS 4** (via `@tailwindcss/vite`)
 - **@vueuse/core** — localStorage, locale detection
 - **tesseract.js** — OCR for ingredient photo scanning
+- **unplugin-icons** + **@iconify-json/iconamoon** — icon components via `~icons/iconamoon/*`
 - **Vite+** — unified toolchain (see above)
-- **Vercel** — deployment target (`vercel.json` rewrites all routes to `/`)
+- **Vercel** — deployment target; `/nutr` has a server-level redirect to `nutr.webry.com`
 
 ---
 
@@ -118,17 +119,20 @@ src/
   types.ts              # Item interface (name, score, type, positives, negatives, …)
   main.css              # Tailwind CSS entry
   i18n/
-    index.ts            # All content + UI strings in EN and DE (~29k lines)
+    index.ts            # All additives content + UI strings in EN and DE (~29k lines)
   composables/
     useLocale.ts        # Locale toggle (EN/DE), persisted to localStorage
     useSearch.ts        # Fuzzy search with aliases and multi-tier scoring
   pages/
-    HomePage.vue        # Landing/navigation
-    SweetenerPage.vue   # Sweeteners guide
-    PreservativesPage.vue
-    EmulsifiersPage.vue
+    LandingPage.vue     # Global hub — links to all tools (/), uses BaseLayout, no nav slot
+    HomePage.vue        # Additives wiki home (/additives) — links to 3 guides
+    SweetenerPage.vue   # Sweeteners guide (/sweeteners)
+    PreservativesPage.vue  # Preservatives guide (/preservatives)
+    EmulsifiersPage.vue    # Emulsifiers guide (/emulsifiers)
+    RFBPage.vue         # Resonance Frequency Breathing app (/rfb)
   components/
-    AppLayout.vue       # Nav, search bar, scan modal trigger
+    BaseLayout.vue      # Shared shell: dark bg, nav bar with logo, #nav + #nav-extra slots
+    AppLayout.vue       # Extends BaseLayout — wiki nav, search, scan modal, i18n toggle
     ItemTable.vue       # Sortable/filterable table with health scores
     ItemModal.vue       # Detail modal (pros/cons, consumption, warnings)
     ScanModal.vue       # Ingredient list parser + OCR (tesseract.js)
@@ -159,7 +163,28 @@ interface Item {
 
 To add a new item, add it to both `en` and `de` message catalogs in `src/i18n/index.ts`, and add its search aliases in `src/composables/useSearch.ts`.
 
-### Categories / Routes
+### Layout System
+
+All pages use `BaseLayout` (dark shell + logo in nav). Logo centers automatically when no `#nav` slot is provided.
+
+- `#nav` slot — content placed after the logo in the nav bar
+- `#nav-extra` slot — rendered below the main nav row (used by AppLayout for the mobile menu)
+
+`AppLayout` wraps `BaseLayout` and fills the slots with the full wiki nav (links, search, scan, i18n toggle, GitHub link, mobile hamburger). Wiki pages use `AppLayout`; all other pages use `BaseLayout` directly.
+
+### Top-Level Routes
+
+| Path             | Component               | Layout       | Notes                                           |
+| ---------------- | ----------------------- | ------------ | ----------------------------------------------- |
+| `/`              | `LandingPage.vue`       | `BaseLayout` | No `#nav` slot → logo centered                  |
+| `/additives`     | `HomePage.vue`          | `AppLayout`  | Additives wiki home                             |
+| `/sweeteners`    | `SweetenerPage.vue`     | `AppLayout`  |                                                 |
+| `/preservatives` | `PreservativesPage.vue` | `AppLayout`  |                                                 |
+| `/emulsifiers`   | `EmulsifiersPage.vue`   | `AppLayout`  |                                                 |
+| `/rfb`           | `RFBPage.vue`           | `BaseLayout` | RFB breathing app                               |
+| `/nutr`          | —                       | —            | Router guard + Vercel redirect → nutr.webry.com |
+
+### Additives Categories / Routes
 
 Current categories: `sweeteners`, `preservatives`, `emulsifiers`. Each has a corresponding route in `src/router.ts` and page in `src/pages/`. When adding a new category, you must:
 
@@ -186,11 +211,21 @@ Results are capped at 5, ranked by score. Aliases per item are defined as a flat
 
 All strings (UI labels and item content) are in `src/i18n/index.ts` under `en` and `de` keys. The locale composable (`useLocale`) reads/writes to localStorage and falls back to browser preference detection.
 
+### Icons
+
+Icons come from `@iconify-json/iconamoon` via `unplugin-icons`. Import pattern:
+
+```ts
+import IconName from '~icons/iconamoon/<icon-name>'
+```
+
+The plugin is registered in `vite.config.ts` as `Icons({ compiler: 'vue3' })`. Type declarations are in `env.d.ts` via `/// <reference types="unplugin-icons/types/vue" />`. Do not install other icon sets without removing the unused one.
+
 ### Routing & Deep Linking
 
 - `?item=Name` query param opens the detail modal for a specific item
 - `#scan=encoded-list` hash shares a pre-filled scan result
-- SPA routing handled by Vercel rewrites (all paths → `/index.html`)
+- SPA routing handled by Vercel rewrites (`vercel.json`); `/nutr` redirect runs before the catch-all
 
 ### Health Score Colors
 
