@@ -274,10 +274,7 @@ function onScanSelect(name: string, route: string) {
               v-for="result in searchResults"
               :key="result.route + result.name"
               class="w-full text-left px-4 py-2.5 hover:bg-white/5 transition-colors border-b border-white/5 last:border-0 flex items-center justify-between gap-3"
-              @mousedown.prevent="
-                selectResult(result)
-                showMenu = false
-              "
+              @mousedown.prevent="selectResult(result); showMenu = false"
             >
               <div class="min-w-0">
                 <div class="text-white/80 text-xs truncate">{{ result.displayName }}</div>
@@ -332,10 +329,7 @@ function onScanSelect(name: string, route: string) {
             {{ current === 'en' ? 'DE' : 'EN' }}
           </button>
           <button
-            @click="
-              share()
-              showMenu = false
-            "
+            @click="share(); showMenu = false"
             class="text-xs text-white/40 hover:text-white/70 transition-colors border border-white/10 px-3 py-1 rounded cursor-pointer"
           >
             {{ copied ? t('nav.copied') : t('nav.share') }}
@@ -375,10 +369,7 @@ function onScanSelect(name: string, route: string) {
     <ScanModal
       :open="showScan"
       :initial-text="scanInitialText"
-      @close="
-        showScan = false
-        scanInitialText = ''
-      "
+      @close="showScan = false; scanInitialText = ''"
       @select-item="onScanSelect"
     />
   </BaseLayout>

@@ -19,6 +19,7 @@ export default defineConfig({
   fmt: {
     semi: false,
     singleQuote: true,
+    embeddedLanguageFormatting: 'off',
   },
   plugins: [vue(), tailwindcss(), Icons({ compiler: 'vue3' })],
   resolve: {
