@@ -333,7 +333,7 @@ function onScanSelect(name: string, route: string) {
           </button>
           <button
             @click="
-              share
+              share()
               showMenu = false
             "
             class="text-xs text-white/40 hover:text-white/70 transition-colors border border-white/10 px-3 py-1 rounded cursor-pointer"
