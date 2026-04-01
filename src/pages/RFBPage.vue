@@ -1,22 +1,32 @@
 <script setup lang="ts">
-import { ref, computed, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import BaseLayout from '../components/BaseLayout.vue'
 import IconPlay from '~icons/iconamoon/player-play-thin'
 import IconSquare from '~icons/iconamoon/player-stop-thin'
 import IconInfo from '~icons/iconamoon/information-circle-thin'
+import IconSettings from '~icons/iconamoon/settings-thin'
+import IconScreenFull from '~icons/iconamoon/screen-full-thin'
+import IconScreenNormal from '~icons/iconamoon/screen-normal-thin'
 
-const CYCLE = 11 // 5.5s inhale + 5.5s exhale
-const DURATIONS = [1, 2, 4, 8, 12]
+const DURATIONS = [1, 2, 4, 8, 12, 20]
 
 const selectedMinutes = ref(4)
+const intervalMs = ref(5500)
 const isRunning = ref(false)
 const elapsed = ref(0)
 const showInfo = ref(false)
-let timer: ReturnType<typeof setInterval> | null = null
+const showSettings = ref(false)
+const isFullscreen = ref(false)
 
+let timer: ReturnType<typeof setInterval> | null = null
+let wakeLock: WakeLockSentinel | null = null
+
+const cycleDuration = computed(() => (intervalMs.value * 2) / 1000)
 const totalSeconds = computed(() => selectedMinutes.value * 60)
 const remaining = computed(() => Math.max(0, totalSeconds.value - elapsed.value))
-const phase = computed(() => (elapsed.value % CYCLE < 5.5 ? 'Inhale' : 'Exhale'))
+const phase = computed(() =>
+  elapsed.value % cycleDuration.value < intervalMs.value / 1000 ? 'Inhale' : 'Exhale',
+)
 
 const remainingFormatted = computed(() => {
   const s = Math.ceil(remaining.value)
@@ -43,6 +53,7 @@ function stop() {
 
 function openInfo() {
   stop()
+  showSettings.value = false
   showInfo.value = true
 }
 
@@ -50,7 +61,56 @@ function closeInfo() {
   showInfo.value = false
 }
 
-onUnmounted(stop)
+function openSettings() {
+  stop()
+  showInfo.value = false
+  showSettings.value = true
+}
+
+function closeSettings() {
+  showSettings.value = false
+}
+
+async function requestWakeLock() {
+  if ('wakeLock' in navigator) {
+    try {
+      wakeLock = await (navigator as Navigator & { wakeLock: { request: (type: string) => Promise<WakeLockSentinel> } }).wakeLock.request('screen')
+    } catch {
+      // Wake lock not available or denied — silently ignore
+    }
+  }
+}
+
+function releaseWakeLock() {
+  wakeLock?.release()
+  wakeLock = null
+}
+
+async function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    await document.documentElement.requestFullscreen()
+    await requestWakeLock()
+  } else {
+    await document.exitFullscreen()
+  }
+}
+
+function onFullscreenChange() {
+  isFullscreen.value = !!document.fullscreenElement
+  if (!document.fullscreenElement) {
+    releaseWakeLock()
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('fullscreenchange', onFullscreenChange)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('fullscreenchange', onFullscreenChange)
+  stop()
+  releaseWakeLock()
+})
 </script>
 
 <template>
@@ -88,6 +148,52 @@ onUnmounted(stop)
       </div>
     </main>
 
+    <!-- Settings view -->
+    <main
+      v-else-if="showSettings"
+      class="flex-1 flex flex-col items-center justify-center px-6 py-16"
+    >
+      <div class="w-full max-w-md space-y-5">
+        <p class="text-white/70 text-sm font-medium">Settings</p>
+        <div class="space-y-2">
+          <label class="text-xs text-white/40">Breathing interval (ms)</label>
+          <input
+            v-model.number="intervalMs"
+            type="number"
+            min="1000"
+            max="15000"
+            step="100"
+            class="w-full bg-transparent border border-white/15 rounded px-3 py-2 text-xs text-white/70 focus:border-white/30 focus:outline-none tabular-nums"
+          />
+          <p class="text-xs text-white/25">
+            {{ (intervalMs / 1000).toFixed(1) }}s inhale · {{ (intervalMs / 1000).toFixed(1) }}s
+            exhale · {{ (intervalMs / 500).toFixed(1) }} breaths/min
+          </p>
+          <div class="flex gap-2 pt-1">
+            <button
+              v-for="ms in [4000, 4500, 5000, 5500, 6000]"
+              :key="ms"
+              class="text-xs px-2.5 py-1 rounded border transition-colors cursor-pointer"
+              :class="
+                intervalMs === ms
+                  ? 'border-white/30 text-white/70'
+                  : 'border-white/10 text-white/25 hover:border-white/20 hover:text-white/45'
+              "
+              @click="intervalMs = ms"
+            >
+              {{ ms / 1000 }}s
+            </button>
+          </div>
+        </div>
+        <button
+          class="text-xs text-white/30 hover:text-white/60 transition-colors cursor-pointer pt-2"
+          @click="closeSettings"
+        >
+          Back
+        </button>
+      </div>
+    </main>
+
     <!-- Breathing view -->
     <main
       v-else
@@ -106,6 +212,7 @@ onUnmounted(stop)
         <div
           class="breathing-circle absolute inset-0 rounded-full"
           :class="{ running: isRunning }"
+          :style="{ '--cycle': `${cycleDuration}s` }"
         />
       </div>
 
@@ -142,16 +249,27 @@ onUnmounted(stop)
         </div>
       </div>
 
-      <!-- Play / Stop + Info (balanced so stop stays centered) -->
+      <!-- Play / Stop + flanking buttons -->
       <div class="flex items-center gap-4">
-        <button
-          class="text-white/20 hover:text-white/50 transition-colors cursor-pointer"
-          :class="{ invisible: isRunning }"
-          aria-label="About resonance frequency breathing"
-          @click="openInfo"
-        >
-          <IconInfo style="width: 28px; height: 28px" />
-        </button>
+        <!-- Left side: info + settings -->
+        <div class="flex items-center gap-2" :class="{ invisible: isRunning }">
+          <button
+            class="text-white/20 hover:text-white/50 transition-colors cursor-pointer"
+            aria-label="About resonance frequency breathing"
+            @click="openInfo"
+          >
+            <IconInfo style="width: 28px; height: 28px" />
+          </button>
+          <button
+            class="text-white/20 hover:text-white/50 transition-colors cursor-pointer"
+            aria-label="Settings"
+            @click="openSettings"
+          >
+            <IconSettings style="width: 28px; height: 28px" />
+          </button>
+        </div>
+
+        <!-- Center: play / stop -->
         <button
           class="text-white/30 hover:text-white/60 transition-colors cursor-pointer"
           :aria-label="isRunning ? 'Stop session' : 'Start session'"
@@ -159,7 +277,18 @@ onUnmounted(stop)
         >
           <component :is="isRunning ? IconSquare : IconPlay" style="width: 52px; height: 52px" />
         </button>
-        <div style="width: 28px; height: 28px" />
+
+        <!-- Right side: fullscreen -->
+        <button
+          class="text-white/20 hover:text-white/50 transition-colors cursor-pointer"
+          :aria-label="isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'"
+          @click="toggleFullscreen"
+        >
+          <component
+            :is="isFullscreen ? IconScreenNormal : IconScreenFull"
+            style="width: 28px; height: 28px"
+          />
+        </button>
       </div>
     </main>
   </BaseLayout>
@@ -173,7 +302,7 @@ onUnmounted(stop)
 }
 
 .breathing-circle.running {
-  animation: breathe 11s linear infinite;
+  animation: breathe var(--cycle, 11s) linear infinite;
 }
 
 @keyframes breathe {
@@ -197,5 +326,10 @@ onUnmounted(stop)
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+:global(:fullscreen nav),
+:global(:-webkit-full-screen nav) {
+  display: none;
 }
 </style>
